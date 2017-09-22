@@ -187,26 +187,26 @@ Params:
 * secret
 
 ```java
-		String baseString = "GET&https://<<URL>/api/v1/&ap=裕廊坊 心邻坊&<<authPrefix>>_app_id=<<appId>>&<<authPrefix>>_nonce=7231415196459608363&<<authPrefix>>_signature_method=SHA256withRSA&<<authPrefix>>_timestamp=1502164219425&<<authPrefix>>_version=1.0&oq=c# nunit mac&q=c# nunit mac";
-		String alias = "alpha";
-		String password = "<<passphrase>>";
-		String keyStoreFileName = "certificates/alpha.test.p12";
-		String publicCertFileName = "certificates/alpha.test.cer";
-		
-		try {
-			
-			PrivateKey privateKey = ApiAuthorization.getPrivateKeyFromKeyStore(keyStoreFileName, password, alias);
-			
-			String signature = ApiAuthorization.getL2Signature(baseString, privateKey);
+String baseString = "GET&https://<<URL>/api/v1/&ap=裕廊坊 心邻坊&<<authPrefix>>_app_id=<<appId>>&<<authPrefix>>_nonce=7231415196459608363&<<authPrefix>>_signature_method=SHA256withRSA&<<authPrefix>>_timestamp=1502164219425&<<authPrefix>>_version=1.0&oq=c# nunit mac&q=c# nunit mac";
+String alias = "alpha";
+String password = "<<passphrase>>";
+String keyStoreFileName = "certificates/alpha.test.p12";
+String publicCertFileName = "certificates/alpha.test.cer";
 
-			System.out.println(expectedSignature);
-			System.out.println(signature);
-			
-			PublicKey publicKey = ApiAuthorization.getPublicKeyFromX509Certificate(publicCertFileName);
-			
-		} catch (ApexUtilLibException e) {
-			e.printStackTrace();
-		}
+try {
+    
+    PrivateKey privateKey = ApiAuthorization.getPrivateKeyFromKeyStore(keyStoreFileName, password, alias);
+    
+    String signature = ApiAuthorization.getL2Signature(baseString, privateKey);
+
+    System.out.println(expectedSignature);
+    System.out.println(signature);
+    
+    PublicKey publicKey = ApiAuthorization.getPublicKeyFromX509Certificate(publicCertFileName);
+    
+} catch (ApexUtilLibException e) {
+    e.printStackTrace();
+}
 
 ```
 
@@ -227,24 +227,24 @@ Params:
 
 
 ```java
-		String url = "https://<<URL>>/api/v1/?ap=裕廊坊%20心邻坊";
-		String certFileName = "certificates/alpha.test.p12";
-		String password = "<<passphrase>>";
-		String alias = "alpha";
-		String appId = "<<appId>>";
-		String nonce = null;
-		String timestamp = null;
-		
-		try {
-			String signature = ApiAuthorization.getToken("http://api.test.io/l2", "<<authPrefix>>", "get", url, appId, null, null, password, alias, certFileName, nonce, timestamp);
-		} catch (ApiUtilException e) {
-			e.printStackTrace();
-		}
+String url = "https://<<URL>>/api/v1/?ap=裕廊坊%20心邻坊";
+String certFileName = "certificates/alpha.test.p12";
+String password = "<<passphrase>>";
+String alias = "alpha";
+String appId = "<<appId>>";
+String nonce = null;
+String timestamp = null;
+
+try {
+    String signature = ApiAuthorization.getToken("http://api.test.io/l2", "<<authPrefix>>", "get", url, appId, null, null, password, alias, certFileName, nonce, timestamp);
+} catch (ApiUtilException e) {
+    e.printStackTrace();
+}
 ```
 ### Release:
-+ Checkout CHANGELOG.md
++ Checkout CHANGELOG.md for releases
 
-### Contribution:
+### Contributing:
 We welcome your involvement, be it fixing bugs or implementing new features that you find relevant to this library.
 
 To contribute, you may follow the steps below:
@@ -252,7 +252,7 @@ To contribute, you may follow the steps below:
 2. Create a new branch from `development` to work on your contribution
 3. Create a pull request back when you are done
 
-Alternatively, you can raise an issue for this Github repository.
+Alternatively, you can raise an issue within this Github repository.
 
 ### Reference: 
 + [UTF-8 in Gradle](https://stackoverflow.com/questions/21267234/show-utf-8-text-properly-in-gradle)
