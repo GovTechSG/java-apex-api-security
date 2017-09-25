@@ -1,4 +1,6 @@
-# APEX API Security Utility
+# APEX API Java Security Utility
+[![Build Status](https://travis-ci.org/GovTechSG/java-apex-api-security.svg?branch=master)](https://travis-ci.org/GovTechSG/java-apex-api-security)
+[![Known Vulnerabilities](https://snyk.io/test/github/govtechsg/java-apex-api-security/badge.svg)](https://snyk.io/test/github/govtechsg/java-apex-api-security)
 
 A java helper utilities that form HTTP security header for authentication and verification
 
