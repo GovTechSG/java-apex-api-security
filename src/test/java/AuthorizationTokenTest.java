@@ -1,12 +1,12 @@
-import static org.junit.Assert.*;
+import com.api.util.ApiSecurity.ApiAuthorization;
+import com.api.util.ApiSecurity.ApiUtilException;
+import org.junit.Test;
+
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import com.api.util.ApiSecurity.ApiUtilException;
-import org.junit.Test;
-
-import com.api.util.ApiSecurity.ApiAuthorization;
+import static org.junit.Assert.*;
 
 /**
  * @author GDS-PDD
