@@ -12,21 +12,20 @@ import org.junit.Test;
 import com.api.util.ApiSecurity.ApiAuthorization;
 
 /**
- * @author govtech
+ * @author GDS-PDD
  *
  */
 public class L2SignatureTest {
 	
 	// file name follow unix convention...
 	private static final String privateCertName = getLocalPath("certificates/alpha.test.p12");
-	private static final String publicCertName = getLocalPath("Certificates/alpha.test.cer");
+	private static final String publicCertName = getLocalPath("certificates/alpha.test.cer");
 
 	private static final String baseString = "message";
 	private static final String password = "passwordkey";
 	private static final String alias = "alpha";
 
 	static final PrivateKey privateKey = getPrivateKeyLocal(privateCertName, password, alias);
-
 	static final PublicKey publicKey = getPublicKeyLocal(publicCertName);
 
 	private static final String message = "Lorem ipsum dolor sit amet, vel nihil senserit ei. Ne quo erat feugait disputationi.";
