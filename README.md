@@ -1,8 +1,10 @@
 # APEX API Java Security Utility
-[![Build Status](https://travis-ci.org/GovTechSG/java-apex-api-security.svg?branch=master)](https://travis-ci.org/GovTechSG/java-apex-api-security)
+[![Build Status](https://travis-ci.org/GovTechSG/java-apex-api-security.svg?branch=development-livetest)](https://travis-ci.org/GovTechSG/java-apex-api-security)
 [![Known Vulnerabilities](https://snyk.io/test/github/govtechsg/java-apex-api-security/badge.svg)](https://snyk.io/test/github/govtechsg/java-apex-api-security)
 
 A java helper utilities that form HTTP security header for authentication and verification
+
+**Note** : This branch consists snippets for you to do live HTTP test with the security token, and deliberately excluded from the coverage report. Replace the test URLs to your environment.
 
 ## Getting Started
 Include this helper class in your java project to perform API Security operations
