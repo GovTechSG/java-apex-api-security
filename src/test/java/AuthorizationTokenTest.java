@@ -13,8 +13,8 @@ import static org.junit.Assert.*;
  *
  */
 public class AuthorizationTokenTest {
-	
-	private final static String privateCertNameP12 = getLocalPath("certificates/alpha.test.p12");
+
+	private final static String privateCertNameP12 = getLocalPath("certificates/ssc.alpha.example.com.p12");
 
     private final static String alias = "alpha";
 
@@ -29,7 +29,7 @@ public class AuthorizationTokenTest {
 	private final static String secret = "ffef0c5087f8dc24a3f122e1e2040cdeb5f72c73";
 	private final static String nonce = "-5816789581922453013";
 	private final static String timestamp = "1502199514462";
-	private final static String passphrase = "passwordkey";
+	private final static String passphrase = "passwordp12";
 
     private static String getLocalPath(String relativeFileName)
 	{
@@ -70,15 +70,13 @@ public class AuthorizationTokenTest {
 			, timestamp
 		);
 
-		System.out.println("L1 Basic actualauthToken " + authorizationToken );
-
 		assertEquals(expectedToken, authorizationToken);
 	}
 
 	@Test
 	public void Test_L2_Basic_Test() throws ApiUtilException
 	{
-		String expectedToken = "Apex_l2_ig realm=\"http://example.api.test/token\", apex_l2_ig_timestamp=\"1502199514462\", apex_l2_ig_nonce=\"-5816789581922453013\", apex_l2_ig_app_id=\"example-4Swyn7qwKeO32EXdH1dKTeIQ\", apex_l2_ig_signature_method=\"SHA256withRSA\", apex_l2_ig_signature=\"YByxERvv+d1mN4PvUWq1iLm4aHiGeMZogpSuJIo1BzlPDa5tnMT81OrBIiK2tmX9uSxD0jlI3xaczF/uSSm7HJ/G+VdaHJOYrEGd7Jhpx7eR/g+WEhav5iUtU/8/qp4M0De/FOtzjEZ24ajDQ0fHskELe9P9WAOJ43wM7X6OoqXPYzcFukrxX9cjudQIPAxOfPTkC6K+NFW31lrxAzXQckPtkR1skLt+qfICprfTktTtdH/JeBoOSXlr6qqmbTvh0xDUVa9pd203jy8liNxnayGbk1TTiyyM8AtDkNiuEU7Cwo4sZvbsLtPnCWOHLnqcI8d+gDiXGoIk1mE02VbunA==\", apex_l2_ig_version=\"1.0\"";
+		String expectedToken = "Apex_l2_ig realm=\"http://example.api.test/token\", apex_l2_ig_timestamp=\"1502199514462\", apex_l2_ig_nonce=\"-5816789581922453013\", apex_l2_ig_app_id=\"example-4Swyn7qwKeO32EXdH1dKTeIQ\", apex_l2_ig_signature_method=\"SHA256withRSA\", apex_l2_ig_signature=\"p2O7sd0s8q3NHFIWr/vBNnX04nh3UsDhtWqNQ1tMp9uPI2DFEcowwMrdu+cMCo34r9RZcq1za1Xon2W2Lqe8HBaJqNegsSnEplfayBZSG1P3gqsgEcUGREeS1pRK41ChkTqy3gyT86ZRArpY/6Z+DDKbIerbJ8/X5rIGNQF5JAEKvcgxl6dHL/H9GTogpwze5YF1SZm8igKvXHL90dVxw0MjtiI7jYZYMrG3D5MihXIw/bEhgKHTiyT2CdiMt5D2Gg4QECsS8P7RvU4IDc8VTiiQqIEm8DKjeGligEiOXHkqNwHf5Wk2mZPNgA3TQGqDkpDvIsyW2+a6/PwoQd44JpqUligmo04yZuoj2jKg8nno0Ty64yx7TicszzKvbaHAN6aOO/gMRUcm7FCSDCUjTPBr4RvRZhhAb0heW8S7rPmb4rm2gwIxQh0GpmCfkq5p3+9QdX9Xv8rii3rz9V9gp1vSB/47kPA+bePWd9IDLIZZFULehuUb3x2dy2bddabc5QwzmR4LbpgJrRIpg8sLravUx7Fg7tgmKWi6xG9efCulaoO5dk1E8hr/sqfHExP3egQC235zxLR+jHkjOa5PQYymbBTmcb3HLnPsBusjdf/5c1X/q/SS5jniXkieDRpEa47opTilyN4+59ypuNxXl6tasf6fQW0p7skuy+Q3TCM=\", apex_l2_ig_version=\"1.0\"";
 		String authorizationToken = ApiAuthorization.getToken(
 			realm
 			, authPrefixL2
@@ -93,9 +91,6 @@ public class AuthorizationTokenTest {
 			, nonce
 			, timestamp
 		);
-
-		System.out.println("L2 Basic actualauthToken " + authorizationToken );
-
 		assertEquals(expectedToken, authorizationToken);
 	}
 	
@@ -129,7 +124,7 @@ public class AuthorizationTokenTest {
     @Test
     public void Test_L2_Not_Supported_Cert_Test() throws ApiUtilException
 	{
-        String fileName = getLocalPath("certificates/alpha.test.pem");
+		String fileName = getLocalPath("certificates/ssc.alpha.example.com.pem");
 
         String expectedMessage = "Invalid keystore format";
 		
