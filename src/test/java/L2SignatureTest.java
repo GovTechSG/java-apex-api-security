@@ -127,7 +127,7 @@ public class L2SignatureTest {
         dataList.add(new String[]
                 {
                         "道続万汁国圭絶題手事足物目族月会済。",
-                        "my9Cn9+6sGMkm3C+OmIDiSetZrxKzSYm6HiFKMRAUlesn+swsfIaa+T7IHq0nKEhulsFOrBGRSdTW4ElJpX+aocueMgs2ayOAED8+fvkXwBJumxWSTaSN7mIfsLVaZUyK/PIhEjeq1lFPms0t/3fqObJWKvKAjihp1X2axWl4b0ouu4q0lRkZ20vomKhYSVLVNob/dy4VXgIkelnQrSxBZDPYZq7E72mcXoAaU/5dhqTHffpOlF/DjJsuHxNyAknAe5hyP8Uz1/9Imc1oSm6r45c7lykRlSfIJ3qN0Tak6y1Az9tM1NR0wTZ63299vFp7NshLadtAct7zKMNOGQmOwYdud6kDvfEeCDcIzo3izn+PSBRtTjj/M2eeA2Mz9gE8jbpW+yLQtnQ3vzHBnPCMYL+fgzzNvk4Ano25HWNyEJjPcTtupgySnk2a0je6VQ0EJbNU6yfQvwiBCXJRdghXDLHXG+XJRj5ntFwaEey1sKHflNSOTz2k7G57NvEyB/ZD4pEhL6wVJkkf5YDaNCSJtB/rWzuhe6WoNEYOVh3CuJjGBf17od4hs6nNhVfxaqsFrHSsoBT7GVPZfUDQghA2WI9VF4ywy4BqirRI1uuUUYVnGmQn7I/ICeHHkpIw0EYPay73RJrrfOt8WpLGSLLMcc/lFKRW01wAcBfy+d8a8c=",
+                        "BcgiwVRV5NPf2D15NMA7PjfheHY+jYeODlODuaAahd5dU/fuGanMcFpFuKJtxuCQLOE3veZMCC7V+hb/LEaBfkvXw+7gl8WtLu+T927Xs+3517AZm9vZ3nU34FIMAQpTJ8QbciFcd5FAybDiMuCfzvVE59yTSL/JmzSH4188/K6Z1uZ29VizrC2BwtVA/SHaWN1SMUGX6u0tQN5nE4dGZ9lRKm1Jd2rsUNDmqsmUZDJTbgoZbTJjNQklRv48GunXYBt/cfi9T5bryIVilqUphTIe6GrjLXZ1NVVCcMCJaCzAesX2dWUwLCEULcM4Vqw+7SWN20k4zcori5+QkwNH/eyViHwKiYY+neIusUU4HcafIXNHlYQjj1OVEXqPn2P7TzH9y+7TXheNrQ03P6NnRBjEW/bAgoCplbhYWnlNtu+BBNLn9+6rN/ePJz265Wetb16ZjG+ZwbV72PUkGxeFoT7cGBNvcC5zK4bFZV4AOr7TqE9Nt/xm9Xi7/gM0oU7zgYm+32LJaAxG2vax9EFdi3yBKrGRBYLaMH/6KEreZV+iZgLsqK/7tWEQom843iTmeRaxA4/Xeg3MLPyyxrWtQBqu2O/lv6pEf+scnc2Mg6gyc5uRm0luxJUBkqI6i/BAHGZRN1cDkMhWywAcWs3yxxV6qptFYxl6ubLCbCXtiw0=",
                         "UTF8 (Chinese Traditional) Test"
                 });
 
@@ -135,7 +135,7 @@ public class L2SignatureTest {
         dataList.add(new String[]
                 {
                         "員ちぞど移点お告周ひょ球独狙チウソノ法保断フヒシハ東5広みぶめい質創ごぴ採8踊表述因仁らトつ。",
-                        "daWoaeanEd86Te7dzfULtO42scDKeq0Lv9GHOluloP5yc7RuNPk7M7dpxQqufZxJgK3iYRPHzs0bQfI1X+k78QnhqJK0W+WOmTQVsdRB1lE2DpnD7lhZoGJ32QAPQZlQVn1kNFvxJU6GKwcIoXHRwakM9MaegvyoFiYBfYWWpDxW4ynwsJPg8RZryS4GCLzUfW8cS9ZI4M6l2bJjnB8OChwBgliJAgnaAy14pCixFrps9Iem/j4GWkKTt+YeIkTrDfsz9HeNJypALotS4cL2juKSqElG83H3pEnVufLhXgrWBmlB1VT6+si3tbieG32Pm/XNiQQApJrPnSmNsxKJIL+aswBO6Vo40MI2CBCS/9KCO4au5WGzXC4a/628slIA5cGd/QvRxLEGhMHOxxaVaVaD6iYddgUBRgdQeWT/c4DLUTaLv+03sG/jYaM1b/neXS2Y7aZbv5I5Etl3YPjnabH0AWVwSp6Xrdb77KuA0ZLDAqlwVclTKwhNA4AyZDdshJm6IXHG88zkgygOS/ubRljciUHITrsSyN1nEGWLWuTQbdnM0ksZM+LfZ8mUSwND1okh8CSnsqjvK8CLcw91iM/hXf0iq15BsDHFW3blWqH4idiSzBhnth5h4W8cMqlgP4gCs25ab6srxaMTNgZQ2WviQHRPuYlyzgKZlg5O/CE=",
+                        "RtNtUoRXhNFrFPMy5aJjPTB8yI9AyvLqIKmgjmarxZhB/aOLXSJtHHJMgufOLDsUzEyDenlPuRp4ju2Dp870P19H/IxLktTqkU3DZU35tqk21TWNQDmdl/P9YjY3BNJqU4YBV3A83KRDRhJh235Hjy20dbJqZAe/oL/8GboRd0W941Oj2VfC53SmVAYWQV1aJb4qV3cvoQG2OtcBMNA+ayG+0oTB9AtGZ3CqCUPqbfbb36oc81jYQj0nElHRew7QdclfpAUQaDgCF6svduji2rdXrU+fRYaiRPtm4F1zv9JVuIjKOZRqVQeQ3Nb/X8zUMEBNeWToQPmzoHz6hAEfzYUif2IJ1KqYooV29AwOvwu1itAeUwLtqlHK3QGJYaJVrw05EyAg1IsicAQ+szP+6t6Er3GjhRSXwIcpKdxLUHVtwFoK7E1L4FqxCW+Pokm97h0/rqWREt7DJvoIofQ8rtfEfao5CTaJOQyMRUx+Ds1Kytzpzd1T7aWFvdzFxo9YLfsZ/DzIy2F7iMi9c1b8WYfStlBvfUeEEeByZj+7FrvLMo9Ys5K/UweBfTcBHdPfCmW5RTJhmfK0p+EVsntLqkCbWMoQ6JdNZoASSB7E+NPGJuk3kuVo4sPnPy9vQlHsYJWktXjwTmBp4EZzfcia6U5TSWG0Wdn4ohCYQU2Y/sg=",
                         "UTF8 (Japanese) Test"
                 });
 
@@ -143,7 +143,7 @@ public class L2SignatureTest {
         dataList.add(new String[]
                 {
                         "대통령은 즉시 이를 공포하여야 한다, 그 자율적 활동과 발전을 보장한다.",
-                        "Brqx+X+HvQr6z8DxMAzhy/UK6pcJJFjWgw0DepBwOH97NmXVpsgJQ9IINv0pcvJpqS2KpDg3DWAhO5W7i6Drtqmzs6lTwqBHrZqJWcgxL5yURhkkVC05ZHmbLPa0s/AtCG2zZPvEc7f8eyc9MK+7K/WBu7GKXOgsZACCBLIh1+o3fBECBfWOY0LGyOXVVJGPZjwigoXiC2H4zXYbEo4g4TJhH64lvNwy5MHzWdHe2KVLWdkSoK+iQ8XVNpfh3IPz9e3ocMpR2Pz6ouzKaFaHp2YgtYeVXRe0k7KbHlDy63BZ4nUojO4QFvFwsFlRXdNUPcImGJnl0UN3pYQnVxKh8vfwCrZx1/tUPYi6Y1wJu4dfslmnmUUYFpL7HRPVM3Al4pyAG4LMHz/5uu75w1AnkmOSMCKE40QH1U6GHrWMJLa9FT26nXdx2IGC6u1jmzKZSk64FrV0VnueHZk9BYCPDaMbmniAeNxDn/GG98L1osaSV4290VxQrpp52IMcaztm+QOPulfbLF2vRxDyRyTYNFrTPL2CGmANrrAJq/HHbeCQEbypIDU+/08pTRhek2rgKAVFsPwfK3usRV4evM/dKPAto/4pNPatoi7oVPu64zw7jx2CzC3NJ1eouIqA7/vk6EHnsJJu5dxePnou5PJcIUdIKWjp0r/7lmjQY8hqvls=",
+                        "GW0UWsS/bdP22Zd8D+WCZtz4LhyHF/8QemS7xTDPzhSlN+yjPtu7O0f/GGl3s+U1Cm3gUjMIRKbSKyi441Z57MD/9Ju8swtAJkHh9K/LPf/fFfm3UMN0EU7jeoEUkFG3AM8rR24ih16HFpK8RcDHDRL5+tAoU6au/JRLAnuRnhcOjunSC91OhTZJqSGYukoarLYVFxnLFyZPviZPe+aaFW4ZUrD+Kc6K2C/htHS1S/7NJedDsD8If31+dh/wdkIbvhQRDgWBJlSAoqOqmeFSRIIXW/VeufOjXZ9fxa/pmsBDN5BB5Fb3MguxebD61c0MN4F+gnRQ/5arKQL5oIn/QAGan6Ll7s7nUGpa88sdVKRqw/TVcqmYeIFgWBUhnk2p54tvWbCXski63z4QRC+4TZ/ITPgn1sDqsD5Qf9/Ly1RPpJPODNgIYb5i6vh94gchqrF1g3EphbJ3riWCqREoBuCD+yqS2DSE7QWg1gjaHtT8kzcxkt3KpJoLPlZPKt92y03/av8a0AXpc2H7pw2mJ4i13xDsiRKavE4R7pwrfUJxSxYD2jBPZgNTo3XxaboHZgFbvyyw3xHreSo9CmM0mL94qha4jv2TqGuURooiBfizxzuHeMub1t8VIAXOiTk/iQtBPvGLtsQzFW3TeAeZtiYSGBeKOmb6O1vtetBurQk=",
                         "UTF8 (Korean) Test"
                 });
 
@@ -151,7 +151,7 @@ public class L2SignatureTest {
         dataList.add(new String[]
                 {
                         "Λορεμ ιπσθμ δολορ σιτ αμετ, τατιον ινιμιcθσ τε ηασ, ιν εαμ μοδο ποσσιμ ινvιδθντ.",
-                        "hVA9C6Kk4QYMCqKewmsMYy4BpbZQtdZ8dcqYQT4lKz0gugM4SD9PStr+PdQ89Bzlgb+7JzyjBZ0SvSuWioeaSk7FXBpGDbetp8UUObmNYG8EEkxXq4ScDM24iNV8yGhepC4p7QYJq1gOLtyn0UX7XZEDsIXGAhNrrxOLaSc9zhCsq2EW99SjF1pySF/zzOx9VDMjWYPSY+zhtSN0Ou9jGfhrCQlOcTVydDpL3iYOPWHX+RvtIGG1/WkMPMr016FtACuk60ZlNufOWwpfP4hIeDQfAwF7+EpMyaM5r+UM+E9ejX180cuBpsXG+LRUNbqPemfqJSJNdzCRSLBJ1Qd9KneeGaALSBZa8iXiu4SDXhbwwY6oiXwsyKAySYmdsA3fnnIU3stuGKK7LNllW/3pYyoaM15z21eLEOUSWpB4O90+fQfhYRWVUlZoZhiKu1qTk5NY+gLA0OXufQQHx8bDL4KPHGoitZghoboXmIVTTY3feusJ+zkPpcqbQWh7ubVvtksTwVAQ7RC0/97Zqy7C0YPjANGpyCzSr7n8LW6LImJtD5YZW7KT/nTw0ZZTrLXZ36Zd59oHwQbakHHN/7KlGHgFOMZYdNEuu7yzTZRb3ZT71LwvVLG4l9uTx1JbplEjY2c5ExnqgVEwbyZxDIaISUoPfH+h+F/hvDy+uK3teB4=",
+                        "G6FezmgEqrnZNxqWfIE8Rcb49L3WQRcAQxQ0xX2sibejHHiOXPXU811OIsL7hsYmyLSSoY3IXTtu271MwfR1TTiODBnIqpgZ0jwmyKK7YoHUDqRgKmVscBnwotw2ntDn1eA2BAU2yKi+UOeUbDcY8dCK/qxdoKdvQg99zjmm1P4EG0dFlmh07oa2ByH4pgioaxI0sKQdDL14qbjrKOiFtfgdv5NEd1Q3kP240p9vLOoScPsRvRZlpWGPCUa0R9wQMtXZAKB3TVs+p8hu5ZHmG9JP2Jo5FRt8EkCG6V3Fg8qlbDO5m9B49atynVBsNSQkYKpCylokJI/mcESNciliQmOwkLmqh6YeELX82PSvnErIPRSAzrqkKYed/HI5gL2Z8pCOwohSfuMeoOrba3JeD98kMQHGwhw+pxSP6lnTCxLwLREhqgSrcXfymhc2TCbA/w/1gT3MjTIDjIF1HgtT2bPpjco62iuKPyrjejb4ARGcty5mlUjbPNUCD/DB4qgghnhbtvWJFJxF7Egs/BeDk5swyyvFBrlXPd/yhCpMJRAOZ0bK3Adj1ij0tVH/kHtDzRYZnF0ZQXZBlHyP2DMvlnJQbIDrTBuojRYFb8W7CPWc/P4RQIGwRv6ZvT+LLl+uuNpvNoVFc/EB0gKII819nINmCjcmuYhsboBLkJ9XHyE=",
                         "UTF8 (Greek) Test"
                 });
 
@@ -165,11 +165,12 @@ public class L2SignatureTest {
         dataList.add(new String[]
                 {
                         "GET&https://loadtest-pvt.api.lab/api/v1/rest/level2/in-in/&ap=裕廊坊 心邻坊&apex_l2_ig_app_id=loadtest-pvt-4Swyn7qwKeO32EXdH1dKTeIQ&apex_l2_ig_nonce=7231415196459608363&apex_l2_ig_signature_method=SHA256withRSA&apex_l2_ig_timestamp=1502164219425&apex_l2_ig_version=1.0&oq=c# nunit mac&q=c# nunit mac",
-                        "P4wFYdulIfZXeR9ASiS7s4NKTUTAW0v6IA3nq9Lqo+nJf3I40ZqDJIfq9OhPgT1viSN0muF0g9QdixtUx5xZ5ZynvhSKVnuhUveXFtOo3mfUULC74dpnCI7Sla3dvPz1x+sS7dTmzTy2o0ggc5dU2zIrozYB3M/NHMRrrHcv0kE4L70eWNC1hCBoV7eJd8A1UDjKMCZZEdexMLZRLLYHS13e8IkJmg8HAlYGPCMq5yu94nkWV/m9B9A2N5RGx/rz178z20u1+WSLyNKkfLVE2uOZYhGWGBLDzIMZWB8v18i+G9Mqu6ygMlCah4l2Ez60rdTy7BajQ/v2wS90Kl+79AyN+LgOqm6C5elTZ/SUcGXLNC7UE0SFrB0g9mmllwSZrY5uOh5k1Q2SlfTpfLSQacpGfhT8KXGEtWE15keC2Y77VPaGQMx6db6p0rJWWtx91X8jWgQwkfXrE1WBp4Y0P/cERl9vxOt+gysaZM+E5rkfKGH/mtBNR/cj5gEB/pnUV10dpLcRxq2D3Nlh4b1WgxiuBDmMmdl5U3Cf2OCmzUbHlVezCMhaL89pS7UjZrWtNiUBpKkBXKMeuLeMmpjioY/KeIqejEgI0AjhZ5a6sRera2Sqge9R3A6gaaoyW146Rt/o7XvY4y7+jjQZQTjl3VBcC7tCwCtuAHy2CFaIRAc=",
+                        "PAtGMMC5vWprJh4T1QkXiZWpqH9wA1hZz6AEjvHfEIalaejYdpDG31vb1boMjnKqoF2moydAyz97pd1s6FMHYZ3cv2YI/K3Wjf2pjcepI2nXwErncSve2W45CtzJ+TQWwqcttcfm/avhFpOYw74v/AHSrWbuoqPpVLAuznLBHwkiKJPBpt/Tdj1S/6Fmqu7OJu81OEQUBdhySVXtZMBtFHEFMviR2eDG7NcOZ2fspQUrCSdtEFKVyjMAcaFY6uxP5knRoq54FEHCmYotQ/J+VIWD3I0FL1ZswVtJ1zAM41rxpvfEvQFe9jucV6KN3kXnWD6hJbu4pXnakvcQKADgcBDvX0A9dzdhB9ibiWpKT8bXQwZDxYc6HqX9p83HikodV7x6p5Cd03Tol/9JaJqRQHe5ahwucCjnP5WqbTb4PrCNHeCGRj207ncpxBuafllsYfSadGFgeafpnc+5svnuZw9v9Y/H4msFbetoXUH9AQtcs+oCal5zG+AmBNZSqRROsdE6VczPPpwwn5lUCvI5XGXcFuo4X/tcQn9i6t314lgy1XYN6PAubbGDI1rnhlohMVy0XBwEi6xNWRT2vVx5ZxJmAfkSRE12n+AtdVrUQObr8cdzF9lei+DTd1fYz7QRiaJjkljEP4/J0GAiWv8z0JyDzbF9tlypJWkdWaO86eY=",
                         "L2 BaseString with UTF8 Parameters Test"
                 });
 
         for (String[] item : dataList) {
+            System.out.println("Test Type:" + item[2]);
             L2Test(item[0], item[1], item[2]);
         }
 
@@ -183,6 +184,8 @@ public class L2SignatureTest {
         } catch (ApiUtilException e) {
             fail("Should not throw any exception during test execution");
         }
+
+        System.out.println("Expected Signature :" + signature);
 
         assertEquals(message, expectedSignature, signature);
     }

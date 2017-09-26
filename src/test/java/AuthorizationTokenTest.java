@@ -76,7 +76,7 @@ public class AuthorizationTokenTest {
 	@Test
 	public void Test_L2_Basic_Test() throws ApiUtilException
 	{
-		String expectedToken = "Apex_l2_ig realm=\"http://example.api.test/token\", apex_l2_ig_timestamp=\"1502199514462\", apex_l2_ig_nonce=\"-5816789581922453013\", apex_l2_ig_app_id=\"example-4Swyn7qwKeO32EXdH1dKTeIQ\", apex_l2_ig_signature_method=\"SHA256withRSA\", apex_l2_ig_signature=\"p2O7sd0s8q3NHFIWr/vBNnX04nh3UsDhtWqNQ1tMp9uPI2DFEcowwMrdu+cMCo34r9RZcq1za1Xon2W2Lqe8HBaJqNegsSnEplfayBZSG1P3gqsgEcUGREeS1pRK41ChkTqy3gyT86ZRArpY/6Z+DDKbIerbJ8/X5rIGNQF5JAEKvcgxl6dHL/H9GTogpwze5YF1SZm8igKvXHL90dVxw0MjtiI7jYZYMrG3D5MihXIw/bEhgKHTiyT2CdiMt5D2Gg4QECsS8P7RvU4IDc8VTiiQqIEm8DKjeGligEiOXHkqNwHf5Wk2mZPNgA3TQGqDkpDvIsyW2+a6/PwoQd44JpqUligmo04yZuoj2jKg8nno0Ty64yx7TicszzKvbaHAN6aOO/gMRUcm7FCSDCUjTPBr4RvRZhhAb0heW8S7rPmb4rm2gwIxQh0GpmCfkq5p3+9QdX9Xv8rii3rz9V9gp1vSB/47kPA+bePWd9IDLIZZFULehuUb3x2dy2bddabc5QwzmR4LbpgJrRIpg8sLravUx7Fg7tgmKWi6xG9efCulaoO5dk1E8hr/sqfHExP3egQC235zxLR+jHkjOa5PQYymbBTmcb3HLnPsBusjdf/5c1X/q/SS5jniXkieDRpEa47opTilyN4+59ypuNxXl6tasf6fQW0p7skuy+Q3TCM=\", apex_l2_ig_version=\"1.0\"";
+		String expectedToken = "Apex_l2_ig realm=\"http://example.api.test/token\", apex_l2_ig_timestamp=\"1502199514462\", apex_l2_ig_nonce=\"-5816789581922453013\", apex_l2_ig_app_id=\"example-4Swyn7qwKeO32EXdH1dKTeIQ\", apex_l2_ig_signature_method=\"SHA256withRSA\", apex_l2_ig_signature=\"Za7B8MaOlGZjc8DTEh9HwhcL+5DiiuTMy+s0bQ8/lajy1Ug64gPCyNEbcYkD/XBEHFyg6vlY9/J85Y+Ui6DeYbXmUFnQjDWdOKf13xJvpsnAQgOqWi+LSc0+gy3pvsQ50nyES3E04vb3RvGwd7UC6SyBhmQ5P8Mz0UUgWBX6L6N3n+xergTg3DKWEPyQih+dqN3DkOmNE8fstAp+HOqiVq2OBxNeg9x5Kp0tq2vka7cC86zdYSNhsQR+D7hC+S1NPninWvdxUF1EwrPrEZYSYXka0Md1XFVjaL6b0htcFo6LxwJ8X6wsOqS4g4qmrAadwm7fITZLxcI0Zdaz7dRw9UFUsGWEVPG8MQztVXleimDxYvorLKTD5bhWGHe+XNwyL+IdR7ErooOHP9pTslJ7yBEmsePTRIAL//h0AEXaBN4pCmBPJnVtYtUWdQsUq/iv/4FLtWvOK77EReAtq3uqndJfGInXUMESqS4PzGDajTZj+oDP7xektLh7umELQBnSKNuv3BR9H63sf+Z9mZQ1531LYEmQWR8p3LCP8E0DcROo0OP1gcE76N9Z1HKLtJjLYDRyQRUQMM2FlJRkb3sy2g60yNThkPprzohBvHowCRFs02tlkyBbOuKC2cV9hwSz8eMqhUTzNn/WMi2Dr2V7iTJtyJHT9kdebVY2Cvnlt5I=\", apex_l2_ig_version=\"1.0\"";
 		String authorizationToken = ApiAuthorization.getToken(
 			realm
 			, authPrefixL2
@@ -91,6 +91,8 @@ public class AuthorizationTokenTest {
 			, nonce
 			, timestamp
 		);
+
+		System.out.println("Expected Token:" + authorizationToken);
 		assertEquals(expectedToken, authorizationToken);
 	}
 	
