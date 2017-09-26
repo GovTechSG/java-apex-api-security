@@ -33,6 +33,13 @@ jar {
     }
 }
 
+test {
+    testLogging {
+        events "failed"
+        exceptionFormat "short"
+    }
+}
+
 jacocoTestReport {
     group = "Reporting"
     reports {
