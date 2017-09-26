@@ -194,8 +194,8 @@ Params:
 String baseString = "GET&https://<<URL>/api/v1/&ap=裕廊坊 心邻坊&<<authPrefix>>_app_id=<<appId>>&<<authPrefix>>_nonce=7231415196459608363&<<authPrefix>>_signature_method=SHA256withRSA&<<authPrefix>>_timestamp=1502164219425&<<authPrefix>>_version=1.0&oq=c# nunit mac&q=c# nunit mac";
 String alias = "alpha";
 String password = "<<passphrase>>";
-String keyStoreFileName = "certificates/alpha.test.p12";
-String publicCertFileName = "certificates/alpha.test.cer";
+String keyStoreFileName = "certificates/ssc.alpha.example.com.p12";
+String publicCertFileName = "certificates/ssc.alpha.example.com.cer";
 
 try {
     
@@ -232,7 +232,7 @@ Params:
 
 ```java
 String url = "https://<<URL>>/api/v1/?ap=裕廊坊%20心邻坊";
-String certFileName = "certificates/alpha.test.p12";
+String certFileName = "certificates/ssc.alpha.example.com.p12";
 String password = "<<passphrase>>";
 String alias = "alpha";
 String appId = "<<appId>>";
