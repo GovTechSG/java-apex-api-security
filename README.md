@@ -187,7 +187,7 @@ Method:
 
 Params:
 * baseString
-* secret
+* privateKey
 
 ```java
 String baseString = "GET&https://<<URL>/api/v1/&ap=裕廊坊 心邻坊&<<authPrefix>>_app_id=<<appId>>&<<authPrefix>>_nonce=7231415196459608363&<<authPrefix>>_signature_method=SHA256withRSA&<<authPrefix>>_timestamp=1502164219425&<<authPrefix>>_version=1.0&oq=c# nunit mac&q=c# nunit mac";
@@ -235,11 +235,13 @@ String certFileName = "certificates/alpha.test.p12";
 String password = "<<passphrase>>";
 String alias = "alpha";
 String appId = "<<appId>>";
+String secret = null;
+ApiList formList = null;
 String nonce = null;
 String timestamp = null;
 
 try {
-    String signature = ApiAuthorization.getToken("http://api.test.io/l2", "<<authPrefix>>", "get", url, appId, null, null, password, alias, certFileName, nonce, timestamp);
+    String signature = ApiAuthorization.getToken("http://api.test.io/l2", "<<authPrefix>>", "get", url, appId, secret, formList, password, alias, certFileName, nonce, timestamp);
 } catch (ApiUtilException e) {
     e.printStackTrace();
 }
