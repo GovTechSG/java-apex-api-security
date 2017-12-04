@@ -69,7 +69,8 @@ public class AuthorizationTokenTest {
 			, nonce
 			, timestamp
 		);
-
+		System.out.println("expectedToken:"+expectedToken);
+		System.out.println("authorizationToken:"+authorizationToken);
 		assertEquals(expectedToken, authorizationToken);
 	}
 

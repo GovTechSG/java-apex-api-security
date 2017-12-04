@@ -2,7 +2,9 @@ package com.api.util.ApiSecurity;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 /**
  * @author GDS-PDD
@@ -29,19 +31,25 @@ public class ApiList extends ArrayList<Entry<String,String>>{
 	
 	public String toString(String delimiter, Boolean sort, Boolean quote)
 	{
-		ArrayList<String> list = new ArrayList<String>();
-
-		String format = "%s=%s";
-		if (quote) format = "%s=\"%s\"";
-
-		for (Entry<String, String> item : this)
-		{
-			list.add(String.format(format, item.getKey(), item.getValue()));
+		List<String> list = new ArrayList<String>();
+		
+		final String format = (quote ? "%s=\"%s\"" : "%s=%s");
+		
+		/* Sort key first then value*/
+		if (sort){
+			list = this.stream()
+					.sorted((Entry<String,String> l1, Entry<String,String> l2) -> 
+					{
+						return l1.getKey().equals(l2.getKey()) ? l1.getValue().compareTo(l2.getValue())
+									: l1.getKey().compareTo(l2.getKey());
+					})
+					.map(e -> String.format(format, e.getKey(), e.getValue()))
+					.collect(Collectors.toList());
+		} else{
+			list = this.stream().map(e -> String.format(format, e.getKey(), e.getValue()))
+					.collect(Collectors.toList());
 		}
-
-		/* Sort statement*/
-		if (sort) Collections.sort(list);
-	
+		
 		return String.join(delimiter, list);
 	}
 }
