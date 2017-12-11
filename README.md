@@ -137,7 +137,7 @@ formList.add("param1", "data1");
 String baseString;
 
 try {
-baseString = ApiAuthorization.getBaseString(
+baseString = ApiSigning.getBaseString(
     "<<authPrefix>>",
     "HMACSHA256",
     "<<appId>>",
@@ -159,7 +159,7 @@ System.out.println(baseString);
 ##### Preparing L1 Security Signature :
 
 Method:
-* getL1Signature
+* getHMACSignature
 
 Params:
 * baseString
@@ -171,7 +171,7 @@ String secret = "<<appSecret>>";
 String L1Sig;
 		
 try {
-    L1Sig = ApiAuthorization.getL1Signature(baseString, secret);
+    L1Sig = ApiSigning.getHMACSignature(baseString, secret);
     System.out.println(L1Sig);
 
 } catch (ApiUtilException e) {
@@ -183,7 +183,7 @@ try {
 ##### Preparing L2 Security Signature :
 
 Method:
-* getL2Signature
+* getRSASignature
 
 Params:
 * baseString
@@ -198,14 +198,14 @@ String publicCertFileName = "certificates/ssc.alpha.example.com.cer";
 
 try {
     
-    PrivateKey privateKey = ApiAuthorization.getPrivateKeyFromKeyStore(keyStoreFileName, password, alias);
+    PrivateKey privateKey = ApiSigning.getPrivateKeyFromKeyStore(keyStoreFileName, password, alias);
     
-    String signature = ApiAuthorization.getL2Signature(baseString, privateKey);
+    String signature = ApiSigning.getRSASignature(baseString, privateKey);
 
     System.out.println(expectedSignature);
     System.out.println(signature);
     
-    PublicKey publicKey = ApiAuthorization.getPublicKeyFromX509Certificate(publicCertFileName);
+    PublicKey publicKey = ApiSigning.getPublicKeyFromX509Certificate(publicCertFileName);
     
 } catch (ApexUtilLibException e) {
     e.printStackTrace();
@@ -241,23 +241,17 @@ String nonce = null;
 String timestamp = null;
 
 try {
-    String signature = ApiAuthorization.getToken("http://api.test.io/l2", "<<authPrefix>>", "get", url, appId, null, null, password, alias, certFileName, nonce, timestamp);
+    String signature = ApiSigning.getToken("http://api.test.io/l2", "<<authPrefix>>", "get", url, appId, null, null, password, alias, certFileName, nonce, timestamp);
 } catch (ApiUtilException e) {
     e.printStackTrace();
 }
 ```
+
+### Contributing
++ Check out CONTRIBUTION.md
+
 ### Release:
 + Checkout CHANGELOG.md for releases
-
-### Contributing:
-We welcome your involvement, be it fixing bugs or implementing new features that you find relevant to this library.
-
-To contribute, you may follow the steps below:
-1. Fork the repo
-2. Create a new branch from `development` to work on your contribution
-3. Create a pull request back when you are done
-
-Alternatively, you can raise an issue within this Github repository.
 
 ### Reference: 
 + [UTF-8 in Gradle](https://stackoverflow.com/questions/21267234/show-utf-8-text-properly-in-gradle)

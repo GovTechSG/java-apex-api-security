@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import com.api.util.ApiSecurity.ApiUtilException;
 import org.junit.Test;
 
-import com.api.util.ApiSecurity.ApiAuthorization;
+import com.api.util.ApiSecurity.ApiSigning;
 
 /**
  * @author GDS-PDD
  *
  */
-public class L1SignatureTest {
+public class HMACSignatureTest {
 
     String baseString = "message";
     String secret = "secret";
@@ -24,7 +24,7 @@ public class L1SignatureTest {
     	
 	    	try 
 	    	{
-	    		ApiAuthorization.getL1Signature(null, secret);
+	    		ApiSigning.getHMACSignature(null, secret);
 	    		
 	    		fail("Expecting ApiUtilException error.");
 	    	}
@@ -35,7 +35,7 @@ public class L1SignatureTest {
 	    	
 	    	try 
 	    	{
-	    		ApiAuthorization.getL1Signature("", secret);
+	    		ApiSigning.getHMACSignature("", secret);
 	    		
 	    		fail("Expecting ApiUtilException error.");
 	    	}
@@ -52,7 +52,7 @@ public class L1SignatureTest {
 		
 		try 
 		{
-			ApiAuthorization.getL1Signature(baseString, null);
+			ApiSigning.getHMACSignature(baseString, null);
 			
 			fail("Expecting ApiUtilException error.");
 		}
@@ -63,7 +63,7 @@ public class L1SignatureTest {
 		
 		try 
 		{
-			ApiAuthorization.getL1Signature(baseString, "");
+			ApiSigning.getHMACSignature(baseString, "");
 			
 			fail("Expecting ApiUtilException error.");
 		}
@@ -76,19 +76,19 @@ public class L1SignatureTest {
     @Test
     public void L1_Verify_Signature_Test() throws ApiUtilException
     {
-        assertTrue(ApiAuthorization.verifyL1Signature(expectedResult, secret, baseString));
+        assertTrue(ApiSigning.verifyHMACSignature(expectedResult, secret, baseString));
     }
     
 	@Test
 	public void L1_Verify_Signature_With_Wrong_Secret_Test() throws ApiUtilException
 	{
-        assertFalse(ApiAuthorization.verifyL1Signature(expectedResult, secret + 'x', baseString));
+        assertFalse(ApiSigning.verifyHMACSignature(expectedResult, secret + 'x', baseString));
 	}
     
     @Test
     public void L1_Verify_Signature_With_Wrong_BaseString_Test() throws ApiUtilException
     {
-        assertFalse(ApiAuthorization.verifyL1Signature(expectedResult, secret, baseString + 'x'));
+        assertFalse(ApiSigning.verifyHMACSignature(expectedResult, secret, baseString + 'x'));
     }
     
 	@Test
@@ -169,7 +169,7 @@ public class L1SignatureTest {
 	
 	private void L1Test(String baseString, String secret, String expectedSignature, String message) throws ApiUtilException
 	{
-		String signature = ApiAuthorization.getL1Signature(baseString, secret);
+		String signature = ApiSigning.getHMACSignature(baseString, secret);
 
 		assertEquals(message, expectedSignature, signature);
 	}
