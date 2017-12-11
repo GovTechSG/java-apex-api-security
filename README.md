@@ -250,8 +250,8 @@ try {
 ### Contributing
 + For more information about contributing PRs and issues, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
-### Release:
-+ Checkout CHANGELOG.md for releases
+### Release
++ See [CHANGELOG.md](CHANGELOG.md).
 
 ### Reference: 
 + [UTF-8 in Gradle](https://stackoverflow.com/questions/21267234/show-utf-8-text-properly-in-gradle)
