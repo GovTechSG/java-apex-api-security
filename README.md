@@ -26,8 +26,8 @@ mvn package
 ```
 
 The compiled _jar_ file will be located in the **target** folder
-+ java-apex-api-security-1.0-SNAPSHOT.jar
-+ java-apex-api-security-1.0-SNAPSHOT-jar-with-dependencies.jar (this includes log4j libraries)
++ java-apex-api-security-<version>-SNAPSHOT.jar
++ java-apex-api-security-<version>-SNAPSHOT-jar-with-dependencies.jar (this includes log4j libraries)
 
 Import this jar file into your java classpath to use the utility class
 
@@ -113,7 +113,7 @@ dependencies {
 
 #### Development
 
-##### Preparing BaseString :
+##### Preparing Signature BaseString :
 
 Method: 
 * getBaseString
@@ -156,7 +156,7 @@ System.out.println(baseString);
                                       
 ```
 
-##### Preparing L1 Security Signature :
+##### Preparing HMACSHA256 L1 Security Signature :
 
 Method:
 * getHMACSignature
@@ -180,7 +180,7 @@ try {
 
 ```
 
-##### Preparing L2 Security Signature :
+##### Preparing RSA256 L2 Security Signature :
 
 Method:
 * getRSASignature
