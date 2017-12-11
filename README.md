@@ -248,7 +248,7 @@ try {
 ```
 
 ### Contributing
-+ Check out CONTRIBUTION.md
++ For more information about contributing PRs and issues, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ### Release:
 + Checkout CHANGELOG.md for releases
