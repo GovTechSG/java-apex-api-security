@@ -472,7 +472,7 @@ public class ApiSigning {
      * @return
      * @throws ApiUtilException
      */
-    public static String getToken(
+    public static String getSignatureToken(
             String realm
             , String authPrefix
             , String httpMethod

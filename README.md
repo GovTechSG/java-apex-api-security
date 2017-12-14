@@ -213,7 +213,10 @@ try {
 
 ```
 
-##### Preparing Authorization Token :
+##### Preparing HTTP Signature Token :
+
+Append this signature token into the Authorization header of the HTTP request
+
 Params:
 * realm
 * authPrefix - Authorization Header scheme prefix , i.e 'prefix_appId'
@@ -241,7 +244,7 @@ String nonce = null;
 String timestamp = null;
 
 try {
-    String signature = ApiSigning.getToken("http://api.test.io/l2", "<<authPrefix>>", "get", url, appId, null, null, password, alias, certFileName, nonce, timestamp);
+    String signature = ApiSigning.getSignatureToken("http://api.test.io/l2", "<<authPrefix>>", "get", url, appId, null, null, password, alias, certFileName, nonce, timestamp);
 } catch (ApiUtilException e) {
     e.printStackTrace();
 }
