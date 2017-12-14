@@ -26,8 +26,8 @@ mvn package
 ```
 
 The compiled _jar_ file will be located in the **target** folder
-+ java-apex-api-security-1.0-SNAPSHOT.jar
-+ java-apex-api-security-1.0-SNAPSHOT-jar-with-dependencies.jar (this includes log4j libraries)
++ java-apex-api-security-<version>-SNAPSHOT.jar
++ java-apex-api-security-<version>-SNAPSHOT-jar-with-dependencies.jar (this includes log4j libraries)
 
 Import this jar file into your java classpath to use the utility class
 
@@ -113,7 +113,7 @@ dependencies {
 
 #### Development
 
-##### Preparing BaseString :
+##### Preparing Signature BaseString :
 
 Method: 
 * getBaseString
@@ -137,7 +137,7 @@ formList.add("param1", "data1");
 String baseString;
 
 try {
-baseString = ApiAuthorization.getBaseString(
+baseString = ApiSigning.getBaseString(
     "<<authPrefix>>",
     "HMACSHA256",
     "<<appId>>",
@@ -156,10 +156,10 @@ System.out.println(baseString);
                                       
 ```
 
-##### Preparing L1 Security Signature :
+##### Preparing HMACSHA256 L1 Security Signature :
 
 Method:
-* getL1Signature
+* getHMACSignature
 
 Params:
 * baseString
@@ -171,7 +171,7 @@ String secret = "<<appSecret>>";
 String L1Sig;
 		
 try {
-    L1Sig = ApiAuthorization.getL1Signature(baseString, secret);
+    L1Sig = ApiSigning.getHMACSignature(baseString, secret);
     System.out.println(L1Sig);
 
 } catch (ApiUtilException e) {
@@ -180,10 +180,10 @@ try {
 
 ```
 
-##### Preparing L2 Security Signature :
+##### Preparing RSA256 L2 Security Signature :
 
 Method:
-* getL2Signature
+* getRSASignature
 
 Params:
 * baseString
@@ -198,14 +198,14 @@ String publicCertFileName = "certificates/ssc.alpha.example.com.cer";
 
 try {
     
-    PrivateKey privateKey = ApiAuthorization.getPrivateKeyFromKeyStore(keyStoreFileName, password, alias);
+    PrivateKey privateKey = ApiSigning.getPrivateKeyFromKeyStore(keyStoreFileName, password, alias);
     
-    String signature = ApiAuthorization.getL2Signature(baseString, privateKey);
+    String signature = ApiSigning.getRSASignature(baseString, privateKey);
 
     System.out.println(expectedSignature);
     System.out.println(signature);
     
-    PublicKey publicKey = ApiAuthorization.getPublicKeyFromX509Certificate(publicCertFileName);
+    PublicKey publicKey = ApiSigning.getPublicKeyFromX509Certificate(publicCertFileName);
     
 } catch (ApexUtilLibException e) {
     e.printStackTrace();
@@ -213,7 +213,10 @@ try {
 
 ```
 
-##### Preparing Authorization Token :
+##### Preparing HTTP Signature Token :
+
+Append this signature token into the Authorization header of the HTTP request
+
 Params:
 * realm
 * authPrefix - Authorization Header scheme prefix , i.e 'prefix_appId'
@@ -241,23 +244,17 @@ String nonce = null;
 String timestamp = null;
 
 try {
-    String signature = ApiAuthorization.getToken("http://api.test.io/l2", "<<authPrefix>>", "get", url, appId, null, null, password, alias, certFileName, nonce, timestamp);
+    String signature = ApiSigning.getSignatureToken("http://api.test.io/l2", "<<authPrefix>>", "get", url, appId, null, null, password, alias, certFileName, nonce, timestamp);
 } catch (ApiUtilException e) {
     e.printStackTrace();
 }
 ```
-### Release:
-+ Checkout CHANGELOG.md for releases
 
-### Contributing:
-We welcome your involvement, be it fixing bugs or implementing new features that you find relevant to this library.
+### Contributing
++ For more information about contributing PRs and issues, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
-To contribute, you may follow the steps below:
-1. Fork the repo
-2. Create a new branch from `development` to work on your contribution
-3. Create a pull request back when you are done
-
-Alternatively, you can raise an issue within this Github repository.
+### Release
++ See [CHANGELOG.md](CHANGELOG.md).
 
 ### Reference: 
 + [UTF-8 in Gradle](https://stackoverflow.com/questions/21267234/show-utf-8-text-properly-in-gradle)

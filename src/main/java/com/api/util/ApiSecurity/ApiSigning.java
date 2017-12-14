@@ -1,62 +1,44 @@
 package com.api.util.ApiSecurity;
 
-import java.io.BufferedReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.security.InvalidKeyException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.security.SecureRandom;
-import java.security.Signature;
-import java.security.SignatureException;
-import java.security.UnrecoverableEntryException;
+import java.security.*;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Base64;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 
 /**
  * @author GDS-PDD
  */
-public class ApiAuthorization {
+public class ApiSigning {
 
-    private static final Logger log = LoggerFactory.getLogger(ApiAuthorization.class);
+    private static final Logger log = LoggerFactory.getLogger(ApiSigning.class);
     private final static String USER_AGENT = "Mozilla/5.0";
 
     /**
-     * @param baseString
-     * @param secret
-     * @return
+     * Create HMACRSA256 Signature (L1) with a given basestring
+     *
+     * @param baseString Signature Basestring to be Signed
+     * @param secret     App Secret
+     * @return HMACSHA256 Signature
      * @throws ApiUtilException
      */
-    public static String getL1Signature(String baseString, String secret) throws ApiUtilException {
-        log.debug("Enter :: getL1Signature :: baseString : {} , secret: {} ", baseString, secret);
+    public static String getHMACSignature(String baseString, String secret) throws ApiUtilException {
+        log.debug("Enter :: getHMACSignature :: baseString : {} , secret: {} ", baseString, secret);
 
         //Initialization
         String base64Token = null;
@@ -105,44 +87,160 @@ public class ApiAuthorization {
             base64Token = new String(Base64.getEncoder().encodeToString(rawHmac));
 
         } catch (ApiUtilException ae) {
-            log.error("Error :: getL1Signature :: " + ae.getMessage());
+            log.error("Error :: getHMACSignature :: " + ae.getMessage());
             throw ae;
         } catch (Exception e) {
-            log.error("Error :: getL1Signature :: " + e.getMessage());
+            log.error("Error :: getHMACSignature :: " + e.getMessage());
             throw new ApiUtilException("Error during L1 Signature value generation", e);
         }
 
-        log.debug("Exit :: getL1Signature :: base64Token : {} ", base64Token);
+        log.debug("Exit :: getHMACSignature :: base64Token : {} ", base64Token);
 
         return base64Token;
     }
 
 
     /**
-     * @param signature
-     * @param secret
-     * @param baseString
+     * Verify HMACSHA256 Signature (L1)
+     *
+     * @param signature  Signature to be verified
+     * @param secret     App's Secret
+     * @param baseString Basestring to be signed and compare
      * @return
      * @throws ApiUtilException
      */
-    public static boolean verifyL1Signature(String signature, String secret, String baseString) throws ApiUtilException {
-        log.debug("Enter :: verifyL1Signature :: signature : {} , baseString : {} , secret: {} ", signature, baseString, secret);
+    public static boolean verifyHMACSignature(String signature, String secret, String baseString) throws ApiUtilException {
+        log.debug("Enter :: verifyHMACSignature :: signature : {} , baseString : {} , secret: {} ", signature, baseString, secret);
 
         String expectedSignature = null;
-        expectedSignature = getL1Signature(baseString, secret);
+        expectedSignature = getHMACSignature(baseString, secret);
         boolean verified = false;
         verified = expectedSignature.equals(signature);
 
-        log.debug("Exit :: verifyL1Signature :: boolean : {}", verified);
+        log.debug("Exit :: verifyHMACSignature :: boolean : {}", verified);
 
         return verified;
     }
 
     /**
-     * @param keystoreFileName
-     * @param password
-     * @param alias
+     * Get RSA256 Signature (L2)
+     *
+     * @param baseString Basestring to be signed and compare
+     * @param privateKey Private Key
      * @return
+     * @throws ApiUtilException
+     */
+    public static String getRSASignature(String baseString, PrivateKey privateKey) throws ApiUtilException {
+        log.debug("Enter :: getRSASignature :: baseString : {} ", baseString);
+
+        Signature rsa = null;
+        byte[] encryptedData = null;
+        String base64Token = null;
+        try {
+            //Validation
+            if (baseString == null || baseString.isEmpty()) {
+                throw new ApiUtilException("baseString must not be null or empty.");
+            }
+
+            if (privateKey == null) {
+                throw new ApiUtilException("privateKey must not be null.");
+            }
+
+            try {
+                rsa = Signature.getInstance("SHA256withRSA");
+            } catch (NoSuchAlgorithmException nsae) {
+                throw nsae;
+            }
+            try {
+                rsa.initSign(privateKey);
+            } catch (InvalidKeyException ike) {
+                throw ike;
+            }
+            try {
+                rsa.update(baseString.getBytes());
+            } catch (SignatureException se) {
+                throw se;
+            }
+
+            try {
+                encryptedData = rsa.sign();
+            } catch (SignatureException se) {
+                throw se;
+            }
+            log.debug("encryptedData length:" + encryptedData.length);
+
+            base64Token = new String(Base64.getEncoder().encode(encryptedData));
+
+        } catch (ApiUtilException ae) {
+            log.error("Error :: getRSASignature :: " + ae.getMessage());
+            throw ae;
+
+        } catch (Exception e) {
+            log.error("Error :: getRSASignature :: " + e.getMessage());
+            throw new ApiUtilException("Error during L2 Signature value generation", e);
+        }
+
+        log.debug("Exit :: getRSASignature :: base64Token : {} ", base64Token);
+        return base64Token;
+    }
+
+    /**
+     * Verify RSA256 Signature (L2)
+     *
+     * @param baseString Basestring to be signed and compare
+     * @param signature  Signature to be verified
+     * @param publicKey  Corresponding Public Key to verify the signature
+     * @return
+     * @throws ApiUtilException
+     */
+    public static boolean verifyRSASignature(String baseString, String signature, PublicKey publicKey) throws ApiUtilException {
+        log.debug("Enter :: verifyRSASignature :: baseString  : {} , signature : {} ", baseString, signature);
+        Signature publicSignature = null;
+        boolean verified = false;
+        try {
+            try {
+                publicSignature = Signature.getInstance("SHA256withRSA");
+            } catch (NoSuchAlgorithmException snae) {
+                throw snae;
+            }
+            try {
+                publicSignature.initVerify(publicKey);
+            } catch (InvalidKeyException e) {
+                throw e;
+            }
+            try {
+                publicSignature.update(baseString.getBytes("UTF-8"));
+            } catch (SignatureException se) {
+                throw se;
+            } catch (UnsupportedEncodingException uee) {
+                throw uee;
+            }
+
+            byte[] signatureBytes = Base64.getDecoder().decode(signature);
+
+            log.debug("Exit :: verifyRSASignature");
+            try {
+                verified = publicSignature.verify(signatureBytes);
+            } catch (SignatureException se) {
+                throw se;
+            }
+        } catch (Exception e) {
+            log.error("Error :: verifyRSASignature :: " + e.getMessage());
+            throw new ApiUtilException("Error during L2 Signature verification", e);
+        }
+
+        log.debug("Exit :: verifyRSASignature");
+
+        return verified;
+    }
+
+    /**
+     * Get Private key from Keystore
+     *
+     * @param keystoreFileName Keystore file Path
+     * @param password         Keystore passsword
+     * @param alias            Keystore's alias
+     * @return private key
      * @throws ApiUtilException
      */
     public static PrivateKey getPrivateKeyFromKeyStore(String keystoreFileName, String password, String alias) throws ApiUtilException {
@@ -208,8 +306,10 @@ public class ApiAuthorization {
     }
 
     /**
-     * @param publicCertificateFileName
-     * @return
+     * Get Public Key from Certificate
+     *
+     * @param publicCertificateFileName Certificate file path
+     * @return Public Key
      * @throws ApiUtilException
      */
     public static PublicKey getPublicKeyFromX509Certificate(String publicCertificateFileName) throws ApiUtilException {
@@ -258,123 +358,18 @@ public class ApiAuthorization {
     }
 
     /**
-     * @param baseString
-     * @param privateKey
-     * @return
-     * @throws ApiUtilException
-     */
-    public static String getL2Signature(String baseString, PrivateKey privateKey) throws ApiUtilException {
-        log.debug("Enter :: getL2Signature :: baseString : {} ", baseString);
-
-        Signature rsa = null;
-        byte[] encryptedData = null;
-        String base64Token = null;
-        try {
-            //Validation
-            if (baseString == null || baseString.isEmpty()) {
-                throw new ApiUtilException("baseString must not be null or empty.");
-            }
-
-            if (privateKey == null) {
-                throw new ApiUtilException("privateKey must not be null.");
-            }
-
-            try {
-                rsa = Signature.getInstance("SHA256withRSA");
-            } catch (NoSuchAlgorithmException nsae) {
-                throw nsae;
-            }
-            try {
-                rsa.initSign(privateKey);
-            } catch (InvalidKeyException ike) {
-                throw ike;
-            }
-            try {
-                rsa.update(baseString.getBytes());
-            } catch (SignatureException se) {
-                throw se;
-            }
-
-            try {
-                encryptedData = rsa.sign();
-            } catch (SignatureException se) {
-                throw se;
-            }
-            log.debug("encryptedData length:" + encryptedData.length);
-
-            base64Token = new String(Base64.getEncoder().encode(encryptedData));
-
-        } catch (ApiUtilException ae) {
-            log.error("Error :: getL2Signature :: " + ae.getMessage());
-            throw ae;
-
-        } catch (Exception e) {
-            log.error("Error :: getL2Signature :: " + e.getMessage());
-            throw new ApiUtilException("Error during L2 Signature value generation", e);
-        }
-
-        log.debug("Exit :: getL2Signature :: base64Token : {} ", base64Token);
-        return base64Token;
-    }
-
-    /**
-     * @param baseString
-     * @param signature
-     * @param publicKey
-     * @return
-     * @throws ApiUtilException
-     */
-    public static boolean verifyL2Signature(String baseString, String signature, PublicKey publicKey) throws ApiUtilException {
-        log.debug("Enter :: verifyL2Signature :: baseString  : {} , signature : {} ", baseString, signature);
-        Signature publicSignature = null;
-        boolean verified = false;
-        try {
-            try {
-                publicSignature = Signature.getInstance("SHA256withRSA");
-            } catch (NoSuchAlgorithmException snae) {
-                throw snae;
-            }
-            try {
-                publicSignature.initVerify(publicKey);
-            } catch (InvalidKeyException e) {
-                throw e;
-            }
-            try {
-                publicSignature.update(baseString.getBytes("UTF-8"));
-            } catch (SignatureException se) {
-                throw se;
-            } catch (UnsupportedEncodingException uee) {
-                throw uee;
-            }
-
-            byte[] signatureBytes = Base64.getDecoder().decode(signature);
-
-            log.debug("Exit :: verifyL2Signature");
-            try {
-                verified = publicSignature.verify(signatureBytes);
-            } catch (SignatureException se) {
-                throw se;
-            }
-        } catch (Exception e) {
-            log.error("Error :: verifyL2Signature :: " + e.getMessage());
-            throw new ApiUtilException("Error during L2 Signature verification", e);
-        }
-
-        log.debug("Exit :: verifyL2Signature");
-
-        return verified;
-    }
-
-    /**
-     * @param authPrefix
-     * @param signatureMethod
-     * @param appId
-     * @param urlPath
-     * @param httpMethod
-     * @param formList
-     * @param nonce
-     * @param timestamp
-     * @return
+     * Formulate Signature BaseString
+     *
+     * @param authPrefix Authorization Header scheme prefix , i.e 'prefix_appId'
+     * @param signatureMethod Signature signing method
+     * @param appId App ID
+     * @param urlPath API Service URL
+     * @param httpMethod HTTP Operation
+     * @param formList form data
+     * @param nonce Random Nonce
+     * @param timestamp Timestamp
+     *
+     * @return Base String for signing
      * @throws ApiUtilException
      */
     public static String getBaseString(String authPrefix
@@ -392,7 +387,6 @@ public class ApiAuthorization {
         String baseString = null;
 
         try {
-
             authPrefix = authPrefix.toLowerCase();
 
             // make sure that the url are valid
@@ -403,14 +397,10 @@ public class ApiAuthorization {
                 throw e1;
             }
             log.debug("raw url:: {}", urlPath);
-
-
             log.debug("siteUri.getScheme():: {}", siteUri.getScheme());
 
             if (!siteUri.getScheme().equals("http") && !siteUri.getScheme().equals("https")) {
-
                 throw new ApiUtilException("Support http and https protocol only.");
-
             }
 
             // make sure that the port no and querystring are remove from url
@@ -419,7 +409,6 @@ public class ApiAuthorization {
 
             // helper calss that handle parameters and form fields
             ApiList paramList = new ApiList();
-
 
             // process QueryString from url by transfering it to paramList
             if (siteUri.getQuery().length() > 1) {
@@ -438,7 +427,6 @@ public class ApiAuthorization {
                 }
 
             }
-
 
             // add the form fields to paramList
             if (formList != null && formList.size() > 0) {
@@ -466,35 +454,25 @@ public class ApiAuthorization {
         return baseString;
     }
 
-    private static long getNewTimestamp() {
-        return System.currentTimeMillis();
-    }
-
-    private static long getNewNonce() throws NoSuchAlgorithmException {
-        long nonce = 0;
-
-        nonce = SecureRandom.getInstance("SHA1PRNG").nextLong();
-
-        return nonce;
-    }
-
     /**
-     * @param realm
-     * @param authPrefix
-     * @param httpMethod
-     * @param urlPath
-     * @param appId
-     * @param secret
-     * @param formList
-     * @param password
-     * @param alias
-     * @param fileName
-     * @param nonce
-     * @param timestamp
+     * Get Signature Token for HTTP Authorization Header
+     *
+     * @param realm Identifier for message that comes from the realm for your app
+     * @param authPrefix Authorization Header scheme prefix , i.e 'prefix_appId'
+     * @param httpMethod API Service URL
+     * @param urlPath API Service endpoint
+     * @param appId App's ID
+     * @param secret App's Secret
+     * @param formList Form Data
+     * @param password Keystore's password
+     * @param alias Keystore's Alias
+     * @param fileName Private Keystore Filepath
+     * @param nonce Random Nonce, Optional
+     * @param timestamp Timestamp , Optional
      * @return
      * @throws ApiUtilException
      */
-    public static String getToken(
+    public static String getSignatureToken(
             String realm
             , String authPrefix
             , String httpMethod
@@ -539,10 +517,10 @@ public class ApiAuthorization {
                     , formList, nonce, timestamp);
 
             if (secret != null) {
-                base64Token = getL1Signature(baseString, secret);
+                base64Token = getHMACSignature(baseString, secret);
             } else {
                 PrivateKey privateKey = getPrivateKeyFromKeyStore(fileName, password, alias);
-                base64Token = getL2Signature(baseString, privateKey);
+                base64Token = getRSASignature(baseString, privateKey);
 
             }
 
@@ -569,6 +547,18 @@ public class ApiAuthorization {
         log.debug("Exit :: getToken :: authorizationToken : {} ", authorizationToken);
 
         return authorizationToken;
+    }
+
+    private static long getNewTimestamp() {
+        return System.currentTimeMillis();
+    }
+
+    private static long getNewNonce() throws NoSuchAlgorithmException {
+        long nonce = 0;
+
+        nonce = SecureRandom.getInstance("SHA1PRNG").nextLong();
+
+        return nonce;
     }
 
     private static TrustManager[] getTrustManager() {
