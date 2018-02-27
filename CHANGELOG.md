@@ -11,3 +11,7 @@
 + Update corresponding test cases
 + Include Issue/PR templates
 + Include Contribution template
+### V1.1.1-SNAPSHOT
++ Minor refactoring
++ Update documentation
++ Update templates
