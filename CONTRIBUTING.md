@@ -1,4 +1,4 @@
-## Contributing:
+## Contributing
 We welcome your involvement, be it fixing bugs or implementing new features that you find relevant to this library.
 
 To contribute, you may follow the steps below:
