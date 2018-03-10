@@ -5,17 +5,36 @@
 
 A java helper utilities that form HTTP security header for authentication and verification
 
+## Table of Contents
+- [Getting Started](#getting-started)
+    * [Using Maven](#maven-guide)
+        + [Maven Build Option](#maven-build-option)
+    * [Using Gradle](#gradle-guide)
+        + [Preparation](#preparation)
+        + [Gradle Build Option](#gradle-build-option)
+        + [Gradle Test](#gradle-test)
+    * [Development](#development)
+        + [Constructing Signature BaseString](#constructing-signature-basestring)
+        + [Constructing HMAC256 L1 Header](#constructing-hmac256-l1-header)
+        + [Constructing RSA256 L2 Header](#constructing-rsa256-l2-header)
+        + [Preparing HTTP Signature Token](#preparing-http-signature-token)
+- [Release](#release)
+- [Contributing](#contributing)
+- [License](#license)
+- [References](#references)
+
 ## Getting Started
 Include this helper class in your java project to perform API Security operations
 
 This project use Maven or Gradle as its build and management tools
+
 
 ### Maven Guide
 
 + Download and Install Maven (3.5.0 or above)
 + Java (1.8)
 
-#### Build
+#### Maven Build Option
 
 **Option 1:** Compile and package into JAR
 
@@ -76,14 +95,14 @@ As some of the test cases contains UTF-8 characters, you have to set following p
 export GRADLE_OPTS="-Dfile.encoding=utf-8" 
 ```
 
-#### Build
+#### Gradle Build Option
 **Option 1:** Compile and package into JAR
 
 ```bash
 gradle clean build
 ```
 
-#### Test
+#### Gradle Test
 To test with Jacoco and publish a html report
 
 ```bash
@@ -111,9 +130,9 @@ dependencies {
 	
 ```
 
-#### Development
+### Development
 
-##### Preparing Signature BaseString :
+#### Constructing Signature BaseString 
 
 Method: 
 * getBaseString
@@ -156,7 +175,7 @@ System.out.println(baseString);
                                       
 ```
 
-##### Preparing HMACSHA256 L1 Security Signature :
+#### Constructing HMAC256 L1 Header
 
 Method:
 * getHMACSignature
@@ -180,7 +199,7 @@ try {
 
 ```
 
-##### Preparing RSA256 L2 Security Signature :
+#### Constructing RSA256 L2 Header
 
 Method:
 * getRSASignature
@@ -213,7 +232,7 @@ try {
 
 ```
 
-##### Preparing HTTP Signature Token :
+#### Preparing HTTP Signature Token 
 
 Append this signature token into the Authorization header of the HTTP request
 
@@ -250,13 +269,16 @@ try {
 }
 ```
 
-### Contributing
-+ For more information about contributing PRs and issues, see [CONTRIBUTING.md](CONTRIBUTING.md).
+## Contributing
+For more information about contributing PRs and issues, see [CONTRIBUTING.md](.github/CONTRIBUTING.md).
 
-### Release
-+ See [CHANGELOG.md](CHANGELOG.md).
+## Release
+See [CHANGELOG.md](CHANGELOG.md).
 
-### Reference: 
+## License
+[MIT LICENSE](LICENSE).
+
+## References
 + [UTF-8 in Gradle](https://stackoverflow.com/questions/21267234/show-utf-8-text-properly-in-gradle)
 + [SLF4J FAQ](https://www.slf4j.org/faq.html)
 + [Akana API Consumer Security](http://docs.akana.com/ag/cm_policies/using_api_consumer_app_sec_policy.htm)

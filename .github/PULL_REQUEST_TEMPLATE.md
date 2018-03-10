@@ -12,8 +12,10 @@ Please delete options that are not relevant.
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] This change requires a documentation update
+- [ ] Code enhancement and update (non-breaking change)
+- [ ] Security patch
 
-# How Has This Been Tested?
+## How Has This Been Tested?
 
 Please describe or list the test cases that you ran to verify your changes, and provide instructions so we can reproduce. 
 
