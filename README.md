@@ -9,6 +9,7 @@ A java helper utilities that form HTTP security header for authentication and ve
 - [Getting Started](#getting-started)
     * [Using Maven](#maven-guide)
         + [Maven Build Option](#maven-build-option)
+        + [Maven Test](#maven-test)
     * [Using Gradle](#gradle-guide)
         + [Preparation](#preparation)
         + [Gradle Build Option](#gradle-build-option)
@@ -64,7 +65,7 @@ mvn install
 <dependency>
     <groupId>com.api.util</groupId>
     <artifactId>ApiSecurity</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1.2-SNAPSHOT</version>
 </dependency>
   	
 ```
@@ -81,6 +82,13 @@ mvn install
     <version>1.7.25</version>
 </dependency>
   	
+```
+
+#### Maven Test
+To execute unit-test with Maven command
+
+```bash
+mvn test
 ```
 
 ### Gradle Guide
