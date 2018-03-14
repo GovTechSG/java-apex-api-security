@@ -15,3 +15,6 @@
 + Minor refactoring
 + Update documentation
 + Update templates
+### V1.1.2-SNAPSHOT
++ Minor refactoring
++ Update documentation
