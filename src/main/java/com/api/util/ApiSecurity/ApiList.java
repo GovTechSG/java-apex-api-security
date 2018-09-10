@@ -21,15 +21,15 @@ public class ApiList extends ArrayList<Entry<String,String>>{
 		this.add(item);
 	}
 	
-	public String toString() {
+	public String toString(Boolean isBaseString) {
 		String delimiter = "&";
 		Boolean sort = true;
 		Boolean quote = false;
 		
-		return this.toString(delimiter, sort, quote);
+		return this.toString(delimiter, sort, quote, isBaseString);
 	}
 	
-	public String toString(String delimiter, Boolean sort, Boolean quote)
+	public String toString(String delimiter, Boolean sort, Boolean quote, Boolean isBaseString)
 	{
 		List<String> list = new ArrayList<String>();
 		
@@ -43,7 +43,7 @@ public class ApiList extends ArrayList<Entry<String,String>>{
 						return l1.getKey().equals(l2.getKey()) ? l1.getValue().compareTo(l2.getValue())
 									: l1.getKey().compareTo(l2.getKey());
 					})
-					.map(e -> String.format(format, e.getKey(), e.getValue()))
+					.map(e -> (e.getValue()=="" && isBaseString) ? e.getKey() : String.format(format, e.getKey(), e.getValue())  )
 					.collect(Collectors.toList());
 		} else{
 			list = this.stream().map(e -> String.format(format, e.getKey(), e.getValue()))
