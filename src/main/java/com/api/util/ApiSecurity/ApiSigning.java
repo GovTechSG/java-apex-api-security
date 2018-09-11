@@ -5,8 +5,6 @@ import org.slf4j.LoggerFactory;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -27,7 +25,6 @@ import java.util.Base64;
 public class ApiSigning {
 
     private static final Logger log = LoggerFactory.getLogger(ApiSigning.class);
-    private final static String USER_AGENT = "Mozilla/5.0";
 
     /**
      * Create HMACRSA256 Signature (L1) with a given basestring
@@ -411,16 +408,21 @@ public class ApiSigning {
             ApiList paramList = new ApiList();
 
             // process QueryString from url by transfering it to paramList
-            if (siteUri.getQuery().length() > 1) {
+            if (null != siteUri.getQuery()) {
                 String queryString = siteUri.getRawQuery();
                 log.debug("queryString:: {}", queryString);
 
                 String[] paramArr = queryString.split("&");
                 for (String item : paramArr) {
-                    log.debug("item:: {}", item);
+                    log.debug("queryItem:: {}", item);
                     String[] itemArr = item.split("=");
                     try {
-                        paramList.add(itemArr[0], java.net.URLDecoder.decode(itemArr[1], StandardCharsets.UTF_8.toString()));
+                    	if(itemArr.length == 1) {
+                    		paramList.add(itemArr[0], "");
+                    	}else {
+                    		paramList.add(itemArr[0], java.net.URLDecoder.decode(itemArr[1], StandardCharsets.UTF_8.toString()));
+                    	}
+                        //paramList.add(itemArr[0], java.net.URLDecoder.decode(itemArr[1], StandardCharsets.UTF_8.toString()));
                     } catch (UnsupportedEncodingException e) {
                         throw e;
                     }
@@ -439,7 +441,7 @@ public class ApiSigning {
             paramList.add(authPrefix + "_signature_method", signatureMethod);
             paramList.add(authPrefix + "_version", "1.0");
 
-            baseString = httpMethod.toUpperCase() + "&" + url + "&" + paramList.toString();
+            baseString = httpMethod.toUpperCase() + "&" + url + "&" + paramList.toString(true);
 
         } catch (ApiUtilException ae) {
             log.error("Error :: getBaseString :: " + ae.getMessage());
@@ -499,7 +501,7 @@ public class ApiSigning {
 
             // Generate the nonce value
             try {
-                nonce = nonce != null ? nonce : Long.toString(getNewNonce());
+                nonce = (nonce != null && !nonce.isEmpty())  ? nonce : getNewNonce();
             } catch (NoSuchAlgorithmException nsae) {
                 throw nsae;
             }
@@ -534,7 +536,7 @@ public class ApiSigning {
             tokenList.add(authPrefix + "_signature", base64Token);
             tokenList.add(authPrefix + "_version", "1.0");
 
-            authorizationToken = String.format("%s %s", authPrefix.substring(0, 1).toUpperCase() + authPrefix.substring(1), tokenList.toString(", ", false, true));
+            authorizationToken = String.format("%s %s", authPrefix.substring(0, 1).toUpperCase() + authPrefix.substring(1), tokenList.toString(", ", false, true, false));
 
         } catch (ApiUtilException ae) {
             log.error("Error :: getToken :: " + ae.getMessage());
@@ -553,33 +555,13 @@ public class ApiSigning {
         return System.currentTimeMillis();
     }
 
-    private static long getNewNonce() throws NoSuchAlgorithmException {
-        long nonce = 0;
-
-        nonce = SecureRandom.getInstance("SHA1PRNG").nextLong();
-
+    private static String getNewNonce() throws NoSuchAlgorithmException {
+        String nonce = null;
+        byte[] b = new byte[32];
+        SecureRandom.getInstance("SHA1PRNG").nextBytes(b);
+        nonce = Base64.getEncoder().encodeToString(b);
+        
         return nonce;
-    }
-
-    private static TrustManager[] getTrustManager() {
-        // Create a trust manager that does not validate certificate chains
-        TrustManager[] trustAllCerts = new TrustManager[]{
-                new X509TrustManager() {
-                    public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                        return null;
-                    }
-
-                    public void checkClientTrusted(
-                            java.security.cert.X509Certificate[] certs, String authType) {
-                    }
-
-                    public void checkServerTrusted(
-                            java.security.cert.X509Certificate[] certs, String authType) {
-                    }
-                }
-        };
-
-        return trustAllCerts;
     }
 
 }

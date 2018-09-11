@@ -18,3 +18,7 @@
 ### V1.1.2-SNAPSHOT
 + Minor refactoring
 + Update documentation
+### V1.2.0-SNAPSHOT
++ Bug fixes for null value checking
++ Update basestring method to suppport use-case where value of queryparam or form value is empty
++ Update nonce method to generate base64 encoded string value of 32 bytes characters
