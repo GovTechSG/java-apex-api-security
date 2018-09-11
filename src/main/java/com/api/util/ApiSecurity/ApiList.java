@@ -43,7 +43,7 @@ public class ApiList extends ArrayList<Entry<String,String>>{
 						return l1.getKey().equals(l2.getKey()) ? l1.getValue().compareTo(l2.getValue())
 									: l1.getKey().compareTo(l2.getKey());
 					})
-					.map(e -> (e.getValue()=="" && isBaseString) ? e.getKey() : String.format(format, e.getKey(), e.getValue())  )
+					.map(e -> (null!= e.getValue() && e.getValue().equals("") && isBaseString) ? e.getKey() : String.format(format, e.getKey(), e.getValue())  )
 					.collect(Collectors.toList());
 		} else{
 			list = this.stream().map(e -> String.format(format, e.getKey(), e.getValue()))

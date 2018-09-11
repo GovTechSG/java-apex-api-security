@@ -501,7 +501,7 @@ public class ApiSigning {
 
             // Generate the nonce value
             try {
-                nonce = nonce != null ? nonce : getNewNonce();
+                nonce = (nonce != null && !nonce.isEmpty())  ? nonce : getNewNonce();
             } catch (NoSuchAlgorithmException nsae) {
                 throw nsae;
             }
