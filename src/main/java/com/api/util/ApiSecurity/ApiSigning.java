@@ -1,14 +1,29 @@
 package com.api.util.ApiSecurity;
 
+import org.bouncycastle.asn1.ASN1Sequence;
+import org.bouncycastle.asn1.DERInteger;
+import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
+import org.bouncycastle.openssl.PEMDecryptorProvider;
+import org.bouncycastle.openssl.PEMEncryptedKeyPair;
+import org.bouncycastle.openssl.PEMKeyPair;
+import org.bouncycastle.openssl.PEMParser;
+import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter;
+import org.bouncycastle.openssl.jcajce.JcePEMDecryptorProviderBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
@@ -16,7 +31,14 @@ import java.security.*;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.security.interfaces.RSAPublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.RSAPrivateCrtKeySpec;
+import java.security.spec.RSAPrivateKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
+import java.util.Enumeration;
 
 
 /**
@@ -242,7 +264,6 @@ public class ApiSigning {
      */
     public static PrivateKey getPrivateKeyFromKeyStore(String keystoreFileName, String password, String alias) throws ApiUtilException {
         log.debug("Enter :: getPrivateKeyFromKeyStore :: keystoreFileName : {} , password: {} , alias: {} ", keystoreFileName, password, alias);
-
         //Initialization
         KeyStore ks = null;
         PrivateKey privateKey = null;
@@ -301,7 +322,7 @@ public class ApiSigning {
 
         return privateKey;
     }
-
+    
     /**
      * Get Public Key from Certificate
      *
@@ -353,7 +374,50 @@ public class ApiSigning {
         log.debug("Exit :: getPublicKeyFromX509Certificate");
         return pk;
     }
-
+    
+    /**
+     * @param key
+     * @return
+     * @throws IOException
+     * @throws GeneralSecurityException
+     */
+    public static PublicKey getPublicKeyPEM(String publicCertificateFileName) throws IOException, GeneralSecurityException {
+    	//log.debug("Enter :: getPublicKeyFromPubKey :: publicCertificateFileName : {} ", publicCertificateFileName);
+    	
+    	
+    	log.debug("Enter :: getPublicKeyPEM :: publicCertificateFileName : {} ", publicCertificateFileName);
+		PublicKey key = null;
+		PEMParser pemParser = null;
+		Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+		try{
+			File publicCertificateFile = new File(publicCertificateFileName); // private key file in PEM format
+			pemParser = new PEMParser(new FileReader(publicCertificateFile));
+			Object object = pemParser.readObject();
+			JcaPEMKeyConverter converter = new JcaPEMKeyConverter();
+			SubjectPublicKeyInfo keyInfo;
+			
+			KeyPair kp = null;
+			if(object instanceof SubjectPublicKeyInfo){
+				keyInfo = (SubjectPublicKeyInfo) object;
+				key = converter.getPublicKey(keyInfo);
+			}else{
+				kp = converter.getKeyPair(((PEMKeyPair) object));
+				key = kp.getPublic();
+			}
+			
+		}catch(Exception e){
+			log.error(e.getMessage(),e);
+			throw e;
+		}finally{
+			if(null!=pemParser){
+				pemParser.close();
+			}
+		}     
+        log.debug("Exit :: getPublicKeyPEM");
+        
+        return key;         
+    }
+    
     /**
      * Formulate Signature BaseString
      *
@@ -444,9 +508,11 @@ public class ApiSigning {
             baseString = httpMethod.toUpperCase() + "&" + url + "&" + paramList.toString(true);
 
         } catch (ApiUtilException ae) {
-            log.error("Error :: getBaseString :: " + ae.getMessage());
+        	ae.printStackTrace();
+            log.error("Error :: getBaseString :: " + ae.getMessage() ,ae);
             throw ae;
         } catch (Exception e) {
+        	e.printStackTrace();
             log.error("Error :: getBaseString :: " + e.getMessage());
             throw new ApiUtilException("Error while getting Base String", e);
         }
@@ -508,20 +574,35 @@ public class ApiSigning {
             timestamp = timestamp != null ? timestamp : Long.toString(getNewTimestamp());
 
 
-            if (secret != null) {
-                signatureMethod = "HMACSHA256";
-            } else {
-                signatureMethod = "SHA256withRSA";
-            }
+//            if (secret != null) {
+//                signatureMethod = "HMACSHA256";
+//            } else {
+//                signatureMethod = "SHA256withRSA";
+//            }
+            if(authPrefix.toLowerCase().contains("l1")){
+    			signatureMethod = "HMACSHA256";
+    		}else if(authPrefix.toLowerCase().contains("l2")){
+    			signatureMethod = "SHA256withRSA";
+    		}else{
+    			throw new ApiUtilException("Invalid Authorization Prefix.");
+    		}
 
             String baseString = getBaseString(authPrefix, signatureMethod
                     , appId, urlPath, httpMethod
                     , formList, nonce, timestamp);
 
-            if (secret != null) {
+            if (signatureMethod.equals("HMACSHA256")) {
                 base64Token = getHMACSignature(baseString, secret);
-            } else {
-                PrivateKey privateKey = getPrivateKeyFromKeyStore(fileName, password, alias);
+            } else if(signatureMethod.equals("SHA256withRSA")){
+            	PrivateKey privateKey = null;
+            	if(null!=fileName && (fileName.contains(".key")||fileName.contains(".pem"))){
+            		privateKey = ApiSigning.getPrivateKeyPEM(fileName, password);
+            	}else{
+            		//For JKS file
+            		privateKey = ApiSigning.getPrivateKeyFromKeyStore(fileName, password, alias);
+            	}
+            			
+                //PrivateKey privateKey = getPrivateKeyFromKeyStore(fileName, password, alias);
                 base64Token = getRSASignature(baseString, privateKey);
 
             }
@@ -529,12 +610,13 @@ public class ApiSigning {
             ApiList tokenList = new ApiList();
 
             tokenList.add("realm", realm);
-            tokenList.add(authPrefix + "_timestamp", timestamp);
-            tokenList.add(authPrefix + "_nonce", nonce);
             tokenList.add(authPrefix + "_app_id", appId);
+            tokenList.add(authPrefix + "_nonce", nonce);     
             tokenList.add(authPrefix + "_signature_method", signatureMethod);
-            tokenList.add(authPrefix + "_signature", base64Token);
+            tokenList.add(authPrefix + "_timestamp", timestamp);
             tokenList.add(authPrefix + "_version", "1.0");
+            tokenList.add(authPrefix + "_signature", base64Token);
+            
 
             authorizationToken = String.format("%s %s", authPrefix.substring(0, 1).toUpperCase() + authPrefix.substring(1), tokenList.toString(", ", false, true, false));
 
@@ -563,5 +645,37 @@ public class ApiSigning {
         
         return nonce;
     }
+
+
+	public static PrivateKey getPrivateKeyPEM(String privateKeyFileName, String password) throws IOException, GeneralSecurityException{
+		log.debug("Enter :: getPrivateKeyPEM :: privateKeyFileName : {} ", privateKeyFileName);
+		PrivateKey key = null;
+		PEMParser pemParser = null;
+		Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+		try{
+			File privateKeyFile = new File(privateKeyFileName); // private key file in PEM format
+			pemParser = new PEMParser(new FileReader(privateKeyFile));
+			Object object = pemParser.readObject();
+			PEMDecryptorProvider decProv = new    JcePEMDecryptorProviderBuilder().build(password.toCharArray());
+			JcaPEMKeyConverter converter = new JcaPEMKeyConverter();
+			KeyPair kp = null;
+			if (object instanceof PEMEncryptedKeyPair) {
+			    kp = converter.getKeyPair(((PEMEncryptedKeyPair) object).decryptKeyPair(decProv));
+			}else{
+				kp = converter.getKeyPair(((PEMKeyPair) object));
+			}
+			key = kp.getPrivate();
+		}catch(Exception e){
+			throw e;
+		}finally{
+			if(null!=pemParser){
+				pemParser.close();
+			}
+		}
+		log.debug("Exit :: getPrivateKeyPEM");
+		
+        return key;
+        
+	}
 
 }
