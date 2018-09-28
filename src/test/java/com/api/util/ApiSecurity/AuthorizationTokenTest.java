@@ -1,3 +1,4 @@
+package com.api.util.ApiSecurity;
 import com.api.util.ApiSecurity.ApiSigning;
 import com.api.util.ApiSecurity.ApiUtilException;
 import org.junit.Test;

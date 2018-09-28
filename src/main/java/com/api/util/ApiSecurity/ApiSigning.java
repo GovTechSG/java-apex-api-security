@@ -1,7 +1,5 @@
 package com.api.util.ApiSecurity;
 
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERInteger;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.openssl.PEMDecryptorProvider;
 import org.bouncycastle.openssl.PEMEncryptedKeyPair;
@@ -15,15 +13,12 @@ import org.slf4j.LoggerFactory;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
@@ -31,14 +26,7 @@ import java.security.*;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-import java.security.interfaces.RSAPublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.PKCS8EncodedKeySpec;
-import java.security.spec.RSAPrivateCrtKeySpec;
-import java.security.spec.RSAPrivateKeySpec;
-import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
-import java.util.Enumeration;
 
 
 /**
@@ -573,12 +561,6 @@ public class ApiSigning {
             }
             timestamp = timestamp != null ? timestamp : Long.toString(getNewTimestamp());
 
-
-//            if (secret != null) {
-//                signatureMethod = "HMACSHA256";
-//            } else {
-//                signatureMethod = "SHA256withRSA";
-//            }
             if(authPrefix.toLowerCase().contains("l1")){
     			signatureMethod = "HMACSHA256";
     		}else if(authPrefix.toLowerCase().contains("l2")){
@@ -591,9 +573,9 @@ public class ApiSigning {
                     , appId, urlPath, httpMethod
                     , formList, nonce, timestamp);
 
-            if (signatureMethod.equals("HMACSHA256")) {
+            if ("HMACSHA256".equals(signatureMethod)) {
                 base64Token = getHMACSignature(baseString, secret);
-            } else if(signatureMethod.equals("SHA256withRSA")){
+            } else if("SHA256withRSA".equals(signatureMethod)){
             	PrivateKey privateKey = null;
             	if(null!=fileName && (fileName.contains(".key")||fileName.contains(".pem"))){
             		privateKey = ApiSigning.getPrivateKeyPEM(fileName, password);
