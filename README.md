@@ -133,7 +133,7 @@ repositories {
     mavenLocal()
 }
 dependencies {
-    compile group: 'com.api.util', name: 'ApiSecurity', version: '1.0-SNAPSHOT'
+    compile group: 'com.api.util', name: 'ApiSecurity', version: '1.3.0-SNAPSHOT'
 }
 	
 ```
@@ -148,7 +148,7 @@ Params:
 * realm
 * authPrefix - Authorization Header scheme prefix , i.e 'Apex_l2_eg'
 * httpMethod
-* urlPath
+* urlPath - Signing URL, remember to append <<tenant>>.e.api.gov.sg or <<tenant>>-pvt.i.api.gov.sg in <<URL>>
 * appId - App ID created in Gateway
 * secret - set to null for REST L2 SHA256WITHRSA
 * formList - to support parameter for form data if any
@@ -163,18 +163,33 @@ Params:
 String realm = "<<your_client_host_url>>"
 String authPrefix = "<<authPrefix>>
 String httpMethod = "get"
-String url = "https://<<Target_URL>>/api/v1/?param1=first&param2=123";
+//Append the query param in the url or else add as ApiList 
+String signingUrl = "https://<<URL>>/api/v1/?param1=first&param2=123";
 String certFileName = "certificates/ssc.alpha.example.com.p12";
 String password = "<<passphrase>>";
 String alias = "alpha";
 String appId = "<<appId>>";
 String secret = null;
+//only needed for Content-Type: application/x-www-form-urlencoded, else null
 ApiList formList = null;
 String nonce = null;
 String timestamp = null;
 
+
+//optional for QueryParam - in-case not append the query parameters in the signingUrl
+//Sring signingUrl = "https://<<tenant>>-pvt.i.api.gov.sg/api/v1"
+ApiList queryParam = new ApiList();
+queryParam.add("query1","value1");
+
+//optional for formList
+ApiList formList = new ApiList();
+formList.add("param1", "data1");
+
+//If queryParam and formList are both available, combine the list before submitting
+formList.addAll(queryParam);
+
 try {
-    String signature = ApiSigning.getSignatureToken(authPrefix, authPrefix, httpMethod, url, appId, secret, formList, password, alias, certFileName, nonce, timestamp);
+    String signature = ApiSigning.getSignatureToken(authPrefix, authPrefix, httpMethod, signingUrl, appId, secret, formList, password, alias, certFileName, nonce, timestamp);
 } catch (ApiUtilException e) {
     e.printStackTrace();
 }
@@ -196,7 +211,7 @@ Params:
 * timestamp - set to null for current timestamp
 
 ```java
-String url = "https://<<Target_URL>>/api/v1/?param1=first&param2=123";
+String signingUrl = "https://<<URL>>/api/v1/?param1=first&param2=123";
 
 ApiList formList = new ApiList();
 formList.add("param1", "data1");
@@ -208,7 +223,7 @@ baseString = ApiSigning.getBaseString(
     "<<authPrefix>>",
     "HMACSHA256",
     "<<appId>>",
-    url,
+    signingUrl,
     "post",
     formList,
     "6584351262900708156",

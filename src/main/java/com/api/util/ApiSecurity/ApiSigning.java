@@ -364,8 +364,10 @@ public class ApiSigning {
     }
     
     /**
-     * @param key
-     * @return
+     * Get Public Key from PEM format file
+     * 
+     * @param publicCertificateFileName PEM file path
+     * @return Public Key
      * @throws IOException
      * @throws GeneralSecurityException
      */
@@ -619,6 +621,12 @@ public class ApiSigning {
         return System.currentTimeMillis();
     }
 
+    /**
+     * Get new Nonce value used for signature generation 
+     * 
+     * @return nonce value
+     * @throws NoSuchAlgorithmException
+     */
     private static String getNewNonce() throws NoSuchAlgorithmException {
         String nonce = null;
         byte[] b = new byte[32];
@@ -629,6 +637,15 @@ public class ApiSigning {
     }
 
 
+	/**
+	 * Get Private Key from PEM format file
+	 * 
+	 * @param privateKeyFileName PEM file path
+	 * @param password
+	 * @return Private Key
+	 * @throws IOException
+	 * @throws GeneralSecurityException
+	 */
 	public static PrivateKey getPrivateKeyPEM(String privateKeyFileName, String password) throws IOException, GeneralSecurityException{
 		log.debug("Enter :: getPrivateKeyPEM :: privateKeyFileName : {} ", privateKeyFileName);
 		PrivateKey key = null;
