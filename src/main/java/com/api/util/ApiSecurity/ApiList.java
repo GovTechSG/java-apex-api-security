@@ -1,7 +1,6 @@
 package com.api.util.ApiSecurity;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
@@ -13,7 +12,7 @@ import java.util.stream.Collectors;
 public class ApiList extends ArrayList<Entry<String,String>>{
 
 	private static final long serialVersionUID = 1L;
-
+	
 	public void add(String key, String value)
 	{
 		Entry<String, String> item = new SimpleEntry<String, String>(key, value);
@@ -43,7 +42,7 @@ public class ApiList extends ArrayList<Entry<String,String>>{
 						return l1.getKey().equals(l2.getKey()) ? l1.getValue().compareTo(l2.getValue())
 									: l1.getKey().compareTo(l2.getKey());
 					})
-					.map(e -> (null!= e.getValue() && e.getValue().equals("") && isBaseString) ? e.getKey() : String.format(format, e.getKey(), e.getValue())  )
+					.map(e -> (null== e.getValue() || (null!= e.getValue() && e.getValue().isEmpty()) && isBaseString) ? e.getKey() : String.format(format, e.getKey(), e.getValue())  )
 					.collect(Collectors.toList());
 		} else{
 			list = this.stream().map(e -> String.format(format, e.getKey(), e.getValue()))

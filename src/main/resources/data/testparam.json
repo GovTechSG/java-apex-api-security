@@ -1,0 +1,25 @@
+{
+  "id": "7",
+  "description": "HTTPCall - XX QueryString/formData with array, json object, null value and empty param",
+  "apiName": "[FT] Helloworld REST L2 External-External",
+  "message": "message",
+  "publicCertFileName":"cert/alpha/training.alpha.apex.lab.public.pem",
+  "skipTest": ["java","nodejs"],
+  "errorTest":"error",
+  "apiParam": {
+    "realm": "apex.l2.test",
+    "authPrefix": "Apex_l2_eg",
+    "appId": "training-3O9HWXNyVT0701KyJIZte787",
+    "invokeUrl": "https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex/1?nullValue1=a&nullValue1=d",
+    "signatureUrl": "https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex/1?nullValue1=a&nullValue1=d",
+    "httpMethod": "POST",
+    "queryString": {},
+    "formData": {},
+    "privateCertFileName": "cert/alpha/training.alpha.apex.lab.nopass.pem",
+    "nonce": "1536044563255",
+    "timestamp": "HuEN209VggqJ9RQQ0fM", 
+    "secret": "secret",
+    "signature":"signature"
+  },
+  "expectedResult": {}
+}

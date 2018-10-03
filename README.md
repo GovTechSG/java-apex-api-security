@@ -65,7 +65,7 @@ mvn install
 <dependency>
     <groupId>com.api.util</groupId>
     <artifactId>ApiSecurity</artifactId>
-    <version>1.2.0-SNAPSHOT</version>
+    <version>1.3.0-SNAPSHOT</version>
 </dependency>
   	
 ```
@@ -133,20 +133,75 @@ repositories {
     mavenLocal()
 }
 dependencies {
-    compile group: 'com.api.util', name: 'ApiSecurity', version: '1.0-SNAPSHOT'
+    compile group: 'com.api.util', name: 'ApiSecurity', version: '1.3.0-SNAPSHOT'
 }
 	
 ```
 
 ### Development
 
-#### Constructing Signature BaseString 
+#### Preparing HTTP Signature Token 
+
+Append this signature token into the Authorization header of the HTTP request
+
+Params:
+* realm
+* authPrefix - Authorization Header scheme prefix , i.e 'Apex_l2_eg'
+* httpMethod
+* urlPath - Signing URL, remember to append <<tenant>>.e.api.gov.sg or <<tenant>>-pvt.i.api.gov.sg in <<URL>>
+* appId - App ID created in Gateway
+* secret - set to null for REST L2 SHA256WITHRSA
+* formList - to support parameter for form data if any
+* password
+* alias
+* fileName
+* nonce - set to null for random generated number
+* timestamp - set to null for current timestamp
+
+
+```java
+String realm = "<<your_client_host_url>>"
+String authPrefix = "<<authPrefix>>
+String httpMethod = "get"
+//Append the query param in the url or else add as ApiList 
+String signingUrl = "https://<<URL>>/api/v1/?param1=first&param2=123";
+String certFileName = "certificates/ssc.alpha.example.com.p12";
+String password = "<<passphrase>>";
+String alias = "alpha";
+String appId = "<<appId>>";
+String secret = null;
+//only needed for Content-Type: application/x-www-form-urlencoded, else null
+ApiList formList = null;
+String nonce = null;
+String timestamp = null;
+
+
+//optional for QueryParam - in-case not append the query parameters in the signingUrl
+//Sring signingUrl = "https://<<tenant>>-pvt.i.api.gov.sg/api/v1"
+ApiList queryParam = new ApiList();
+queryParam.add("query1","value1");
+
+//optional for formList
+ApiList formList = new ApiList();
+formList.add("param1", "data1");
+
+//If queryParam and formList are both available, combine the list before submitting
+formList.addAll(queryParam);
+
+try {
+    String signature = ApiSigning.getSignatureToken(authPrefix, authPrefix, httpMethod, signingUrl, appId, secret, formList, password, alias, certFileName, nonce, timestamp);
+} catch (ApiUtilException e) {
+    e.printStackTrace();
+}
+```
+
+#### Constructing Signature BaseString (for reference only)
 
 Method: 
 * getBaseString
 
 Params:
-* authPrefix - Authorization Header scheme prefix , i.e 'prefix_appId'
+* authPrefix - Authorization Header scheme prefix , i.e 'Apex_l2_eg'
 * signatureMethod
 * appId - App ID created in Gateway
 * urlPath
@@ -156,7 +211,7 @@ Params:
 * timestamp - set to null for current timestamp
 
 ```java
-String url = "https://<<URL>>/api/v1/?param1=first&ab-param2=123";
+String signingUrl = "https://<<URL>>/api/v1/?param1=first&param2=123";
 
 ApiList formList = new ApiList();
 formList.add("param1", "data1");
@@ -168,7 +223,7 @@ baseString = ApiSigning.getBaseString(
     "<<authPrefix>>",
     "HMACSHA256",
     "<<appId>>",
-    url,
+    signingUrl,
     "post",
     formList,
     "6584351262900708156",
@@ -183,7 +238,7 @@ System.out.println(baseString);
                                       
 ```
 
-#### Constructing HMAC256 L1 Header
+#### Constructing HMAC256 L1 Header (for reference only)
 
 Method:
 * getHMACSignature
@@ -207,7 +262,7 @@ try {
 
 ```
 
-#### Constructing RSA256 L2 Header
+#### Constructing RSA256 L2 Header (for reference only)
 
 Method:
 * getRSASignature
@@ -217,7 +272,7 @@ Params:
 * privateKey
 
 ```java
-String baseString = "GET&https://<<URL>/api/v1/&ap=裕廊坊 心邻坊&<<authPrefix>>_app_id=<<appId>>&<<authPrefix>>_nonce=7231415196459608363&<<authPrefix>>_signature_method=SHA256withRSA&<<authPrefix>>_timestamp=1502164219425&<<authPrefix>>_version=1.0&oq=c# nunit mac&q=c# nunit mac";
+String baseString = "GET&https://<<URL>/api/v1/&ap=裕廊坊 心邻坊&<<authPrefix>>_app_id=<<appId>>&<<authPrefix>>_nonce=7231415196459608363&<<authPrefix>>_signature_method=SHA256withRSA&<<authPrefix>>_timestamp=1502164219425&<<authPrefix>>_version=1.0&oq=123&q=abc";
 String alias = "alpha";
 String password = "<<passphrase>>";
 String keyStoreFileName = "certificates/ssc.alpha.example.com.p12";
@@ -238,43 +293,6 @@ try {
     e.printStackTrace();
 }
 
-```
-
-#### Preparing HTTP Signature Token 
-
-Append this signature token into the Authorization header of the HTTP request
-
-Params:
-* realm
-* authPrefix - Authorization Header scheme prefix , i.e 'prefix_appId'
-* httpMethod
-* urlPath
-* appId - App ID created in Gateway
-* secret - set to null for REST L2 SHA256WITHRSA
-* formList
-* password
-* alias
-* fileName
-* nonce - set to null for random generated number
-* timestamp - set to null for current timestamp 
-
-
-```java
-String url = "https://<<URL>>/api/v1/?ap=裕廊坊%20心邻坊";
-String certFileName = "certificates/ssc.alpha.example.com.p12";
-String password = "<<passphrase>>";
-String alias = "alpha";
-String appId = "<<appId>>";
-String secret = null;
-ApiList formList = null;
-String nonce = null;
-String timestamp = null;
-
-try {
-    String signature = ApiSigning.getSignatureToken("http://api.test.io/l2", "<<authPrefix>>", "get", url, appId, null, null, password, alias, certFileName, nonce, timestamp);
-} catch (ApiUtilException e) {
-    e.printStackTrace();
-}
 ```
 
 ## Contributing

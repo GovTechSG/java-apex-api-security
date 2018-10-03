@@ -22,3 +22,7 @@
 + Bug fixes for null value checking
 + Update basestring method to suppport use-case where value of queryparam or form value is empty
 + Update nonce method to generate base64 encoded string value of 32 bytes characters
+### V1.3.0-SNAPSHOT
++ Update test-suites framework to cover more use-case scenarios
++ Add Utility to read from PKI Key with PEM format
++ Update README documentation

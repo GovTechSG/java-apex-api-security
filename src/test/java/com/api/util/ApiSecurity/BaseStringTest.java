@@ -1,3 +1,4 @@
+package com.api.util.ApiSecurity;
 import static org.junit.Assert.*;
 import java.net.URISyntaxException;
 import org.junit.Test;
