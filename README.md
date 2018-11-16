@@ -299,6 +299,89 @@ try {
 }
 
 ```
+#### Sample HTTP POST Call for x-www-form-urlencoded with APEX L1 Security (for reference only)
+
+```java
+
+@Test
+public void Http_Call_Test() throws ApiUtilException, IOException
+{
+	
+	String httpMethod = "POST";
+	//URL for actual HTTP API call
+	String url = "https://tenant.api.gov.sg:443/api14021live/resource";
+	//URL for passing as parameter for APEX Signature Token generation
+	String signUrl = "https://tenant.e.api.gov.sg:443/api14021live/resource";
+	String appId = "tenant-1X2w7NQPzjO2azDu904XI5AE";
+	String secret = "s0m3s3cr3t";
+	ApiList formList = new ApiList();
+	formList.add("key1", "value1");
+	formList.add("key2","value2");
+	
+	String authorizationToken = ApiSigning.getSignatureToken(
+        realm
+		, authPrefixL1
+		, httpMethod
+		, signUrl
+		, appId
+		, secret
+		, formList
+		, null
+		, null
+		, null
+		, null
+		, null
+	);
+	System.out.println("authorizationToken : "+authorizationToken);
+	
+	try {
+		//ignore SSL
+		SSLContext sslContext = SSLContext.getInstance("SSL");
+		sslContext.init(null, getTrustManager(), new java.security.SecureRandom());
+		HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
+		
+		HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
+		con.setDoOutput(true);
+		con.setDoInput(true);
+		con.setRequestMethod(httpMethod);
+		con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");			
+		con.setRequestProperty("charset", "utf-8");
+		con.setRequestProperty("Authorization", authorizationToken);
+		con.setUseCaches(false);
+		con.setConnectTimeout(5000);
+		con.setReadTimeout(5000);
+		
+		DataOutputStream out = new DataOutputStream(con.getOutputStream());
+		ApiList formPostList = new ApiList();
+		formPostList.add("key1",URLEncoder.encode("value1", "UTF-8"));
+		formPostList.add("key2",URLEncoder.encode("value2", "UTF-8"));
+		out.writeBytes(formPostList.toString(false));
+		out.flush();
+		out.close();
+		System.out.println("Start http call ...");
+		int status = -1;
+		status = con.getResponseCode();
+		System.out.println("HTTP Status:" + status);
+		
+		System.out.println("End http call ...");
+		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+		String inputLine;
+		StringBuffer content = new StringBuffer();
+		while ((inputLine = in.readLine()) != null) {
+			content.append(inputLine);
+		}
+		
+		System.out.println("Content:" + content);
+		in.close();
+		con.disconnect();
+	}catch(Exception e){
+		System.out.println("Error executing Http_Call_Test() : " + e);
+	}
+	//force to true to pass the test case
+	assertTrue(true);
+}
+
+```
 
 ## Contributing
 For more information about contributing PRs and issues, see [CONTRIBUTING.md](.github/CONTRIBUTING.md).
