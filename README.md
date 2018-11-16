@@ -181,22 +181,22 @@ String timestamp = null;
 ApiList queryParam = new ApiList();
 queryParam.add("query1","value1");
 
-//optional for formList
-ApiList formList = new ApiList();
-formList.add("param1", "data1");
+//optional for formData (x-www-urlencoded)
+ApiList formData = new ApiList();
+formData.add("param1", "data1");
 
 //If queryParam and formList are both available, combine the list before submitting
-formList.addAll(queryParam);
+formData.addAll(queryParam);
 
 try {
-    String signature = ApiSigning.getSignatureToken(authPrefix, authPrefix, httpMethod, signingUrl, appId, secret, formList, password, alias, certFileName, nonce, timestamp);
+    String signature = ApiSigning.getSignatureToken(authPrefix, authPrefix, httpMethod, signingUrl, appId, secret, formData, password, alias, certFileName, nonce, timestamp);
 } catch (ApiUtilException e) {
     e.printStackTrace();
 }
 ```
 **NOTE** 
 
-For **formList** parameter used for Signature generation, the key value parameters **do not** need to be URL encoded, 
+For **formData** parameter used for Signature generation, the key value parameters **do not** need to be URL encoded, 
 When your client program is making the actual HTTP POST call, the key value parameters **has** to be URL encoded
 
 
