@@ -181,7 +181,7 @@ String timestamp = null;
 ApiList queryParam = new ApiList();
 queryParam.add("query1","value1");
 
-//optional for formData (x-www-urlencoded)
+//optional for formData
 formData = new ApiList();
 formData.add("param1", "data1");
 
