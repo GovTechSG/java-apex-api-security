@@ -171,7 +171,7 @@ String alias = "alpha";
 String appId = "<<appId>>";
 String secret = null;
 //only needed for Content-Type: application/x-www-form-urlencoded, else null
-ApiList formList = null;
+ApiList formData = null;
 String nonce = null;
 String timestamp = null;
 
@@ -182,7 +182,7 @@ ApiList queryParam = new ApiList();
 queryParam.add("query1","value1");
 
 //optional for formData (x-www-urlencoded)
-ApiList formData = new ApiList();
+formData = new ApiList();
 formData.add("param1", "data1");
 
 //If queryParam and formList are both available, combine the list before submitting
