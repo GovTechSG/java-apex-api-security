@@ -197,7 +197,7 @@ try {
 **NOTE** 
 
 For **formData** parameter used for Signature generation, the key value parameters **do not** need to be URL encoded, 
-When your client program is making the actual HTTP POST call, the key value parameters **has** to be URL encoded
+When your client program is making the actual HTTP POST call, the key value parameters **has** to be URL encoded (refer to **formPostData**)
 
 
 #### Constructing Signature BaseString (for reference only)
