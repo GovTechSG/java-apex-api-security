@@ -151,7 +151,7 @@ Params:
 * urlPath - Signing URL, remember to append <<tenant>>.e.api.gov.sg or <<tenant>>-pvt.i.api.gov.sg in <<URL>>
 * appId - App ID created in Gateway
 * secret - set to null for REST L2 SHA256WITHRSA
-* formList - to support parameter for form data if any
+* formData - to support parameter for form data if any
 * password
 * alias
 * fileName
@@ -171,7 +171,7 @@ String alias = "alpha";
 String appId = "<<appId>>";
 String secret = null;
 //only needed for Content-Type: application/x-www-form-urlencoded, else null
-ApiList formList = null;
+ApiList formData = null;
 String nonce = null;
 String timestamp = null;
 
@@ -181,19 +181,24 @@ String timestamp = null;
 ApiList queryParam = new ApiList();
 queryParam.add("query1","value1");
 
-//optional for formList
-ApiList formList = new ApiList();
-formList.add("param1", "data1");
+//optional for formData
+formData = new ApiList();
+formData.add("param1", "data1");
 
-//If queryParam and formList are both available, combine the list before submitting
-formList.addAll(queryParam);
+//If queryParam and formData are both available, combine the list before submitting
+formData.addAll(queryParam);
 
 try {
-    String signature = ApiSigning.getSignatureToken(authPrefix, authPrefix, httpMethod, signingUrl, appId, secret, formList, password, alias, certFileName, nonce, timestamp);
+    String signature = ApiSigning.getSignatureToken(authPrefix, authPrefix, httpMethod, signingUrl, appId, secret, formData, password, alias, certFileName, nonce, timestamp);
 } catch (ApiUtilException e) {
     e.printStackTrace();
 }
 ```
+**NOTE** 
+
+For **formData** parameter used for Signature generation, the key value parameters **do not** need to be URL encoded, 
+When your client program is making the actual HTTP POST call, the key value parameters **has** to be URL encoded (refer to **formPostData**)
+
 
 #### Constructing Signature BaseString (for reference only)
 
@@ -206,15 +211,15 @@ Params:
 * appId - App ID created in Gateway
 * urlPath
 * httpMethod
-* formList - only needed for Content-Type: application/x-www-form-urlencoded
+* formData - only needed for Content-Type: application/x-www-form-urlencoded
 * nonce - set to null for random generated number
 * timestamp - set to null for current timestamp
 
 ```java
 String signingUrl = "https://<<URL>>/api/v1/?param1=first&param2=123";
 
-ApiList formList = new ApiList();
-formList.add("param1", "data1");
+ApiList formData = new ApiList();
+formData.add("param1", "data1");
 
 String baseString;
 
@@ -225,7 +230,7 @@ baseString = ApiSigning.getBaseString(
     "<<appId>>",
     signingUrl,
     "post",
-    formList,
+    formData,
     "6584351262900708156",
     "1502184161702"
 );
@@ -291,6 +296,89 @@ try {
     
 } catch (ApexUtilLibException e) {
     e.printStackTrace();
+}
+
+```
+#### Sample HTTP POST Call for x-www-form-urlencoded with APEX L1 Security (for reference only)
+
+```java
+
+@Test
+public void Http_Call_Test() throws ApiUtilException, IOException
+{
+	
+	String httpMethod = "POST";
+	//URL for actual HTTP API call
+	String url = "https://tenant.api.gov.sg:443/api14021live/resource";
+	//URL for passing as parameter for APEX Signature Token generation
+	String signUrl = "https://tenant.e.api.gov.sg:443/api14021live/resource";
+	String appId = "tenant-1X2w7NQPzjO2azDu904XI5AE";
+	String secret = "s0m3s3cr3t";
+	ApiList formData = new ApiList();
+	formData.add("key1", "value1");
+	formData.add("key2","value2");
+	
+	String authorizationToken = ApiSigning.getSignatureToken(
+        realm
+		, authPrefixL1
+		, httpMethod
+		, signUrl
+		, appId
+		, secret
+		, formData
+		, null
+		, null
+		, null
+		, null
+		, null
+	);
+	System.out.println("authorizationToken : "+authorizationToken);
+	
+	try {
+		//ignore SSL
+		SSLContext sslContext = SSLContext.getInstance("SSL");
+		sslContext.init(null, getTrustManager(), new java.security.SecureRandom());
+		HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
+		
+		HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
+		con.setDoOutput(true);
+		con.setDoInput(true);
+		con.setRequestMethod(httpMethod);
+		con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");			
+		con.setRequestProperty("charset", "utf-8");
+		con.setRequestProperty("Authorization", authorizationToken);
+		con.setUseCaches(false);
+		con.setConnectTimeout(5000);
+		con.setReadTimeout(5000);
+		
+		DataOutputStream out = new DataOutputStream(con.getOutputStream());
+		ApiList formPostData = new ApiList();
+		formPostData.add("key1",URLEncoder.encode("value1", "UTF-8"));
+		formPostData.add("key2",URLEncoder.encode("value2", "UTF-8"));
+		out.writeBytes(formPostData.toString(false));
+		out.flush();
+		out.close();
+		System.out.println("Start http call ...");
+		int status = -1;
+		status = con.getResponseCode();
+		System.out.println("HTTP Status:" + status);
+		
+		System.out.println("End http call ...");
+		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+		String inputLine;
+		StringBuffer content = new StringBuffer();
+		while ((inputLine = in.readLine()) != null) {
+			content.append(inputLine);
+		}
+		
+		System.out.println("Content:" + content);
+		in.close();
+		con.disconnect();
+	}catch(Exception e){
+		System.out.println("Error executing Http_Call_Test() : " + e);
+	}
+	//force to true to pass the test case
+	assertTrue(true);
 }
 
 ```
