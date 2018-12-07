@@ -151,7 +151,7 @@ Params:
 * urlPath - Signing URL, remember to append <<tenant>>.e.api.gov.sg or <<tenant>>-pvt.i.api.gov.sg in <<URL>>
 * appId - App ID created in Gateway
 * secret - set to null for REST L2 SHA256WITHRSA
-* formList - to support parameter for form data if any
+* formData - to support parameter for form data if any
 * password
 * alias
 * fileName
@@ -185,7 +185,7 @@ queryParam.add("query1","value1");
 formData = new ApiList();
 formData.add("param1", "data1");
 
-//If queryParam and formList are both available, combine the list before submitting
+//If queryParam and formData are both available, combine the list before submitting
 formData.addAll(queryParam);
 
 try {
@@ -211,15 +211,15 @@ Params:
 * appId - App ID created in Gateway
 * urlPath
 * httpMethod
-* formList - only needed for Content-Type: application/x-www-form-urlencoded
+* formData - only needed for Content-Type: application/x-www-form-urlencoded
 * nonce - set to null for random generated number
 * timestamp - set to null for current timestamp
 
 ```java
 String signingUrl = "https://<<URL>>/api/v1/?param1=first&param2=123";
 
-ApiList formList = new ApiList();
-formList.add("param1", "data1");
+ApiList formData = new ApiList();
+formData.add("param1", "data1");
 
 String baseString;
 
@@ -230,7 +230,7 @@ baseString = ApiSigning.getBaseString(
     "<<appId>>",
     signingUrl,
     "post",
-    formList,
+    formData,
     "6584351262900708156",
     "1502184161702"
 );
@@ -314,9 +314,9 @@ public void Http_Call_Test() throws ApiUtilException, IOException
 	String signUrl = "https://tenant.e.api.gov.sg:443/api14021live/resource";
 	String appId = "tenant-1X2w7NQPzjO2azDu904XI5AE";
 	String secret = "s0m3s3cr3t";
-	ApiList formList = new ApiList();
-	formList.add("key1", "value1");
-	formList.add("key2","value2");
+	ApiList formData = new ApiList();
+	formData.add("key1", "value1");
+	formData.add("key2","value2");
 	
 	String authorizationToken = ApiSigning.getSignatureToken(
         realm
@@ -325,7 +325,7 @@ public void Http_Call_Test() throws ApiUtilException, IOException
 		, signUrl
 		, appId
 		, secret
-		, formList
+		, formData
 		, null
 		, null
 		, null
@@ -352,10 +352,10 @@ public void Http_Call_Test() throws ApiUtilException, IOException
 		con.setReadTimeout(5000);
 		
 		DataOutputStream out = new DataOutputStream(con.getOutputStream());
-		ApiList formPostList = new ApiList();
-		formPostList.add("key1",URLEncoder.encode("value1", "UTF-8"));
-		formPostList.add("key2",URLEncoder.encode("value2", "UTF-8"));
-		out.writeBytes(formPostList.toString(false));
+		ApiList formPostData = new ApiList();
+		formPostData.add("key1",URLEncoder.encode("value1", "UTF-8"));
+		formPostData.add("key2",URLEncoder.encode("value2", "UTF-8"));
+		out.writeBytes(formPostData.toString(false));
 		out.flush();
 		out.close();
 		System.out.println("Start http call ...");
