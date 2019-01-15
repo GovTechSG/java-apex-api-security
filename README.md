@@ -85,7 +85,13 @@ mvn install
 ```
 
 #### Maven Test
-To execute unit-test with Maven command
+Pull centralized Unit Test-cases from the following Github url: <https://github.com/GovTechSG/test-suites-apex-api-security/tree/master> with Mavem command (in project root folder)
+
+```bash
+mvn scm:checkout -D checkoutDirectory=src/main/resources/test-suites
+```
+
+To execute unit-test with Maven command (in project root folder)
 
 ```bash
 mvn test
