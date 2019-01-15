@@ -40,9 +40,7 @@ This project use Maven or Gradle as its build and management tools
 **Option 1:** Compile and package into JAR
 
 ```bash
-
 mvn package
-	
 ```
 
 The compiled _jar_ file will be located in the **target** folder
@@ -67,7 +65,6 @@ mvn install
     <artifactId>ApiSecurity</artifactId>
     <version>1.3.0-SNAPSHOT</version>
 </dependency>
-  	
 ```
  
 **Note:** 
@@ -85,7 +82,7 @@ mvn install
 ```
 
 #### Maven Test
-Pull centralized Unit Test-cases from the following Github url: <https://github.com/GovTechSG/test-suites-apex-api-security/tree/master> with Mavem command (in project root folder)
+Pull centralised Unit Test-cases from the following Github url: <https://github.com/GovTechSG/test-suites-apex-api-security/tree/master> with Mavem command (in project root folder)
 
 ```bash
 mvn scm:checkout -D checkoutDirectory=src/main/resources/test-suites
