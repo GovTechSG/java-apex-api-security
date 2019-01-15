@@ -26,3 +26,6 @@
 + Update test-suites framework to cover more use-case scenarios
 + Add Utility to read from PKI Key with PEM format
 + Update README documentation
+### V1.3.1-SNAPSHOT
++ Update dependency library for jackson-databind to version 2.9.8
++ Update mvn command to pull centralised unit-test cases from github repository
