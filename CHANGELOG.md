@@ -29,3 +29,5 @@
 ### V1.3.1-SNAPSHOT
 + Update dependency library for jackson-databind to version 2.9.8
 + Update mvn command to pull centralised unit-test cases from github repository
+### V1.3.2-SNAPSHOT
++ Update ApiSigning class to support non-standard http port

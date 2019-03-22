@@ -453,9 +453,15 @@ public class ApiSigning {
             if (!siteUri.getScheme().equals("http") && !siteUri.getScheme().equals("https")) {
                 throw new ApiUtilException("Support http and https protocol only.");
             }
-
+            
+            String url = null;
             // make sure that the port no and querystring are remove from url
-            String url = String.format("%s://%s%s", siteUri.getScheme(), siteUri.getHost(), siteUri.getPath());
+            if(siteUri.getPort()==-1 || siteUri.getPort()==80 ||  siteUri.getPort()==443){
+            	url = String.format("%s://%s%s", siteUri.getScheme(), siteUri.getHost(), siteUri.getPath());
+            }else{
+            	url = String.format("%s://%s:%s%s", siteUri.getScheme(), siteUri.getHost(), siteUri.getPort(), siteUri.getPath());
+            }
+            
             log.debug("url:: {}", url);
 
             // helper calss that handle parameters and form fields
