@@ -2,12 +2,12 @@
 
 ### V1.3.4-SNAPSHOT
 
-- Fixed vulnerablity CVE-2019-14379 and CVE-2019-14439
+- Fixed vulnerability CVE-2019-14379 and CVE-2019-14439
 
 ### V1.3.3-SNAPSHOT
 
 - Set TravisCI build dist to Trusty
-- Fixed vulnerablity CVE-2019-12814
+- Fixed vulnerability CVE-2019-12814
 
 ### V1.3.2-SNAPSHOT
 
