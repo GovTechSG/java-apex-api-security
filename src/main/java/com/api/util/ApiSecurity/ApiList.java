@@ -3,7 +3,6 @@ import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
-import java.util.stream.Collectors;
 
 /**
  * @author GDS-PDD
@@ -36,17 +35,22 @@ public class ApiList extends ArrayList<Entry<String,String>>{
 		
 		/* Sort key first then value*/
 		if (sort){
-			list = this.stream()
-					.sorted((Entry<String,String> l1, Entry<String,String> l2) -> 
-					{
-						return l1.getKey().equals(l2.getKey()) ? l1.getValue().compareTo(l2.getValue())
-									: l1.getKey().compareTo(l2.getKey());
-					})
-					.map(e -> (null== e.getValue() || (null!= e.getValue() && e.getValue().isEmpty()) && isBaseString) ? e.getKey() : String.format(format, e.getKey(), e.getValue())  )
-					.collect(Collectors.toList());
+			List<Entry<String, String>> toSort = new ArrayList<>(this);
+			toSort.sort((Entry<String, String> l1, Entry<String, String> l2) ->
+					l1.getKey().equals(l2.getKey()) ? l1.getValue().compareTo(l2.getValue()) : l1.getKey().compareTo(l2.getKey()));
+			List<String> result = new ArrayList<>();
+			for (Entry<String, String> e : toSort) {
+				String s = null == e.getValue() || e.getValue().isEmpty() && isBaseString ? e.getKey() : String.format(format, e.getKey(), e.getValue());
+				result.add(s);
+			}
+			list = result;
 		} else{
-			list = this.stream().map(e -> String.format(format, e.getKey(), e.getValue()))
-					.collect(Collectors.toList());
+            List<String> result = new ArrayList<>();
+            for (Entry<String, String> e : this) {
+                String s = String.format(format, e.getKey(), e.getValue());
+                result.add(s);
+            }
+            list = result;
 		}
 		
 		return String.join(delimiter, list);
