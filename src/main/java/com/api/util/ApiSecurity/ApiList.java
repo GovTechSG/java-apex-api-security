@@ -48,16 +48,14 @@ public class ApiList extends ArrayList<Entry<String,String>>{
 
 			for (Entry<String, String> e : toSort) {
 				String s = (e.getValue() == null || e.getValue().isEmpty() && isBaseString) ? e.getKey() :
-                        String.format(format, e.getKey(), e.getValue());
-                list.add(s);
+						String.format(format, e.getKey(), e.getValue());
+				list.add(s);
 			}
-		} else{
-            List<String> result = new ArrayList<>();
-            for (Entry<String, String> e : this) {
-                String s = String.format(format, e.getKey(), e.getValue());
-				result.add(s);
+		} else {
+			for (Entry<String, String> e : this) {
+				String s = String.format(format, e.getKey(), e.getValue());
+				list.add(s);
 			}
-			list = result;
 		}
 
 		StringBuilder stringBuilder = new StringBuilder();
