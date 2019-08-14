@@ -45,12 +45,12 @@ public class ApiList extends ArrayList<Entry<String,String>>{
 							l1.getKey().compareTo(l2.getKey());
 				}
 			});
-			List<String> result = new ArrayList<>();
+
 			for (Entry<String, String> e : toSort) {
-				String s = null == e.getValue() || e.getValue().isEmpty() && isBaseString ? e.getKey() : String.format(format, e.getKey(), e.getValue());
-				result.add(s);
+				String s = (e.getValue() == null || e.getValue().isEmpty() && isBaseString) ? e.getKey() :
+                        String.format(format, e.getKey(), e.getValue());
+                list.add(s);
 			}
-			list = result;
 		} else{
             List<String> result = new ArrayList<>();
             for (Entry<String, String> e : this) {
