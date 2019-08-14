@@ -1,6 +1,8 @@
 package com.api.util.ApiSecurity;
 import com.api.util.ApiSecurity.ApiSigning;
 import com.api.util.ApiSecurity.ApiUtilException;
+import org.hamcrest.CoreMatchers;
+import org.junit.Assume;
 import org.junit.Test;
 
 import java.io.File;
@@ -99,10 +101,11 @@ public class AuthorizationTokenTest {
 	}
 	
 	@Test
-	public void Test_L2_Wrong_Password_Test() throws ApiUtilException
+	public void Test_L2_Wrong_Password_Test_Java7() throws ApiUtilException
 	{
-		String expectedMessage = "keystore password was incorrect";
-		
+		Assume.assumeThat(System.getProperty("java.version"), CoreMatchers.startsWith("1.7"));
+		String expectedMessage = "failed to decrypt safe contents entry: javax.crypto.BadPaddingException: Given final block not properly padded";
+
 		try {
 			ApiSigning.getSignatureToken(
 				realm
@@ -125,7 +128,35 @@ public class AuthorizationTokenTest {
 		}
 	}
 
-    @Test
+	@Test
+	public void Test_L2_Wrong_Password_Test_Java8() throws ApiUtilException
+	{
+		Assume.assumeThat(System.getProperty("java.version"), CoreMatchers.not(CoreMatchers.startsWith("1.7")));
+		String expectedMessage = "keystore password was incorrect";
+
+		try {
+			ApiSigning.getSignatureToken(
+					realm
+					, authPrefixL2
+					, httpMethod
+					, url
+					, appId
+					, null
+					, null
+					, passphrase + "x"
+					, alias
+					, privateCertNameP12
+					, null
+					, null
+			);
+		}
+		catch (ApiUtilException expected)
+		{
+			assertEquals(expectedMessage, expected.getCause().getMessage());
+		}
+	}
+
+	@Test
     public void Test_L2_Not_Supported_Cert_Test() throws ApiUtilException
 	{
 		String fileName = getLocalPath("certificates/ssc.alpha.example.com.pem");
