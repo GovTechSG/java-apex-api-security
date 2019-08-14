@@ -33,7 +33,7 @@ This project use Maven or Gradle as its build and management tools
 ### Maven Guide
 
 + Download and Install Maven (3.5.0 or above)
-+ Java (1.8)
++ Java (1.7)
 
 #### Maven Build Option
 
@@ -63,7 +63,7 @@ mvn install
 <dependency>
     <groupId>com.api.util</groupId>
     <artifactId>ApiSecurity</artifactId>
-    <version>1.3.2-SNAPSHOT</version>
+    <version>1.3.5-SNAPSHOT</version>
 </dependency>
 ```
  
