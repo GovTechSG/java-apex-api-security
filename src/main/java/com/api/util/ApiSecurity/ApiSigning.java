@@ -7,6 +7,7 @@ import org.bouncycastle.openssl.PEMKeyPair;
 import org.bouncycastle.openssl.PEMParser;
 import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter;
 import org.bouncycastle.openssl.jcajce.JcePEMDecryptorProviderBuilder;
+import org.bouncycastle.util.encoders.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,7 +27,6 @@ import java.security.*;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-import java.util.Base64;
 
 
 /**
@@ -91,7 +91,7 @@ public class ApiSigning {
             }
 
             // base64-encode the hmac
-            base64Token = new String(Base64.getEncoder().encodeToString(rawHmac));
+            base64Token = new String(Base64.encode(rawHmac), StandardCharsets.ISO_8859_1);
 
         } catch (ApiUtilException ae) {
             log.error("Error :: getHMACSignature :: " + ae.getMessage());
@@ -176,7 +176,7 @@ public class ApiSigning {
             }
             log.debug("encryptedData length:" + encryptedData.length);
 
-            base64Token = new String(Base64.getEncoder().encode(encryptedData));
+            base64Token = new String(Base64.encode(encryptedData), StandardCharsets.ISO_8859_1);
 
         } catch (ApiUtilException ae) {
             log.error("Error :: getRSASignature :: " + ae.getMessage());
@@ -223,7 +223,7 @@ public class ApiSigning {
                 throw uee;
             }
 
-            byte[] signatureBytes = Base64.getDecoder().decode(signature);
+            byte[] signatureBytes = Base64.decode(signature);
 
             log.debug("Exit :: verifyRSASignature");
             try {
@@ -261,7 +261,7 @@ public class ApiSigning {
         try {
 
             try {
-                ks = KeyStore.getInstance("JKS");
+                ks = KeyStore.getInstance("PKCS12");
             } catch (KeyStoreException kse) {
                 throw kse;
             }
@@ -637,7 +637,7 @@ public class ApiSigning {
         String nonce = null;
         byte[] b = new byte[32];
         SecureRandom.getInstance("SHA1PRNG").nextBytes(b);
-        nonce = Base64.getEncoder().encodeToString(b);
+        nonce = new String(Base64.encode(b), StandardCharsets.ISO_8859_1);
         
         return nonce;
     }
