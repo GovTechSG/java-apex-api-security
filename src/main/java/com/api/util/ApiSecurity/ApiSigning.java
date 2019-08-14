@@ -261,7 +261,7 @@ public class ApiSigning {
         try {
 
             try {
-                ks = KeyStore.getInstance("PKCS12");
+                ks = KeyStore.getInstance("JKS");
             } catch (KeyStoreException kse) {
                 throw kse;
             }
