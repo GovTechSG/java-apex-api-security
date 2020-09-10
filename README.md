@@ -145,29 +145,113 @@ dependencies {
 
 #### Preparing HTTP Signature Token 
 
-Append this signature token into the Authorization header of the HTTP request
+Append this signature token into the Authorization header of the HTTP
+request.
 
-Params:
-* realm
-* authPrefix - Authorization Header scheme prefix , i.e 'Apex_l2_eg'
-* httpMethod
-* urlPath - Signing URL, remember to append <<tenant>>.e.api.gov.sg or <<tenant>>-pvt.i.api.gov.sg in <<URL>>
-* appId - App ID created in Gateway
-* secret - set to null for REST L2 SHA256WITHRSA
-* formData - to support parameter for form data if any
-* password
-* alias
-* fileName
-* nonce - set to null for random generated number
-* timestamp - set to null for current timestamp
+#### Example Generated Token -
 
+```
+Apex_l1_eg realm="https://XYZ.api.gov.sg/abc/def", apex_l1_eg_app_id="APP_ID", apex_l1_eg_nonce="SOME_RANDOM_STRING", apex_l1_eg_signature_method="HMACSHA256", apex_l1_eg_timestamp="SOME_TIMESTAMP", apex_l1_eg_version="1.0", apex_l1_eg_signature="SOME_SIGNATURE"
+```
+
+#### Example Authorization Header - 
+
+```
+Authorization: Apex_l1_eg realm="https://XYZ.api.gov.sg/abc/def", apex_l1_eg_app_id="APP_ID", apex_l1_eg_nonce="SOME_RANDOM_STRING", apex_l1_eg_signature_method="HMACSHA256", apex_l1_eg_timestamp="SOME_TIMESTAMP", apex_l1_eg_version="1.0", apex_l1_eg_signature="SOME_SIGNATURE"
+```
+
+### Parameters
+
+#### realm
+This is an identifier for the caller. Any value can be used here.
+
+#### authPrefix
+
+Authorization Header scheme prefix. There are 4 possible values for this
+depending on the zone and the authentication method.
+
+1. Apex_l1_ig
+2. Apex_l1_eg
+3. Apex_l2_ig
+4. Apex_l2_eg
+
+#### httpMethod
+
+The HTTP method, i.e. `GET`, `POST`, etc.
+
+#### signingUrl
+The full API endpoint (with query parameters if any). This will be in
+the form of `https://<<tenant>>.e.api.gov.sg/xxx/yyy` or
+`https://<<tenant>>-pvt.i.api.gov.sg/xxx/yyy`.
+
+**Note:** Please note that you **must** have `.e` or `.i` in the URL.
+Otherwise you can encounter authorization failures.
+
+#### appId
+The APEX App ID.
+
+#### secret
+The APEX App secret. Set to value to `null` if you want to use L2
+authentication with SHA256WITHRSA.
+
+#### formData
+Data which should be passed in the request (for `POST` requests
+usually). For `GET` requests, set this value to `null`.
+
+#### password
+The password of the keystore. Set `null` for L1. 
+
+#### alias
+The alias of the keystore. Set `null` for L1.
+
+#### fileName
+The p12 file path. Set `null` for L1.
+
+#### nonce
+The random generated string which to be used to generate the token. If
+you set this to `null`, a new random string will be generated.
+
+#### timestamp
+Timestamp which should be used to generate the token. Set to `null` if
+you want to use the current timestamp.
+
+
+
+### Example GET Request
 
 ```java
-String realm = "<<your_client_host_url>>"
-String authPrefix = "<<authPrefix>>
-String httpMethod = "get"
+String realm = "<<your_client_host_url>>";
+String authPrefix = "<<authPrefix>>";
+String httpMethod = "GET";
 //Append the query param in the url or else add as ApiList 
 String signingUrl = "https://<<URL>>/api/v1/?param1=first&param2=123";
+String certFileName = "certificates/ssc.alpha.example.com.p12";
+String password = "<<passphrase>>";
+String alias = "alpha";
+String appId = "<<appId>>";
+String secret = null;
+//only needed for Content-Type: application/x-www-form-urlencoded, else null
+ApiList formData = null;
+String nonce = null;
+String timestamp = null;
+
+try {
+    String signature = ApiSigning.getSignatureToken(authPrefix, authPrefix, httpMethod, signingUrl, appId, secret, formData, password, alias, certFileName, nonce, timestamp);
+    // Add this signature value to the authorization header when sending the request.
+} catch (ApiUtilException e) {
+    e.printStackTrace();
+}
+```
+
+
+### Example POST Request
+
+```java
+String realm = "<<your_client_host_url>>";
+String authPrefix = "<<authPrefix>>";
+String httpMethod = "POST";
+//Append the query param in the url or else add as ApiList 
+String signingUrl = "https://<<URL>>/api/v1";
 String certFileName = "certificates/ssc.alpha.example.com.p12";
 String password = "<<passphrase>>";
 String alias = "alpha";
@@ -193,6 +277,7 @@ formData.addAll(queryParam);
 
 try {
     String signature = ApiSigning.getSignatureToken(authPrefix, authPrefix, httpMethod, signingUrl, appId, secret, formData, password, alias, certFileName, nonce, timestamp);
+    // Add this signature value to the authorization header when sending the request.
 } catch (ApiUtilException e) {
     e.printStackTrace();
 }
@@ -204,6 +289,9 @@ When your client program is making the actual HTTP POST call, the key value para
 
 
 #### Constructing Signature BaseString (for reference only)
+
+**Please note that this section is for reference only. The actual token
+generation is done using the `ApiSigning.getSignatureToken()` method.**
 
 Method: 
 * getBaseString
@@ -302,12 +390,93 @@ try {
 }
 
 ```
-#### Sample HTTP POST Call for x-www-form-urlencoded with APEX L1 Security (for reference only)
+
+#### Sample HTTP GET Call with APEX L1 Security (for reference only)
+
+**Please note that this is for reference only. The actual implementation
+might be different than this.**
 
 ```java
 
 @Test
-public void Http_Call_Test() throws ApiUtilException, IOException
+public void Http_GET_Test() throws ApiUtilException, IOException
+{
+	
+	String httpMethod = "GET";
+	//URL for actual HTTP API call
+	String url = "https://tenant.api.gov.sg:443/api14021live/resource";
+	//URL for passing as parameter for APEX Signature Token generation
+	String signUrl = "https://tenant.e.api.gov.sg:443/api14021live/resource";
+	String appId = "tenant-1X2w7NQPzjO2azDu904XI5AE";
+	String secret = "s0m3s3cr3t";
+	
+	String authorizationToken = ApiSigning.getSignatureToken(
+        realm
+		, authPrefixL1
+		, httpMethod
+		, signUrl
+		, appId
+		, secret
+		, null;
+		, null
+		, null
+		, null
+		, null
+		, null
+	);
+	System.out.println("authorizationToken : "+authorizationToken);
+	
+	try {
+		//ignore SSL
+		SSLContext sslContext = SSLContext.getInstance("SSL");
+		sslContext.init(null, getTrustManager(), new java.security.SecureRandom());
+		HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
+		
+		HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
+		con.setDoOutput(false);
+		con.setDoInput(true);
+		con.setRequestMethod(httpMethod);
+		con.setRequestProperty("charset", "utf-8");
+		con.setRequestProperty("Authorization", authorizationToken);
+		con.setUseCaches(false);
+		con.setConnectTimeout(5000);
+		con.setReadTimeout(5000);
+
+		System.out.println("Start http call ...");
+		int status = -1;
+		status = con.getResponseCode();
+		System.out.println("HTTP Status:" + status);
+		
+		System.out.println("End http call ...");
+		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+		String inputLine;
+		StringBuffer content = new StringBuffer();
+		while ((inputLine = in.readLine()) != null) {
+			content.append(inputLine);
+		}
+		
+		System.out.println("Content:" + content);
+		in.close();
+		con.disconnect();
+	}catch(Exception e){
+		System.out.println("Error executing Http_Call_Test() : " + e);
+	}
+	//force to true to pass the test case
+	assertTrue(true);
+}
+
+```
+
+
+#### Sample HTTP POST Call for x-www-form-urlencoded with APEX L1 Security (for reference only)
+
+**Please note that this is for reference only. The actual implementation
+might be different than this.**
+
+```java
+
+@Test
+public void Http_POST_Test() throws ApiUtilException, IOException
 {
 	
 	String httpMethod = "POST";
