@@ -1,7 +1,9 @@
 package com.api.util.testframework;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import com.api.util.ApiSecurity.ApiList;
 import com.api.util.ApiSecurity.ApiUtilException;
@@ -17,7 +19,7 @@ import org.json.simple.parser.JSONParser;
 
 public class RuntimeTestUtility {
 	
-	private static final Logger log = LoggerFactory.getLogger(RuntimeTestUtility.class);
+	private static final Logger log = LogManager.getLogger(RuntimeTestUtility.class);
 	private static ApiList apiList;
 	
 	public static String getExpectedResultMap(ExpectedResult expectedResult) throws ApiUtilException {
