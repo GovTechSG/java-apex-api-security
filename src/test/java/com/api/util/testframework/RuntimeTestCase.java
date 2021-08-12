@@ -1,7 +1,5 @@
 package com.api.util.testframework;
 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -52,6 +50,7 @@ public class RuntimeTestCase{
     */
     @JUnitFactoryTest
     public void getSignatureBaseString() throws IOException, InterruptedException, ParseException {
+    	  log.trace("Entering teset test application.");
     	log.info("====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : {} ", testName);
     	
 		ExpectedResult expectedResult = testDatum.getExpectedResult();
