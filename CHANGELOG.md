@@ -1,5 +1,12 @@
 # Change Log
 
+### V1.3.5-SNAPSHOT
+
+- Fixed vulnerability CVE-2020-25649, CVE-2020-15522, CVE-2020-9488 and CVE-2019-17571
+- Update dependency library for bouncycastle to version 1.69
+- Update dependency library for jackson-databind to version 2.10.5.1
+- Remove dependency library for slf4j, updated to log4j version 2.14.1 for logging
+
 ### V1.3.4-SNAPSHOT
 
 - Fixed vulnerability CVE-2019-14379 and CVE-2019-14439
