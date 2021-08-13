@@ -570,5 +570,5 @@ See [CHANGELOG.md](CHANGELOG.md).
 ## References
 + [UTF-8 in Gradle](https://stackoverflow.com/questions/21267234/show-utf-8-text-properly-in-gradle)
 + [LOG4J2 FAQ](https://logging.apache.org/log4j/2.x/faq.html)
-+ [Akana API Consumer Security](http://docs.akana.com/ag/cm_policies/using_api_consumer_app_sec_policy.htm)
-+ [RSA and HMAC Request Signing Standard](http://tools.ietf.org/html/draft-cavage-http-signatures-05)
++ [Akana API Consumer Security](http://docs.akana.com/cm/learnmore/app_security.htm)
++ [RSA and HMAC Request Signing Standard](https://tools.ietf.org/id/draft-cavage-http-signatures-08.html)
