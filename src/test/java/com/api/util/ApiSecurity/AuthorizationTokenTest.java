@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 import static org.junit.Assert.*;
 
 /**
- * @author GDS-PDD
+ * @author GDS-ENP
  *
  */
 public class AuthorizationTokenTest {
