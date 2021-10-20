@@ -9,7 +9,7 @@ import java.security.GeneralSecurityException;
 import static org.junit.Assert.*;
 
 /**
- * @author GDS-PDD
+ * @author GDS-ENP
  *
  */
 public class AuthorizationTokenTest {

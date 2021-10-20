@@ -10,10 +10,11 @@ import org.bouncycastle.openssl.PEMParser;
 import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter;
 import org.bouncycastle.openssl.jcajce.JceOpenSSLPKCS8DecryptorProviderBuilder;
 import org.bouncycastle.openssl.jcajce.JcePEMDecryptorProviderBuilder;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.bouncycastle.operator.InputDecryptorProvider;
 import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -42,7 +43,7 @@ import java.util.List;
  */
 public class ApiSigning {
 
-    private static final Logger log = LoggerFactory.getLogger(ApiSigning.class);
+    private static final Logger log = LogManager.getLogger(ApiSigning.class);
 
     /**
      * Create HMACRSA256 Signature (L1) with a given basestring

@@ -4,7 +4,7 @@ plugins {
     id 'com.github.kt3k.coveralls' version '2.6.3'
 }
 
-version '1.3.4-SNAPSHOT'
+version '1.3.5-SNAPSHOT'
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
@@ -16,13 +16,23 @@ repositories {
 
 dependencies {
     //compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.1'
+    
+    //gradle 4.0
     compile group: 'commons-lang', name: 'commons-lang', version: '2.4'
-    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.9.2'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.1'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.5.1'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
-    compile group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.60'
-    testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.69'
+    
+    testCompile group: 'junit', name: 'junit', version: '4.13.1'
+
+    //gradle 6.9
+    //implementation group: 'commons-lang', name: 'commons-lang', version: '2.4'
+    //implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.5.1'
+    //implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    //implementation group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.69'
+    //testImplementation group: 'junit', name: 'junit', version: '4.13.1'
 }
 
 jar {

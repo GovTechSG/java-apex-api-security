@@ -63,22 +63,25 @@ mvn install
 <dependency>
     <groupId>com.api.util</groupId>
     <artifactId>ApiSecurity</artifactId>
-    <version>1.3.2-SNAPSHOT</version>
+    <version>1.3.5-SNAPSHOT</version>
 </dependency>
 ```
  
 **Note:** 
-* This project is leveraging on _slf4j-log4j12_ framework for the logging. If you are using logging implementation other than log4j, you can change to other type of implementation such as nop,simple,jdk14,logback. You could replace the following xml in pom.xml.
-* If your are using Log4j _Version2_, please refer to [Log4j2-SLF4J Binding](https://logging.apache.org/log4j/2.x/log4j-slf4j-impl/index.html)
+* This project is leveraging on Log4j _Version2_  framework for the logging. If you are using logging implementation other than Log4j _Version2_ , you can change to other type of implementation such as nop,simple,jdk14,logback. You could replace the following xml in pom.xml.
 
 
 ```xml
 <dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-log4j12</artifactId>
-    <version>1.7.25</version>
+	<groupId>org.apache.logging.log4j</groupId>
+	<artifactId>log4j-api</artifactId>
+	<version>2.14.1</version>
 </dependency>
-  	
+<dependency>
+	<groupId>org.apache.logging.log4j</groupId>
+	<artifactId>log4j-core</artifactId>
+	<version>2.14.1</version>
+</dependency>
 ```
 
 #### Maven Test
@@ -136,7 +139,7 @@ repositories {
     mavenLocal()
 }
 dependencies {
-    compile group: 'com.api.util', name: 'ApiSecurity', version: '1.3.1-SNAPSHOT'
+    compile group: 'com.api.util', name: 'ApiSecurity', version: '1.3.5-SNAPSHOT'
 }
 	
 ```
@@ -554,7 +557,7 @@ public void Http_POST_Test() throws ApiUtilException, IOException
 }
 
 ```
-
+	
 ## Contributing
 For more information about contributing PRs and issues, see [CONTRIBUTING.md](.github/CONTRIBUTING.md).
 
@@ -566,6 +569,6 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 ## References
 + [UTF-8 in Gradle](https://stackoverflow.com/questions/21267234/show-utf-8-text-properly-in-gradle)
-+ [SLF4J FAQ](https://www.slf4j.org/faq.html)
-+ [Akana API Consumer Security](http://docs.akana.com/ag/cm_policies/using_api_consumer_app_sec_policy.htm)
-+ [RSA and HMAC Request Signing Standard](http://tools.ietf.org/html/draft-cavage-http-signatures-05)
++ [LOG4J2 FAQ](https://logging.apache.org/log4j/2.x/faq.html)
++ [Akana API Consumer Security](http://docs.akana.com/cm/learnmore/app_security.htm)
++ [RSA and HMAC Request Signing Standard](https://tools.ietf.org/id/draft-cavage-http-signatures-08.html)
