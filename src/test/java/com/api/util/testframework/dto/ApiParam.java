@@ -30,12 +30,11 @@ import org.apache.commons.lang.builder.ToStringBuilder;
     "httpMethod",
     "queryString",
     "formData",
-    "privateCertFileName",
+    "privateKeyFileName",
     "nonce",
     "timestamp",
     "secret",
-    "signature",
-    "passphrase"
+    "signature"
 })
 public class ApiParam {
 
@@ -118,8 +117,8 @@ public class ApiParam {
      * (Required)
      * 
      */
-    @JsonProperty("privateCertFileName")
-    private String privateCertFileName = "";
+    @JsonProperty("privateKeyFileName")
+    private String privateKeyFileName = "";
     /**
      * The Nonce Schema
      * <p>
@@ -156,15 +155,15 @@ public class ApiParam {
      */
     @JsonProperty("signature")
     private String signature = "";
-    /**
-     * The Passphrase Schema
-     * <p>
-     * 
-     * (Required)
-     * 
-     */
-    @JsonProperty("passphrase")
-    private String passphrase = "";
+    // /**
+    //  * The Passphrase Schema
+    //  * <p>
+    //  * 
+    //  * (Required)
+    //  * 
+    //  */
+    // @JsonProperty("passphrase")
+    // private String passphrase = "";
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -360,28 +359,52 @@ public class ApiParam {
         this.formData = formData;
     }
 
+    // /**
+    //  * The Privatecertfilename Schema
+    //  * <p>
+    //  * 
+    //  * (Required)
+    //  * 
+    //  */
+    // @JsonProperty("privateCertFileName")
+    // public String getPrivateCertFileName() {
+    //     return privateCertFileName;
+    // }
+
+    // /**
+    //  * The Privatecertfilename Schema
+    //  * <p>
+    //  * 
+    //  * (Required)
+    //  * 
+    //  */
+    // @JsonProperty("privateCertFileName")
+    // public void setPrivateCertFileName(String privateCertFileName) {
+    //     this.privateCertFileName = privateCertFileName;
+    // }
+
     /**
-     * The Privatecertfilename Schema
+     * The Privatekeyfilename Schema
      * <p>
      * 
      * (Required)
      * 
      */
-    @JsonProperty("privateCertFileName")
-    public String getPrivateCertFileName() {
-        return privateCertFileName;
+    @JsonProperty("privateKeyFileName")
+    public String getPrivateKeyFileName() {
+        return privateKeyFileName;
     }
 
     /**
-     * The Privatecertfilename Schema
+     * The Privatekeyfilename Schema
      * <p>
      * 
      * (Required)
      * 
      */
-    @JsonProperty("privateCertFileName")
-    public void setPrivateCertFileName(String privateCertFileName) {
-        this.privateCertFileName = privateCertFileName;
+    @JsonProperty("privateKeyFileName")
+    public void setPrivateKeyFileName(String privateKeyFileName) {
+        this.privateKeyFileName = privateKeyFileName;
     }
 
     /**
@@ -480,29 +503,29 @@ public class ApiParam {
         this.signature = signature;
     }
 
-    /**
-     * The Passphrase Schema
-     * <p>
-     * 
-     * (Required)
-     * 
-     */
-    @JsonProperty("passphrase")
-    public String getPassphrase() {
-        return passphrase;
-    }
+    // /**
+    //  * The Passphrase Schema
+    //  * <p>
+    //  * 
+    //  * (Required)
+    //  * 
+    //  */
+    // @JsonProperty("passphrase")
+    // public String getPassphrase() {
+    //     return passphrase;
+    // }
 
-    /**
-     * The Passphrase Schema
-     * <p>
-     * 
-     * (Required)
-     * 
-     */
-    @JsonProperty("passphrase")
-    public void setPassphrase(String passphrase) {
-        this.passphrase = passphrase;
-    }
+    // /**
+    //  * The Passphrase Schema
+    //  * <p>
+    //  * 
+    //  * (Required)
+    //  * 
+    //  */
+    // @JsonProperty("passphrase")
+    // public void setPassphrase(String passphrase) {
+    //     this.passphrase = passphrase;
+    // }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
@@ -516,12 +539,12 @@ public class ApiParam {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("realm", realm).append("authPrefix", authPrefix).append("appId", appId).append("invokeUrl", invokeUrl).append("signatureUrl", signatureUrl).append("httpMethod", httpMethod).append("queryString", queryString).append("formData", formData).append("privateCertFileName", privateCertFileName).append("nonce", nonce).append("timestamp", timestamp).append("secret", secret).append("signature", signature).append("passphrase", passphrase).append("additionalProperties", additionalProperties).toString();
+        return new ToStringBuilder(this).append("realm", realm).append("authPrefix", authPrefix).append("appId", appId).append("invokeUrl", invokeUrl).append("signatureUrl", signatureUrl).append("httpMethod", httpMethod).append("queryString", queryString).append("formData", formData).append("privateKeyFileName", privateKeyFileName).append("nonce", nonce).append("timestamp", timestamp).append("secret", secret).append("signature", signature).append("additionalProperties", additionalProperties).toString();
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder().append(privateCertFileName).append(signature).append(signatureUrl).append(secret).append(httpMethod).append(queryString).append(nonce).append(appId).append(invokeUrl).append(realm).append(formData).append(passphrase).append(additionalProperties).append(authPrefix).append(timestamp).toHashCode();
+        return new HashCodeBuilder().append(privateKeyFileName).append(signature).append(signatureUrl).append(secret).append(httpMethod).append(queryString).append(nonce).append(appId).append(invokeUrl).append(realm).append(formData).append(additionalProperties).append(authPrefix).append(timestamp).toHashCode();
     }
 
     @Override
@@ -533,7 +556,7 @@ public class ApiParam {
             return false;
         }
         ApiParam rhs = ((ApiParam) other);
-        return new EqualsBuilder().append(privateCertFileName, rhs.privateCertFileName).append(signature, rhs.signature).append(signatureUrl, rhs.signatureUrl).append(secret, rhs.secret).append(httpMethod, rhs.httpMethod).append(queryString, rhs.queryString).append(nonce, rhs.nonce).append(appId, rhs.appId).append(invokeUrl, rhs.invokeUrl).append(realm, rhs.realm).append(formData, rhs.formData).append(passphrase, rhs.passphrase).append(additionalProperties, rhs.additionalProperties).append(authPrefix, rhs.authPrefix).append(timestamp, rhs.timestamp).isEquals();
+        return new EqualsBuilder().append(privateKeyFileName, rhs.privateKeyFileName).append(signature, rhs.signature).append(signatureUrl, rhs.signatureUrl).append(secret, rhs.secret).append(httpMethod, rhs.httpMethod).append(queryString, rhs.queryString).append(nonce, rhs.nonce).append(appId, rhs.appId).append(invokeUrl, rhs.invokeUrl).append(realm, rhs.realm).append(formData, rhs.formData).append(additionalProperties, rhs.additionalProperties).append(authPrefix, rhs.authPrefix).append(timestamp, rhs.timestamp).isEquals();
     }
 
 }

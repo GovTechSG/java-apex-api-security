@@ -1,10 +1,13 @@
 
 package com.api.util.testframework.dto;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.api.util.testframework.RuntimeTestCase;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -30,13 +33,13 @@ import org.apache.commons.lang.builder.ToStringBuilder;
     "apiParam",
     "expectedResult",
     "message",
-    "publicCertFileName",
+    "publicKeyFileName",
     "skipTest",
     "passphrase",
     "errorTest"
 })
 public class TestDatum {
-
+	
     /**
      * The Id Schema
      * <p>
@@ -98,8 +101,8 @@ public class TestDatum {
      * (Required)
      * 
      */
-    @JsonProperty("publicCertFileName")
-    private String publicCertFileName = "";
+    @JsonProperty("publicKeyFileName")
+    private String publicKeyFileName = "";
     /**
      * The SkipTest Schema
      * <p>
@@ -125,7 +128,7 @@ public class TestDatum {
      * 
      */
     @JsonProperty("errorTest")
-    private Boolean errorTest;
+    private Boolean errorTest = false;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -272,17 +275,17 @@ public class TestDatum {
     public void setMessage(String message) {
         this.message = message;
     }
-
+    
     /**
-     * The PublicCertFileName Schema
+     * The PublicKeyFileName Schema
      * <p>
      * 
      * (Required)
      * 
      */
-    @JsonProperty("publicCertFileName")
-    public String getPublicCertFileName() {
-        return publicCertFileName;
+    @JsonProperty("publicKeyFileName")
+    public String getPublicKeyFileName() {
+        return publicKeyFileName;
     }
 
     /**
@@ -292,9 +295,9 @@ public class TestDatum {
      * (Required)
      * 
      */
-    @JsonProperty("publicCertFileName")
-    public void setPublicCertFileName(String publicCertFileName) {
-        this.publicCertFileName = publicCertFileName;
+    @JsonProperty("publicKeyFileName")
+    public void setPublicKeyFileName(String publicKeyFileName) {
+        this.publicKeyFileName = publicKeyFileName;
     }
 
     /**
@@ -379,12 +382,12 @@ public class TestDatum {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("id", id).append("description", description).append("apiName", apiName).append("apiParam", apiParam).append("expectedResult", expectedResult).append("message", message).append("publicCertFileName", publicCertFileName).append("skipTest", skipTest).append("passphrase", passphrase).append("errorTest", errorTest).append("additionalProperties", additionalProperties).toString();
+        return new ToStringBuilder(this).append("id", id).append("description", description).append("apiName", apiName).append("apiParam", apiParam).append("expectedResult", expectedResult).append("message", message).append("publicCertFileName", publicKeyFileName).append("skipTest", skipTest).append("passphrase", passphrase).append("errorTest", errorTest).append("additionalProperties", additionalProperties).toString();
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder().append(skipTest).append(apiName).append(publicCertFileName).append(expectedResult).append(description).append(passphrase).append(id).append(additionalProperties).append(message).append(apiParam).append(errorTest).toHashCode();
+        return new HashCodeBuilder().append(skipTest).append(apiName).append(publicKeyFileName).append(expectedResult).append(description).append(passphrase).append(id).append(additionalProperties).append(message).append(apiParam).append(errorTest).toHashCode();
     }
 
     @Override
@@ -396,7 +399,7 @@ public class TestDatum {
             return false;
         }
         TestDatum rhs = ((TestDatum) other);
-        return new EqualsBuilder().append(skipTest, rhs.skipTest).append(apiName, rhs.apiName).append(publicCertFileName, rhs.publicCertFileName).append(expectedResult, rhs.expectedResult).append(description, rhs.description).append(passphrase, rhs.passphrase).append(id, rhs.id).append(additionalProperties, rhs.additionalProperties).append(message, rhs.message).append(apiParam, rhs.apiParam).append(errorTest, rhs.errorTest).isEquals();
+        return new EqualsBuilder().append(skipTest, rhs.skipTest).append(apiName, rhs.apiName).append(publicKeyFileName, rhs.publicKeyFileName).append(expectedResult, rhs.expectedResult).append(description, rhs.description).append(passphrase, rhs.passphrase).append(id, rhs.id).append(additionalProperties, rhs.additionalProperties).append(message, rhs.message).append(apiParam, rhs.apiParam).append(errorTest, rhs.errorTest).isEquals();
     }
 
 }

@@ -1,6 +1,8 @@
 package com.api.util.ApiSecurity;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
@@ -24,14 +26,22 @@ public class ApiList extends ArrayList<Entry<String,String>>{
 		String delimiter = "&";
 		Boolean sort = true;
 		Boolean quote = false;
-		
 		return this.toString(delimiter, sort, quote, isBaseString);
 	}
+	
+//	public String toString(Boolean isBaseString, Boolean sort) {
+//		String delimiter = "&";
+//		Boolean quote = false;
+//		
+//		return this.toString(delimiter, sort, quote, isBaseString);
+//	}
 	
 	public String toString(String delimiter, Boolean sort, Boolean quote, Boolean isBaseString)
 	{
 		List<String> list = new ArrayList<String>();
-		
+		for (Entry<String,String> ent : this) {
+			System.out.println("ToSTRING entry key:" + ent.getKey() + " val: " + ent.getValue());
+		}
 		final String format = (quote ? "%s=\"%s\"" : "%s=%s");
 		
 		/* Sort key first then value*/
@@ -51,4 +61,48 @@ public class ApiList extends ArrayList<Entry<String,String>>{
 		
 		return String.join(delimiter, list);
 	}
+	
+	
+    public FormList toFormList()
+    {
+        FormList formList = new FormList();
+
+        for (Entry<String,String> item : this)
+        {
+            formList.add(item.getKey(), item.getValue());
+            System.out.println("FORMLIST ITEM " + item.getValue() + "}  key:  {" +item.getKey() );
+        }
+        System.out.println("FORMLIST");
+		System.out.println("FORMLIST " + formList);
+        
+        return formList;
+    }
+	
+	//toFormList
+	
+	//backup
+//	public String toString(String delimiter, Boolean sort, Boolean quote, Boolean isBaseString)
+//	{
+//		List<String> list = new ArrayList<String>();
+//		
+//		final String format = (quote ? "%s=\"%s\"" : "%s=%s");
+//		
+//		/* Sort key first then value*/
+//		if (sort){
+//			list = this.stream()
+//					.sorted((Entry<String,String> l1, Entry<String,String> l2) -> 
+//					{
+//						return l1.getKey().equals(l2.getKey()) ? l1.getValue().compareTo(l2.getValue())
+//									: l1.getKey().compareTo(l2.getKey());
+//					})
+//					.map(e -> (null== e.getValue() || (null!= e.getValue() && e.getValue().isEmpty()) && isBaseString) ? e.getKey() : String.format(format, e.getKey(), e.getValue())  )
+//					.collect(Collectors.toList());
+//		} else{
+//			list = this.stream().map(e -> String.format(format, e.getKey(), e.getValue()))
+//					.collect(Collectors.toList());
+//		}
+//		
+//		return String.join(delimiter, list);
+//	}
+	
 }

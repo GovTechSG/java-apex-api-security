@@ -110,10 +110,12 @@
   </dependencies>
   <properties>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
   <scm>
     <connection>scm:git:https://github.com/GovTechSG/test-suites-apex-api-security.git</connection>
-    <developerConnection>scm:git:https://kelvinwijaya@github.com/GovTechSG/test-suites-apex-api-security.git</developerConnection>
+    <developerConnection>scm:git:https://github.com/GovTechSG/test-suites-apex-api-security.git</developerConnection>
     <url>https://github.com/GovTechSG</url>
 </scm>
 </project>

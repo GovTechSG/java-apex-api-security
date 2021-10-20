@@ -1,0 +1,1122 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.api.util:ApiSecurity >----------------------
+[INFO] Building ApiSecurity 1.3.4-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jsonschema2pojo-maven-plugin:0.5.1:generate (default) @ ApiSecurity ---
+Downloading from sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/io/grpc/grpc-core/maven-metadata.xml
+Downloading from gradle-workaround: http://repo.spring.io/plugins-release/io/grpc/grpc-core/maven-metadata.xml
+Downloading from maven-central: http://repo1.maven.org/maven2/io/grpc/grpc-core/maven-metadata.xml
+Progress (1): 598 B                   Downloaded from sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/io/grpc/grpc-core/maven-metadata.xml (598 B at 170 B/s)
+[WARNING] Could not transfer metadata io.grpc:grpc-core/maven-metadata.xml from/to maven-central (http://repo1.maven.org/maven2): Failed to transfer file: http://repo1.maven.org/maven2/io/grpc/grpc-core/maven-metadata.xml. Return code is: 501 , ReasonPhrase:HTTPS Required.
+[WARNING] Could not transfer metadata io.grpc:grpc-core/maven-metadata.xml from/to gradle-workaround (http://repo.spring.io/plugins-release): Failed to transfer file: http://repo.spring.io/plugins-release/io/grpc/grpc-core/maven-metadata.xml. Return code is: 308 , ReasonPhrase:Permanent Redirect.
+Downloading from sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/io/netty/netty-codec-http2/maven-metadata.xml
+Downloading from maven-central: http://repo1.maven.org/maven2/io/netty/netty-codec-http2/maven-metadata.xml
+Downloading from gradle-workaround: http://repo.spring.io/plugins-release/io/netty/netty-codec-http2/maven-metadata.xml
+Progress (1): 498 B                   Downloaded from sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/io/netty/netty-codec-http2/maven-metadata.xml (498 B at 1.0 kB/s)
+[WARNING] Could not transfer metadata io.netty:netty-codec-http2/maven-metadata.xml from/to maven-central (http://repo1.maven.org/maven2): Failed to transfer file: http://repo1.maven.org/maven2/io/netty/netty-codec-http2/maven-metadata.xml. Return code is: 501 , ReasonPhrase:HTTPS Required.
+[WARNING] Could not transfer metadata io.netty:netty-codec-http2/maven-metadata.xml from/to gradle-workaround (http://repo.spring.io/plugins-release): Failed to transfer file: http://repo.spring.io/plugins-release/io/netty/netty-codec-http2/maven-metadata.xml. Return code is: 308 , ReasonPhrase:Permanent Redirect.
+[WARNING] Failure to transfer io.grpc:grpc-core/maven-metadata.xml from http://repo1.maven.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of maven-central has elapsed or updates are forced. Original error: Could not transfer metadata io.grpc:grpc-core/maven-metadata.xml from/to maven-central (http://repo1.maven.org/maven2): Failed to transfer file: http://repo1.maven.org/maven2/io/grpc/grpc-core/maven-metadata.xml. Return code is: 501 , ReasonPhrase:HTTPS Required.
+[WARNING] Failure to transfer io.grpc:grpc-core/maven-metadata.xml from http://repo.spring.io/plugins-release was cached in the local repository, resolution will not be reattempted until the update interval of gradle-workaround has elapsed or updates are forced. Original error: Could not transfer metadata io.grpc:grpc-core/maven-metadata.xml from/to gradle-workaround (http://repo.spring.io/plugins-release): Failed to transfer file: http://repo.spring.io/plugins-release/io/grpc/grpc-core/maven-metadata.xml. Return code is: 308 , ReasonPhrase:Permanent Redirect.
+[WARNING] Failure to transfer io.netty:netty-codec-http2/maven-metadata.xml from http://repo1.maven.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of maven-central has elapsed or updates are forced. Original error: Could not transfer metadata io.netty:netty-codec-http2/maven-metadata.xml from/to maven-central (http://repo1.maven.org/maven2): Failed to transfer file: http://repo1.maven.org/maven2/io/netty/netty-codec-http2/maven-metadata.xml. Return code is: 501 , ReasonPhrase:HTTPS Required.
+[WARNING] Failure to transfer io.netty:netty-codec-http2/maven-metadata.xml from http://repo.spring.io/plugins-release was cached in the local repository, resolution will not be reattempted until the update interval of gradle-workaround has elapsed or updates are forced. Original error: Could not transfer metadata io.netty:netty-codec-http2/maven-metadata.xml from/to gradle-workaround (http://repo.spring.io/plugins-release): Failed to transfer file: http://repo.spring.io/plugins-release/io/netty/netty-codec-http2/maven-metadata.xml. Return code is: 308 , ReasonPhrase:Permanent Redirect.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ ApiSecurity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 28 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ ApiSecurity ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 16 source files to /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ ApiSecurity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ ApiSecurity ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ ApiSecurity ---
+[INFO] Surefire report directory: /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.api.util.ApiSecurity.RSASignatureTest
+2021-09-15 01:06:23 [main] DEBUG:: Enter :: getPrivateKeyFromKeyStore :: keystoreFileName : /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security/certificates/ssc.alpha.example.com.p12 , password: passwordp12 , alias: alpha 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyFromKeyStore
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPublicKeyFromX509Certificate :: publicCertificateFileName : /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security/certificates/ssc.alpha.example.com.cer 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPublicKeyFromX509Certificate
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: verifyRSASignature :: baseString  : Lorem ipsum dolor sit amet, vel nihil senserit ei. Ne quo erat feugait disputationi. , signature : OsOqG/6hJfGmpCDkqBSZ4netNJDex1lzBYTzGjvjShSFEhJEzAD1zNHKg8Zf9Dve7o9lx3+Yrhrn68nMocgUSOvinhUNF3ttLWw36GzXG7BFJRSIbeUfY3C1vAhkjxmE8oiYoIWctT9qBOL/3GY5QD1H3DiWrb3OLUjy52dsAPmK2P5ofdo8Erd5/0mTxgX+OLMADLJUXq/Aajp1ZIF+djQipPHg0Ms1sNkSHCURxyCjRMKOHNe8DH15lKcApBBjd3XPlb+PGlFl/ffc5Q1ALnAOmsqN6hi8mW+R6Eb0QZsvoRMFSA7kQdWvkCrlWtP5ux+A2Ji/b48SWFSJurVz7yRBhJFDYlvTTCGcgLfwn3TJXa/YbCK05qy307i6X9jnfYaqSYhKC61ExTZYE2SyfagAcWVlSlq3bEovZXllKAwq8Yqyez2EqkOoSzJdj5gmJ1Pb4wN/ss7yYybRSvFShQunj/t6TiQDCJuhghXOfV5Scs/wqjDMWViqrA65YOQHROqAku81NiWFmciVHjk6bNAGsp7iE0p5XnA4z9B41ZVPsxsSXUg4tZvpUrZSpNzlGFBi/uEa1UYcrUd8APzBCvUa75RhZsfxRsCOkpyOEmqoFzg4ngCfegJzBpU5La9e0SOlRvW29p9CK7fS/FZC5YJtP1kucaBN5pX/mxaYeUQ= 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyRSASignature
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyRSASignature
+Test Type:Basic Test
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : Lorem ipsum dolor sit amet, vel nihil senserit ei. Ne quo erat feugait disputationi. 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:512
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : OsOqG/6hJfGmpCDkqBSZ4netNJDex1lzBYTzGjvjShSFEhJEzAD1zNHKg8Zf9Dve7o9lx3+Yrhrn68nMocgUSOvinhUNF3ttLWw36GzXG7BFJRSIbeUfY3C1vAhkjxmE8oiYoIWctT9qBOL/3GY5QD1H3DiWrb3OLUjy52dsAPmK2P5ofdo8Erd5/0mTxgX+OLMADLJUXq/Aajp1ZIF+djQipPHg0Ms1sNkSHCURxyCjRMKOHNe8DH15lKcApBBjd3XPlb+PGlFl/ffc5Q1ALnAOmsqN6hi8mW+R6Eb0QZsvoRMFSA7kQdWvkCrlWtP5ux+A2Ji/b48SWFSJurVz7yRBhJFDYlvTTCGcgLfwn3TJXa/YbCK05qy307i6X9jnfYaqSYhKC61ExTZYE2SyfagAcWVlSlq3bEovZXllKAwq8Yqyez2EqkOoSzJdj5gmJ1Pb4wN/ss7yYybRSvFShQunj/t6TiQDCJuhghXOfV5Scs/wqjDMWViqrA65YOQHROqAku81NiWFmciVHjk6bNAGsp7iE0p5XnA4z9B41ZVPsxsSXUg4tZvpUrZSpNzlGFBi/uEa1UYcrUd8APzBCvUa75RhZsfxRsCOkpyOEmqoFzg4ngCfegJzBpU5La9e0SOlRvW29p9CK7fS/FZC5YJtP1kucaBN5pX/mxaYeUQ= 
+Expected Signature :OsOqG/6hJfGmpCDkqBSZ4netNJDex1lzBYTzGjvjShSFEhJEzAD1zNHKg8Zf9Dve7o9lx3+Yrhrn68nMocgUSOvinhUNF3ttLWw36GzXG7BFJRSIbeUfY3C1vAhkjxmE8oiYoIWctT9qBOL/3GY5QD1H3DiWrb3OLUjy52dsAPmK2P5ofdo8Erd5/0mTxgX+OLMADLJUXq/Aajp1ZIF+djQipPHg0Ms1sNkSHCURxyCjRMKOHNe8DH15lKcApBBjd3XPlb+PGlFl/ffc5Q1ALnAOmsqN6hi8mW+R6Eb0QZsvoRMFSA7kQdWvkCrlWtP5ux+A2Ji/b48SWFSJurVz7yRBhJFDYlvTTCGcgLfwn3TJXa/YbCK05qy307i6X9jnfYaqSYhKC61ExTZYE2SyfagAcWVlSlq3bEovZXllKAwq8Yqyez2EqkOoSzJdj5gmJ1Pb4wN/ss7yYybRSvFShQunj/t6TiQDCJuhghXOfV5Scs/wqjDMWViqrA65YOQHROqAku81NiWFmciVHjk6bNAGsp7iE0p5XnA4z9B41ZVPsxsSXUg4tZvpUrZSpNzlGFBi/uEa1UYcrUd8APzBCvUa75RhZsfxRsCOkpyOEmqoFzg4ngCfegJzBpU5La9e0SOlRvW29p9CK7fS/FZC5YJtP1kucaBN5pX/mxaYeUQ=
+Test Type:UTF8 (Chinese Traditional) Test
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : 道続万汁国圭絶題手事足物目族月会済。 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:512
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : BcgiwVRV5NPf2D15NMA7PjfheHY+jYeODlODuaAahd5dU/fuGanMcFpFuKJtxuCQLOE3veZMCC7V+hb/LEaBfkvXw+7gl8WtLu+T927Xs+3517AZm9vZ3nU34FIMAQpTJ8QbciFcd5FAybDiMuCfzvVE59yTSL/JmzSH4188/K6Z1uZ29VizrC2BwtVA/SHaWN1SMUGX6u0tQN5nE4dGZ9lRKm1Jd2rsUNDmqsmUZDJTbgoZbTJjNQklRv48GunXYBt/cfi9T5bryIVilqUphTIe6GrjLXZ1NVVCcMCJaCzAesX2dWUwLCEULcM4Vqw+7SWN20k4zcori5+QkwNH/eyViHwKiYY+neIusUU4HcafIXNHlYQjj1OVEXqPn2P7TzH9y+7TXheNrQ03P6NnRBjEW/bAgoCplbhYWnlNtu+BBNLn9+6rN/ePJz265Wetb16ZjG+ZwbV72PUkGxeFoT7cGBNvcC5zK4bFZV4AOr7TqE9Nt/xm9Xi7/gM0oU7zgYm+32LJaAxG2vax9EFdi3yBKrGRBYLaMH/6KEreZV+iZgLsqK/7tWEQom843iTmeRaxA4/Xeg3MLPyyxrWtQBqu2O/lv6pEf+scnc2Mg6gyc5uRm0luxJUBkqI6i/BAHGZRN1cDkMhWywAcWs3yxxV6qptFYxl6ubLCbCXtiw0= 
+Expected Signature :BcgiwVRV5NPf2D15NMA7PjfheHY+jYeODlODuaAahd5dU/fuGanMcFpFuKJtxuCQLOE3veZMCC7V+hb/LEaBfkvXw+7gl8WtLu+T927Xs+3517AZm9vZ3nU34FIMAQpTJ8QbciFcd5FAybDiMuCfzvVE59yTSL/JmzSH4188/K6Z1uZ29VizrC2BwtVA/SHaWN1SMUGX6u0tQN5nE4dGZ9lRKm1Jd2rsUNDmqsmUZDJTbgoZbTJjNQklRv48GunXYBt/cfi9T5bryIVilqUphTIe6GrjLXZ1NVVCcMCJaCzAesX2dWUwLCEULcM4Vqw+7SWN20k4zcori5+QkwNH/eyViHwKiYY+neIusUU4HcafIXNHlYQjj1OVEXqPn2P7TzH9y+7TXheNrQ03P6NnRBjEW/bAgoCplbhYWnlNtu+BBNLn9+6rN/ePJz265Wetb16ZjG+ZwbV72PUkGxeFoT7cGBNvcC5zK4bFZV4AOr7TqE9Nt/xm9Xi7/gM0oU7zgYm+32LJaAxG2vax9EFdi3yBKrGRBYLaMH/6KEreZV+iZgLsqK/7tWEQom843iTmeRaxA4/Xeg3MLPyyxrWtQBqu2O/lv6pEf+scnc2Mg6gyc5uRm0luxJUBkqI6i/BAHGZRN1cDkMhWywAcWs3yxxV6qptFYxl6ubLCbCXtiw0=
+Test Type:UTF8 (Japanese) Test
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : 員ちぞど移点お告周ひょ球独狙チウソノ法保断フヒシハ東5広みぶめい質創ごぴ採8踊表述因仁らトつ。 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:512
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : RtNtUoRXhNFrFPMy5aJjPTB8yI9AyvLqIKmgjmarxZhB/aOLXSJtHHJMgufOLDsUzEyDenlPuRp4ju2Dp870P19H/IxLktTqkU3DZU35tqk21TWNQDmdl/P9YjY3BNJqU4YBV3A83KRDRhJh235Hjy20dbJqZAe/oL/8GboRd0W941Oj2VfC53SmVAYWQV1aJb4qV3cvoQG2OtcBMNA+ayG+0oTB9AtGZ3CqCUPqbfbb36oc81jYQj0nElHRew7QdclfpAUQaDgCF6svduji2rdXrU+fRYaiRPtm4F1zv9JVuIjKOZRqVQeQ3Nb/X8zUMEBNeWToQPmzoHz6hAEfzYUif2IJ1KqYooV29AwOvwu1itAeUwLtqlHK3QGJYaJVrw05EyAg1IsicAQ+szP+6t6Er3GjhRSXwIcpKdxLUHVtwFoK7E1L4FqxCW+Pokm97h0/rqWREt7DJvoIofQ8rtfEfao5CTaJOQyMRUx+Ds1Kytzpzd1T7aWFvdzFxo9YLfsZ/DzIy2F7iMi9c1b8WYfStlBvfUeEEeByZj+7FrvLMo9Ys5K/UweBfTcBHdPfCmW5RTJhmfK0p+EVsntLqkCbWMoQ6JdNZoASSB7E+NPGJuk3kuVo4sPnPy9vQlHsYJWktXjwTmBp4EZzfcia6U5TSWG0Wdn4ohCYQU2Y/sg= 
+Expected Signature :RtNtUoRXhNFrFPMy5aJjPTB8yI9AyvLqIKmgjmarxZhB/aOLXSJtHHJMgufOLDsUzEyDenlPuRp4ju2Dp870P19H/IxLktTqkU3DZU35tqk21TWNQDmdl/P9YjY3BNJqU4YBV3A83KRDRhJh235Hjy20dbJqZAe/oL/8GboRd0W941Oj2VfC53SmVAYWQV1aJb4qV3cvoQG2OtcBMNA+ayG+0oTB9AtGZ3CqCUPqbfbb36oc81jYQj0nElHRew7QdclfpAUQaDgCF6svduji2rdXrU+fRYaiRPtm4F1zv9JVuIjKOZRqVQeQ3Nb/X8zUMEBNeWToQPmzoHz6hAEfzYUif2IJ1KqYooV29AwOvwu1itAeUwLtqlHK3QGJYaJVrw05EyAg1IsicAQ+szP+6t6Er3GjhRSXwIcpKdxLUHVtwFoK7E1L4FqxCW+Pokm97h0/rqWREt7DJvoIofQ8rtfEfao5CTaJOQyMRUx+Ds1Kytzpzd1T7aWFvdzFxo9YLfsZ/DzIy2F7iMi9c1b8WYfStlBvfUeEEeByZj+7FrvLMo9Ys5K/UweBfTcBHdPfCmW5RTJhmfK0p+EVsntLqkCbWMoQ6JdNZoASSB7E+NPGJuk3kuVo4sPnPy9vQlHsYJWktXjwTmBp4EZzfcia6U5TSWG0Wdn4ohCYQU2Y/sg=
+Test Type:UTF8 (Korean) Test
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : 대통령은 즉시 이를 공포하여야 한다, 그 자율적 활동과 발전을 보장한다. 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:512
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : GW0UWsS/bdP22Zd8D+WCZtz4LhyHF/8QemS7xTDPzhSlN+yjPtu7O0f/GGl3s+U1Cm3gUjMIRKbSKyi441Z57MD/9Ju8swtAJkHh9K/LPf/fFfm3UMN0EU7jeoEUkFG3AM8rR24ih16HFpK8RcDHDRL5+tAoU6au/JRLAnuRnhcOjunSC91OhTZJqSGYukoarLYVFxnLFyZPviZPe+aaFW4ZUrD+Kc6K2C/htHS1S/7NJedDsD8If31+dh/wdkIbvhQRDgWBJlSAoqOqmeFSRIIXW/VeufOjXZ9fxa/pmsBDN5BB5Fb3MguxebD61c0MN4F+gnRQ/5arKQL5oIn/QAGan6Ll7s7nUGpa88sdVKRqw/TVcqmYeIFgWBUhnk2p54tvWbCXski63z4QRC+4TZ/ITPgn1sDqsD5Qf9/Ly1RPpJPODNgIYb5i6vh94gchqrF1g3EphbJ3riWCqREoBuCD+yqS2DSE7QWg1gjaHtT8kzcxkt3KpJoLPlZPKt92y03/av8a0AXpc2H7pw2mJ4i13xDsiRKavE4R7pwrfUJxSxYD2jBPZgNTo3XxaboHZgFbvyyw3xHreSo9CmM0mL94qha4jv2TqGuURooiBfizxzuHeMub1t8VIAXOiTk/iQtBPvGLtsQzFW3TeAeZtiYSGBeKOmb6O1vtetBurQk= 
+Expected Signature :GW0UWsS/bdP22Zd8D+WCZtz4LhyHF/8QemS7xTDPzhSlN+yjPtu7O0f/GGl3s+U1Cm3gUjMIRKbSKyi441Z57MD/9Ju8swtAJkHh9K/LPf/fFfm3UMN0EU7jeoEUkFG3AM8rR24ih16HFpK8RcDHDRL5+tAoU6au/JRLAnuRnhcOjunSC91OhTZJqSGYukoarLYVFxnLFyZPviZPe+aaFW4ZUrD+Kc6K2C/htHS1S/7NJedDsD8If31+dh/wdkIbvhQRDgWBJlSAoqOqmeFSRIIXW/VeufOjXZ9fxa/pmsBDN5BB5Fb3MguxebD61c0MN4F+gnRQ/5arKQL5oIn/QAGan6Ll7s7nUGpa88sdVKRqw/TVcqmYeIFgWBUhnk2p54tvWbCXski63z4QRC+4TZ/ITPgn1sDqsD5Qf9/Ly1RPpJPODNgIYb5i6vh94gchqrF1g3EphbJ3riWCqREoBuCD+yqS2DSE7QWg1gjaHtT8kzcxkt3KpJoLPlZPKt92y03/av8a0AXpc2H7pw2mJ4i13xDsiRKavE4R7pwrfUJxSxYD2jBPZgNTo3XxaboHZgFbvyyw3xHreSo9CmM0mL94qha4jv2TqGuURooiBfizxzuHeMub1t8VIAXOiTk/iQtBPvGLtsQzFW3TeAeZtiYSGBeKOmb6O1vtetBurQk=
+Test Type:UTF8 (Greek) Test
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : Λορεμ ιπσθμ δολορ σιτ αμετ, τατιον ινιμιcθσ τε ηασ, ιν εαμ μοδο ποσσιμ ινvιδθντ. 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:512
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : G6FezmgEqrnZNxqWfIE8Rcb49L3WQRcAQxQ0xX2sibejHHiOXPXU811OIsL7hsYmyLSSoY3IXTtu271MwfR1TTiODBnIqpgZ0jwmyKK7YoHUDqRgKmVscBnwotw2ntDn1eA2BAU2yKi+UOeUbDcY8dCK/qxdoKdvQg99zjmm1P4EG0dFlmh07oa2ByH4pgioaxI0sKQdDL14qbjrKOiFtfgdv5NEd1Q3kP240p9vLOoScPsRvRZlpWGPCUa0R9wQMtXZAKB3TVs+p8hu5ZHmG9JP2Jo5FRt8EkCG6V3Fg8qlbDO5m9B49atynVBsNSQkYKpCylokJI/mcESNciliQmOwkLmqh6YeELX82PSvnErIPRSAzrqkKYed/HI5gL2Z8pCOwohSfuMeoOrba3JeD98kMQHGwhw+pxSP6lnTCxLwLREhqgSrcXfymhc2TCbA/w/1gT3MjTIDjIF1HgtT2bPpjco62iuKPyrjejb4ARGcty5mlUjbPNUCD/DB4qgghnhbtvWJFJxF7Egs/BeDk5swyyvFBrlXPd/yhCpMJRAOZ0bK3Adj1ij0tVH/kHtDzRYZnF0ZQXZBlHyP2DMvlnJQbIDrTBuojRYFb8W7CPWc/P4RQIGwRv6ZvT+LLl+uuNpvNoVFc/EB0gKII819nINmCjcmuYhsboBLkJ9XHyE= 
+Expected Signature :G6FezmgEqrnZNxqWfIE8Rcb49L3WQRcAQxQ0xX2sibejHHiOXPXU811OIsL7hsYmyLSSoY3IXTtu271MwfR1TTiODBnIqpgZ0jwmyKK7YoHUDqRgKmVscBnwotw2ntDn1eA2BAU2yKi+UOeUbDcY8dCK/qxdoKdvQg99zjmm1P4EG0dFlmh07oa2ByH4pgioaxI0sKQdDL14qbjrKOiFtfgdv5NEd1Q3kP240p9vLOoScPsRvRZlpWGPCUa0R9wQMtXZAKB3TVs+p8hu5ZHmG9JP2Jo5FRt8EkCG6V3Fg8qlbDO5m9B49atynVBsNSQkYKpCylokJI/mcESNciliQmOwkLmqh6YeELX82PSvnErIPRSAzrqkKYed/HI5gL2Z8pCOwohSfuMeoOrba3JeD98kMQHGwhw+pxSP6lnTCxLwLREhqgSrcXfymhc2TCbA/w/1gT3MjTIDjIF1HgtT2bPpjco62iuKPyrjejb4ARGcty5mlUjbPNUCD/DB4qgghnhbtvWJFJxF7Egs/BeDk5swyyvFBrlXPd/yhCpMJRAOZ0bK3Adj1ij0tVH/kHtDzRYZnF0ZQXZBlHyP2DMvlnJQbIDrTBuojRYFb8W7CPWc/P4RQIGwRv6ZvT+LLl+uuNpvNoVFc/EB0gKII819nINmCjcmuYhsboBLkJ9XHyE=
+Test Type:L2 BaseString Happy Path Test
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : GET&https://loadtest-pvt.api.lab/api/v1/rest/level2/in-in/&apex_l2_ig_app_id=loadtest-pvt-4Swyn7qwKeO32EXdH1dKTeIQ&apex_l2_ig_nonce=7798278298637796436&apex_l2_ig_signature_method=SHA256withRSA&apex_l2_ig_timestamp=1502163142423&apex_l2_ig_version=1.0 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:512
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : SEPV4fLkd0QAXHdWwLqJ9QKgerDWrwU6DTeqxFz25GKYkcWfnua23NSxn6nvKEZawSS4glF5Ii3MUd1GQTeez4wRJAIRi01+6HZk58jtH4adYlJ7cW+qHOGz9iOFLJG7023j0S5FaIaxjkKjFx9xncP6CPB3Sd+MbbeinBZc7z8Efe8rNAAi+F0iPLECJq6/UiuRrxxb9VbRSNfvWtkD1NIlIXDabPEcE72Z7KEK9v+Olj36VTbELAxzN2zIrqqNM3PbDaOgJ6gkQ4oiIb/Uxv+9Se8FlWz5dnef2PUkoAxNFF5alzSn8cx+egtb1lZs7VHHTUQ7BVfLdI57VoR+rabIcUOz/ar/DjGEMNDUwc/Hg9kEWHjw48Pck53A1UmTBpJTA4QAORxKe0CbVexMGaOwXtAT2X7IPxs4cRCWbE8Tl0BmfTOPrvGP+3QlrmelnXMSkrWVxdo3Auf62CuRb5zO8iajazl5REW+HN+ggDfjy0HmYS1t1NoKqwjb5EiKTsfcOO7WLp7FhzGu8S+LtqbUphZ+dh40gvNhjT94iOZVuzwIZRpsp2IQLLrEUkCzw5Z6BWvB+WQgywKcpx+xiONR/tMmKVC16zP3nthpcQsvpygQnygL2wfUBHU6sTQBUpqwgGnHBDH3ZWWnFQr5Ymyalm0KJIvp45tM04uYvEE= 
+Expected Signature :SEPV4fLkd0QAXHdWwLqJ9QKgerDWrwU6DTeqxFz25GKYkcWfnua23NSxn6nvKEZawSS4glF5Ii3MUd1GQTeez4wRJAIRi01+6HZk58jtH4adYlJ7cW+qHOGz9iOFLJG7023j0S5FaIaxjkKjFx9xncP6CPB3Sd+MbbeinBZc7z8Efe8rNAAi+F0iPLECJq6/UiuRrxxb9VbRSNfvWtkD1NIlIXDabPEcE72Z7KEK9v+Olj36VTbELAxzN2zIrqqNM3PbDaOgJ6gkQ4oiIb/Uxv+9Se8FlWz5dnef2PUkoAxNFF5alzSn8cx+egtb1lZs7VHHTUQ7BVfLdI57VoR+rabIcUOz/ar/DjGEMNDUwc/Hg9kEWHjw48Pck53A1UmTBpJTA4QAORxKe0CbVexMGaOwXtAT2X7IPxs4cRCWbE8Tl0BmfTOPrvGP+3QlrmelnXMSkrWVxdo3Auf62CuRb5zO8iajazl5REW+HN+ggDfjy0HmYS1t1NoKqwjb5EiKTsfcOO7WLp7FhzGu8S+LtqbUphZ+dh40gvNhjT94iOZVuzwIZRpsp2IQLLrEUkCzw5Z6BWvB+WQgywKcpx+xiONR/tMmKVC16zP3nthpcQsvpygQnygL2wfUBHU6sTQBUpqwgGnHBDH3ZWWnFQr5Ymyalm0KJIvp45tM04uYvEE=
+Test Type:L2 BaseString with UTF8 Parameters Test
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : GET&https://loadtest-pvt.api.lab/api/v1/rest/level2/in-in/&ap=裕廊坊 心邻坊&apex_l2_ig_app_id=loadtest-pvt-4Swyn7qwKeO32EXdH1dKTeIQ&apex_l2_ig_nonce=7231415196459608363&apex_l2_ig_signature_method=SHA256withRSA&apex_l2_ig_timestamp=1502164219425&apex_l2_ig_version=1.0&oq=c# nunit mac&q=c# nunit mac 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:512
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : PAtGMMC5vWprJh4T1QkXiZWpqH9wA1hZz6AEjvHfEIalaejYdpDG31vb1boMjnKqoF2moydAyz97pd1s6FMHYZ3cv2YI/K3Wjf2pjcepI2nXwErncSve2W45CtzJ+TQWwqcttcfm/avhFpOYw74v/AHSrWbuoqPpVLAuznLBHwkiKJPBpt/Tdj1S/6Fmqu7OJu81OEQUBdhySVXtZMBtFHEFMviR2eDG7NcOZ2fspQUrCSdtEFKVyjMAcaFY6uxP5knRoq54FEHCmYotQ/J+VIWD3I0FL1ZswVtJ1zAM41rxpvfEvQFe9jucV6KN3kXnWD6hJbu4pXnakvcQKADgcBDvX0A9dzdhB9ibiWpKT8bXQwZDxYc6HqX9p83HikodV7x6p5Cd03Tol/9JaJqRQHe5ahwucCjnP5WqbTb4PrCNHeCGRj207ncpxBuafllsYfSadGFgeafpnc+5svnuZw9v9Y/H4msFbetoXUH9AQtcs+oCal5zG+AmBNZSqRROsdE6VczPPpwwn5lUCvI5XGXcFuo4X/tcQn9i6t314lgy1XYN6PAubbGDI1rnhlohMVy0XBwEi6xNWRT2vVx5ZxJmAfkSRE12n+AtdVrUQObr8cdzF9lei+DTd1fYz7QRiaJjkljEP4/J0GAiWv8z0JyDzbF9tlypJWkdWaO86eY= 
+Expected Signature :PAtGMMC5vWprJh4T1QkXiZWpqH9wA1hZz6AEjvHfEIalaejYdpDG31vb1boMjnKqoF2moydAyz97pd1s6FMHYZ3cv2YI/K3Wjf2pjcepI2nXwErncSve2W45CtzJ+TQWwqcttcfm/avhFpOYw74v/AHSrWbuoqPpVLAuznLBHwkiKJPBpt/Tdj1S/6Fmqu7OJu81OEQUBdhySVXtZMBtFHEFMviR2eDG7NcOZ2fspQUrCSdtEFKVyjMAcaFY6uxP5knRoq54FEHCmYotQ/J+VIWD3I0FL1ZswVtJ1zAM41rxpvfEvQFe9jucV6KN3kXnWD6hJbu4pXnakvcQKADgcBDvX0A9dzdhB9ibiWpKT8bXQwZDxYc6HqX9p83HikodV7x6p5Cd03Tol/9JaJqRQHe5ahwucCjnP5WqbTb4PrCNHeCGRj207ncpxBuafllsYfSadGFgeafpnc+5svnuZw9v9Y/H4msFbetoXUH9AQtcs+oCal5zG+AmBNZSqRROsdE6VczPPpwwn5lUCvI5XGXcFuo4X/tcQn9i6t314lgy1XYN6PAubbGDI1rnhlohMVy0XBwEi6xNWRT2vVx5ZxJmAfkSRE12n+AtdVrUQObr8cdzF9lei+DTd1fYz7QRiaJjkljEP4/J0GAiWv8z0JyDzbF9tlypJWkdWaO86eY=
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : null 
+2021-09-15 01:06:24 [main] ERROR:: Error :: getRSASignature :: baseString must not be null or empty.
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString :  
+2021-09-15 01:06:24 [main] ERROR:: Error :: getRSASignature :: baseString must not be null or empty.
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : message 
+2021-09-15 01:06:24 [main] ERROR:: Error :: getRSASignature :: privateKey must not be null.
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.586 sec
+Running com.api.util.ApiSecurity.AuthorizationTokenTest
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyFromKeyStore :: keystoreFileName : /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security/certificates/ssc.alpha.example.com.p12 , password: passwordp12x , alias: alpha 
+2021-09-15 01:06:24 [main] ERROR:: Error :: getPrivateKeyFromKeyStore :: keystore password was incorrect
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyFromKeyStore :: keystoreFileName : /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security/Xalpha.test.p12 , password: passwordp12 , alias: alpha 
+2021-09-15 01:06:24 [main] ERROR:: Error :: getPrivateKeyFromKeyStore :: /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security/Xalpha.test.p12 (No such file or directory)
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyFromKeyStore :: keystoreFileName : /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security/certificates/ssc.alpha.example.com.pem , password: passwordp12 , alias: alpha 
+2021-09-15 01:06:24 [main] ERROR:: Error :: getPrivateKeyFromKeyStore :: Invalid keystore format
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getSignatureToken :: realm : com.api.util.ApiSecurity.AuthParam@4439f31e , authPrefix  : {} , appId : {} , urlPath : {} , httpMethod : {} , nonce : {} , timestamp : {} , secret : {} , password : {} , alias : {} , fileName : {}
+2021-09-15 01:06:24 [main] ERROR:: Error :: getToken :: 0
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyFromKeyStore :: keystoreFileName : /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security/certificates/ssc.alpha.example.com.p12 , password: passwordp12 , alias: alpha 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyFromKeyStore
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getSignatureToken :: realm : com.api.util.ApiSecurity.AuthParam@56f4468b , authPrefix  : {} , appId : {} , urlPath : {} , httpMethod : {} , nonce : {} , timestamp : {} , secret : {} , password : {} , alias : {} , fileName : {}
+2021-09-15 01:06:24 [main] ERROR:: Error :: getToken :: 0
+Tests run: 5, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.013 sec <<< FAILURE!
+Test_L2_Not_Supported_Cert_Test(com.api.util.ApiSecurity.AuthorizationTokenTest)  Time elapsed: 0.005 sec  <<< ERROR!
+java.lang.Exception: Unexpected exception, expected<com.api.util.ApiSecurity.ApiUtilException> but was<org.junit.ComparisonFailure>
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.junit.ComparisonFailure: expected:<[org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo cannot be cast to org.bouncycastle.openssl.PEMKeyPair]> but was:<[Invalid keystore format]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at com.api.util.ApiSecurity.AuthorizationTokenTest.Test_L2_Not_Supported_Cert_Test(AuthorizationTokenTest.java:257)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:19)
+	... 21 more
+
+Test_L1_Basic_Test(com.api.util.ApiSecurity.AuthorizationTokenTest)  Time elapsed: 0.001 sec  <<< ERROR!
+com.api.util.ApiSecurity.ApiUtilException: Error while getting Token
+	at com.api.util.ApiSecurity.ApiSigning.getSignatureTokenV2(ApiSigning.java:930)
+	at com.api.util.ApiSecurity.AuthorizationTokenTest.Test_L1_Basic_Test(AuthorizationTokenTest.java:90)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 0
+	at com.api.util.ApiSecurity.ApiSigning.getSignatureTokenV2(ApiSigning.java:817)
+	... 30 more
+
+Test_L2_Basic_Test(com.api.util.ApiSecurity.AuthorizationTokenTest)  Time elapsed: 0.007 sec  <<< ERROR!
+com.api.util.ApiSecurity.ApiUtilException: Error while getting Token
+	at com.api.util.ApiSecurity.ApiSigning.getSignatureTokenV2(ApiSigning.java:930)
+	at com.api.util.ApiSecurity.AuthorizationTokenTest.Test_L2_Basic_Test(AuthorizationTokenTest.java:143)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 0
+	at com.api.util.ApiSecurity.ApiSigning.getSignatureTokenV2(ApiSigning.java:817)
+	... 30 more
+
+Running com.api.util.ApiSecurity.BaseStringTest
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_L1_IG , signatureMethod : HMACSHA256 , appId : example-4Swyn7qwKeO32EXdH1dKTeIQ , urlPath : ftp://example.lab:443/api/v1/rest/level1/in-in/?ap=裕廊坊%20心邻坊 , httpMethod : post , nonce : 6584351262900708156 , timestamp : 1502184161702
+2021-09-15 01:06:24 [main] DEBUG:: raw url:: ftp://example.lab:443/api/v1/rest/level1/in-in/?ap=裕廊坊%20心邻坊
+2021-09-15 01:06:24 [main] DEBUG:: siteUri.getScheme():: ftp
+2021-09-15 01:06:24 [main] ERROR:: Error :: getBaseString :: Support http and https protocol only.
+com.api.util.ApiSecurity.ApiUtilException: Support http and https protocol only.
+	at com.api.util.ApiSecurity.ApiSigning.getBaseString(ApiSigning.java:511)
+	at com.api.util.ApiSecurity.BaseStringTest.BaseString_Invalid_Url_01_Test(BaseStringTest.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_L1_IG , signatureMethod : HMACSHA256 , appId : example-4Swyn7qwKeO32EXdH1dKTeIQ , urlPath : ://example.lab:443/api/v1/rest/level1/in-in/?ap=裕廊坊%20心邻坊 , httpMethod : post , nonce : 6584351262900708156 , timestamp : 1502184161702
+2021-09-15 01:06:24 [main] ERROR:: Error :: getBaseString :: Expected scheme name at index 0: ://example.lab:443/api/v1/rest/level1/in-in/?ap=裕廊坊%20心邻坊
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_L1_IG , signatureMethod : HMACSHA256 , appId : example-4Swyn7qwKeO32EXdH1dKTeIQ , urlPath : https://example.lab:443/api/v1/rest/level1/in-in/?ap=裕廊坊%20心邻坊 , httpMethod : post , nonce : 6584351262900708156 , timestamp : 1502184161702
+2021-09-15 01:06:24 [main] DEBUG:: raw url:: https://example.lab:443/api/v1/rest/level1/in-in/?ap=裕廊坊%20心邻坊
+2021-09-15 01:06:24 [main] DEBUG:: siteUri.getScheme():: https
+2021-09-15 01:06:24 [main] DEBUG:: url:: https://example.lab/api/v1/rest/level1/in-in/
+2021-09-15 01:06:24 [main] DEBUG:: queryString:: ap=裕廊坊%20心邻坊
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: ap=裕廊坊%20心邻坊
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://example.lab/api/v1/rest/level1/in-in/&ap=裕廊坊 心邻坊&apex_l1_ig_app_id=example-4Swyn7qwKeO32EXdH1dKTeIQ&apex_l1_ig_nonce=6584351262900708156&apex_l1_ig_signature_method=HMACSHA256&apex_l1_ig_timestamp=1502184161702&apex_l1_ig_version=1.0&param1=data1 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_L1_IG , signatureMethod : HMACSHA256 , appId : example-4Swyn7qwKeO32EXdH1dKTeIQ , urlPath : https://example.lab:443/api/v1/rest/level1/in-in/?ap=裕廊坊%20心邻坊 , httpMethod : get , nonce : 1355584618267440511 , timestamp : 1502175057654
+2021-09-15 01:06:24 [main] DEBUG:: raw url:: https://example.lab:443/api/v1/rest/level1/in-in/?ap=裕廊坊%20心邻坊
+2021-09-15 01:06:24 [main] DEBUG:: siteUri.getScheme():: https
+2021-09-15 01:06:24 [main] DEBUG:: url:: https://example.lab/api/v1/rest/level1/in-in/
+2021-09-15 01:06:24 [main] DEBUG:: queryString:: ap=裕廊坊%20心邻坊
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: ap=裕廊坊%20心邻坊
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getBaseString :: baseString : GET&https://example.lab/api/v1/rest/level1/in-in/&ap=裕廊坊 心邻坊&apex_l1_ig_app_id=example-4Swyn7qwKeO32EXdH1dKTeIQ&apex_l1_ig_nonce=1355584618267440511&apex_l1_ig_signature_method=HMACSHA256&apex_l1_ig_timestamp=1502175057654&apex_l1_ig_version=1.0 
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+Running com.api.util.ApiSecurity.HMACSignatureTest
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: verifyHMACSignature :: signature : i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs= , baseString : messagex , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : messagex , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : X+EzGLI7Xu4RGge92Gak1+AGM3m8amLP5gA89Ba1XZY= 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyHMACSignature :: boolean : false
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : Lorem ipsum dolor sit amet, vel nihil senserit ei. Ne quo erat feugait disputationi. , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : cL3lY5/rhmkxMw/dCHCa4b9Lpp/soPPACnIxtQwRQI8= 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : 道続万汁国圭絶題手事足物目族月会済。 , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : wOHv68zuoiIjfJHW0hZcOk4lORyiAL/IGK8WSkBUnuk= 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : 員ちぞど移点お告周ひょ球独狙チウソノ法保断フヒシハ東5広みぶめい質創ごぴ採8踊表述因仁らトつ。 , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : L0ft4O8R2hxpupJVkLbgQpW0+HRw3KDgNUNf9DAEY7Y= 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : 대통령은 즉시 이를 공포하여야 한다, 그 자율적 활동과 발전을 보장한다. , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : a6qt0t/nQ3GQFAEVTH+LMvEi0D41ZaKqC7LWJcVmHlE= 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : Λορεμ ιπσθμ δολορ σιτ αμετ, τατιον ινιμιcθσ τε ηασ, ιν εαμ μοδο ποσσιμ ινvιδθντ. , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : WUGjbeO8Jy8Rvs5tD2biLHPR0+qtAmXeZKqX6acYL/4= 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : GET&https://loadtest-pvt.api.lab/api/v1/rest/level1/in-in/&apex_l1_ig_app_id=loadtest-pvt-4Swyn7qwKeO32EXdH1dKTeIQ&apex_l1_ig_nonce=-4985265956715077053&apex_l1_ig_signature_method=HMACSHA256&apex_l1_ig_timestamp=1502159855341&apex_l1_ig_version=1.0&param1=def+123 , secret: ffef0c5087f8dc24a3f122e1e2040cdeb5f72c73 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : jhf8sldyAqT2LYwROXpQW/k1vwK9WZsTi/JEovTutso= 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : GET&https://loadtest-pvt.api.lab/api/v1/rest/level1/in-in/&ap=裕廊坊 心邻坊&apex_l1_ig_app_id=loadtest-pvt-4Swyn7qwKeO32EXdH1dKTeIQ&apex_l1_ig_nonce=2851111144329605674&apex_l1_ig_signature_method=HMACSHA256&apex_l1_ig_timestamp=1502163903712&apex_l1_ig_version=1.0 , secret: ffef0c5087f8dc24a3f122e1e2040cdeb5f72c73 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : egtc4AdR5BQzhvLXH3hqw/JNcw6P3AmZROjX1Woi7QQ= 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: verifyHMACSignature :: signature : i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs= , baseString : message , secret: secretx 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : message , secret: secretx 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : sNXtc6u18G7+EFpjnFvLt6FGkgHX5jXAUg0kicrXlFw= 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyHMACSignature :: boolean : false
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : null , secret: secret 
+2021-09-15 01:06:24 [main] ERROR:: Error :: getHMACSignature :: baseString must not be null or empty.
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString :  , secret: secret 
+2021-09-15 01:06:24 [main] ERROR:: Error :: getHMACSignature :: baseString must not be null or empty.
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : message , secret: null 
+2021-09-15 01:06:24 [main] ERROR:: Error :: getHMACSignature :: secret must not be null or empty.
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : message , secret:  
+2021-09-15 01:06:24 [main] ERROR:: Error :: getHMACSignature :: secret must not be null or empty.
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: verifyHMACSignature :: signature : i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs= , baseString : message , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : message , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs= 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyHMACSignature :: boolean : true
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.api.util.ApiSecurity.ApiSecurityTest
+File: getL2Signature.json
+File: httpCall.json
+File: getL1Signature.json
+File: verifyL2Signature.json
+File: verifyL1Signature.json
+File: getSignatureBaseString.json
+File: getSignatureToken.json
+File: defaultParams.json
+2021-09-15 01:06:24 [main] DEBUG:: Skip test: 13_getL2Signature.json
+2021-09-15 01:06:24 [main] DEBUG:: Skip test: 2_getL1Signature.json
+2021-09-15 01:06:24 [main] DEBUG:: Skip test: 3_getL1Signature.json
+2021-09-15 01:06:24 [main] DEBUG:: Skip test: 4_verifyL2Signature.json
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL2Signature :: testName : 1_getL2Signature.json 
+2021-09-15 01:06:24 [main] INFO :: expectedL2Signature: BYTzB10qy1u0lNTi2CKpn5TfakyKcm4b7q9w3hMkhoupGLklB15N8mNCDxGQrnuPGc0CktLjBEk2+csJ0GLzo/J+p+FuluhMPXn2RvX6GWFhu5RY4d4VzLIy369FyWlu+a4OX5QKJCJ5Lr70TZ82GFW4nYCnqLQa1jLAqtzldLCHprN3Nd1gPP01a/E3N2I70l+q/M8mWdZlJoSI148waSPy+RHbSuRF+23BQ/jKCRrG63TAZAMzuT2prCEXuMFmWZBRPPYVJ1wQvdoot7M99n8o0/1oq5G/Q/pWNi7N6saz9FrF594j+qGi9Sj4PUjvg3FMf2mYj4e2UX0EqTqT9g==
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.nopass.pem 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : message 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:256
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : BYTzB10qy1u0lNTi2CKpn5TfakyKcm4b7q9w3hMkhoupGLklB15N8mNCDxGQrnuPGc0CktLjBEk2+csJ0GLzo/J+p+FuluhMPXn2RvX6GWFhu5RY4d4VzLIy369FyWlu+a4OX5QKJCJ5Lr70TZ82GFW4nYCnqLQa1jLAqtzldLCHprN3Nd1gPP01a/E3N2I70l+q/M8mWdZlJoSI148waSPy+RHbSuRF+23BQ/jKCRrG63TAZAMzuT2prCEXuMFmWZBRPPYVJ1wQvdoot7M99n8o0/1oq5G/Q/pWNi7N6saz9FrF594j+qGi9Sj4PUjvg3FMf2mYj4e2UX0EqTqT9g== 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL2Signature :: testName : 1_getL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL2Signature :: testName : 2_getL2Signature.json 
+2021-09-15 01:06:24 [main] INFO :: expectedL2Signature: BYTzB10qy1u0lNTi2CKpn5TfakyKcm4b7q9w3hMkhoupGLklB15N8mNCDxGQrnuPGc0CktLjBEk2+csJ0GLzo/J+p+FuluhMPXn2RvX6GWFhu5RY4d4VzLIy369FyWlu+a4OX5QKJCJ5Lr70TZ82GFW4nYCnqLQa1jLAqtzldLCHprN3Nd1gPP01a/E3N2I70l+q/M8mWdZlJoSI148waSPy+RHbSuRF+23BQ/jKCRrG63TAZAMzuT2prCEXuMFmWZBRPPYVJ1wQvdoot7M99n8o0/1oq5G/Q/pWNi7N6saz9FrF594j+qGi9Sj4PUjvg3FMf2mYj4e2UX0EqTqT9g==
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.key 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : message 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:256
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : BYTzB10qy1u0lNTi2CKpn5TfakyKcm4b7q9w3hMkhoupGLklB15N8mNCDxGQrnuPGc0CktLjBEk2+csJ0GLzo/J+p+FuluhMPXn2RvX6GWFhu5RY4d4VzLIy369FyWlu+a4OX5QKJCJ5Lr70TZ82GFW4nYCnqLQa1jLAqtzldLCHprN3Nd1gPP01a/E3N2I70l+q/M8mWdZlJoSI148waSPy+RHbSuRF+23BQ/jKCRrG63TAZAMzuT2prCEXuMFmWZBRPPYVJ1wQvdoot7M99n8o0/1oq5G/Q/pWNi7N6saz9FrF594j+qGi9Sj4PUjvg3FMf2mYj4e2UX0EqTqT9g== 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL2Signature :: testName : 2_getL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL2Signature :: testName : 3.1_getL2Signature.json 
+2021-09-15 01:06:24 [main] INFO :: expectedL2Signature: baseString must not be null or empty.
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.nopass.pem 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : null 
+2021-09-15 01:06:24 [main] ERROR:: Error :: getRSASignature :: baseString must not be null or empty.
+2021-09-15 01:06:24 [main] ERROR:: ErrorTest :: RuntimeTestCase :: getL2Signature :: testName : 3.1_getL2Signature.json 
+2021-09-15 01:06:24 [main] ERROR:: Error message: baseString must not be null or empty.
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL2Signature :: testName : 3.1_getL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL2Signature :: testName : 3.2_getL2Signature.json 
+2021-09-15 01:06:24 [main] INFO :: expectedL2Signature: baseString must not be null or empty.
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.nopass.pem 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString :  
+2021-09-15 01:06:24 [main] ERROR:: Error :: getRSASignature :: baseString must not be null or empty.
+2021-09-15 01:06:24 [main] ERROR:: ErrorTest :: RuntimeTestCase :: getL2Signature :: testName : 3.2_getL2Signature.json 
+2021-09-15 01:06:24 [main] ERROR:: Error message: baseString must not be null or empty.
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL2Signature :: testName : 3.2_getL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL2Signature :: testName : 4_getL2Signature.json 
+2021-09-15 01:06:24 [main] INFO :: expectedL2Signature: dN+kQ7h8mDRzejh2SdgEHemfCBR0tjHSxN61eHkGRw2fUhOIF5/3TcqgQlNxpybvVXKAFaJ1eR1m4111Z2Wqd3dB7Wq5YSko6li54mpGZiqv6s3hGszwOfGxANt3cqKz730IBDb0yAzJnMAnwFIKoTGHZZ8xtgd3m94r+a0tdEZA0JM3zE5kKwcym8j64M+cwNca86XCSk7WTR8SaLMl5LFDDtXTgPjqTaygHLMB6BIE+gbRjb4OmGcg8U8sXTAtgmKcAkYZU2Z0oubEOv7fmC9mgNCD0lVHDi79J9PbjjSB9kmVGBL8KftCLt3/nX31EqhMNjMlMC63sHWEX+eBTQ==
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.key 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : Lorem ipsum dolor sit amet, vel nihil senserit ei. Ne quo erat feugait disputationi. 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:256
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : dN+kQ7h8mDRzejh2SdgEHemfCBR0tjHSxN61eHkGRw2fUhOIF5/3TcqgQlNxpybvVXKAFaJ1eR1m4111Z2Wqd3dB7Wq5YSko6li54mpGZiqv6s3hGszwOfGxANt3cqKz730IBDb0yAzJnMAnwFIKoTGHZZ8xtgd3m94r+a0tdEZA0JM3zE5kKwcym8j64M+cwNca86XCSk7WTR8SaLMl5LFDDtXTgPjqTaygHLMB6BIE+gbRjb4OmGcg8U8sXTAtgmKcAkYZU2Z0oubEOv7fmC9mgNCD0lVHDi79J9PbjjSB9kmVGBL8KftCLt3/nX31EqhMNjMlMC63sHWEX+eBTQ== 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL2Signature :: testName : 4_getL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL2Signature :: testName : 5_getL2Signature.json 
+2021-09-15 01:06:24 [main] INFO :: expectedL2Signature: mtgXN0AYSa7MRkgoEPR3ie4tmQcV1R+F25J6otjOLO7nhS7mqQq+lnl+pyQKHoqpw3milrqoyrgLziyACJt3u6gqY+GJvY0RC3mwalREVPVi+iuSYst5YjS+xA78nK54TzRDmTHlxyVQFYph6RrM3LO8FSBHnClfHl3mrfGqimKxdjQSPojk4EAIe4weUIerD2zSHxWkmj+Jlpxs54RjSTCHCt43MElNC7epGH0VZP4iXZf3aV3UhrSKU8yHrvsojuuiX15SVuSFQpGUCk4e7kCSmDQtiOPCn6ojumyoyxVjzpHGScaGBuMzF9C8oxuCnkcRZX7G4AcrLTUIuthggg==
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.key 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : 道続万汁国圭絶題手事足物目族月会済。 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:256
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : mtgXN0AYSa7MRkgoEPR3ie4tmQcV1R+F25J6otjOLO7nhS7mqQq+lnl+pyQKHoqpw3milrqoyrgLziyACJt3u6gqY+GJvY0RC3mwalREVPVi+iuSYst5YjS+xA78nK54TzRDmTHlxyVQFYph6RrM3LO8FSBHnClfHl3mrfGqimKxdjQSPojk4EAIe4weUIerD2zSHxWkmj+Jlpxs54RjSTCHCt43MElNC7epGH0VZP4iXZf3aV3UhrSKU8yHrvsojuuiX15SVuSFQpGUCk4e7kCSmDQtiOPCn6ojumyoyxVjzpHGScaGBuMzF9C8oxuCnkcRZX7G4AcrLTUIuthggg== 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL2Signature :: testName : 5_getL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL2Signature :: testName : 6_getL2Signature.json 
+2021-09-15 01:06:24 [main] INFO :: expectedL2Signature: Kb8jOuOXpeKucrGvoDJowK4F48jjpVcrQkY0w4PuGE1SzdWW4jV5f3tTBaL5eEyr2yjJymV1kX+5wlopNAMqUY3OM+rGhLo/aYgZ1qL0QDc8EC5LWbv+FFf41P1jrUv7pARuoodCHO7eGcdPZYtloBb7JTriTPxwz+hodQ6/ryj9oKK0c53p5svTfacit56dNvhcGufk5jRoPVWhm4fNRQopj/IaEtddmCcEhthhMYZPPZDoI10xBz2VanCvjF+yoiDJURY3wMC0OXpC4WO8rdS8tg0p+RRySzsmeBXrb9OOrP8l25nzdZARNdO1X97PinU1jCksbH8cSi8zombZRQ==
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.key 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : 員ちぞど移点お告周ひょ球独狙チウソノ法保断フヒシハ東5広みぶめい質創ごぴ採8踊表述因仁らトつ。 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:256
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : Kb8jOuOXpeKucrGvoDJowK4F48jjpVcrQkY0w4PuGE1SzdWW4jV5f3tTBaL5eEyr2yjJymV1kX+5wlopNAMqUY3OM+rGhLo/aYgZ1qL0QDc8EC5LWbv+FFf41P1jrUv7pARuoodCHO7eGcdPZYtloBb7JTriTPxwz+hodQ6/ryj9oKK0c53p5svTfacit56dNvhcGufk5jRoPVWhm4fNRQopj/IaEtddmCcEhthhMYZPPZDoI10xBz2VanCvjF+yoiDJURY3wMC0OXpC4WO8rdS8tg0p+RRySzsmeBXrb9OOrP8l25nzdZARNdO1X97PinU1jCksbH8cSi8zombZRQ== 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL2Signature :: testName : 6_getL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL2Signature :: testName : 7_getL2Signature.json 
+2021-09-15 01:06:24 [main] INFO :: expectedL2Signature: WBIB6YF+funu5KsLy0d16oEiljOBI/3jnr0HsrTXkapckVU2dE7MWWmq5/hDlWx5ZF8n/uUxET1HZ3pJ3U3xKeB1ifkQEmxl6t2+BnXkCK+/lDM0IQ6jCUMd8CLUWBrEEDfZpdgikmGopjsUXlMTXcP6qFkj59QN1ZxnA5akxLkRvPm20nnwsSwzwLVhqsgXO+j8knloDrj0Dtk8iYZ5YJtNLe+KkefXhGcwyvmQmJM41+Su7Yt9mumg9qu2CaIj2CKAEq+56Z09IVfk8loNXYtXCbErtzII4QWoIYeFGus0uCMjcxskPUN8tDwry5xKDuWAtWxaCnyVs5RN76592g==
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.key 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : 대통령은 즉시 이를 공포하여야 한다, 그 자율적 활동과 발전을 보장한다. 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:256
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : WBIB6YF+funu5KsLy0d16oEiljOBI/3jnr0HsrTXkapckVU2dE7MWWmq5/hDlWx5ZF8n/uUxET1HZ3pJ3U3xKeB1ifkQEmxl6t2+BnXkCK+/lDM0IQ6jCUMd8CLUWBrEEDfZpdgikmGopjsUXlMTXcP6qFkj59QN1ZxnA5akxLkRvPm20nnwsSwzwLVhqsgXO+j8knloDrj0Dtk8iYZ5YJtNLe+KkefXhGcwyvmQmJM41+Su7Yt9mumg9qu2CaIj2CKAEq+56Z09IVfk8loNXYtXCbErtzII4QWoIYeFGus0uCMjcxskPUN8tDwry5xKDuWAtWxaCnyVs5RN76592g== 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL2Signature :: testName : 7_getL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL2Signature :: testName : 8_getL2Signature.json 
+2021-09-15 01:06:24 [main] INFO :: expectedL2Signature: Ry6hWPFprIOphfHJQUCh7F4ai7yt7Fl1FgLNUsrfDxSshEgYfAdY9mAeMHbepCl/b85qOcjYa/bqUdvjLhIaDs2LOXzDzRFItPu57Xph6eYDAQE6895wea4fdtlz4oqCRyY62REUZiaM+iMXiGXIWX6OY1R6nGYjjNR5mTrF+3UNmxXmZpVDWaYxgMxXAYKz+3X27o7p5wotRUk3hqzEswCjnKUm7Dh2l9XC9PrmaF1MvteUtVDZ7UAvUC6dOWS9QXUVN9rbIJbn6Z+0rVrl27jiP6GGw6WAzhfFmIMZJfQUjTW+M08OvuaTiJXdpZX7brYLB9pJOhArZMhHWXeA5w==
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.key 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : Λορεμ ιπσθμ δολορ σιτ αμετ, τατιον ινιμιcθσ τε ηασ, ιν εαμ μοδο ποσσιμ ινvιδθντ. 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:256
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : Ry6hWPFprIOphfHJQUCh7F4ai7yt7Fl1FgLNUsrfDxSshEgYfAdY9mAeMHbepCl/b85qOcjYa/bqUdvjLhIaDs2LOXzDzRFItPu57Xph6eYDAQE6895wea4fdtlz4oqCRyY62REUZiaM+iMXiGXIWX6OY1R6nGYjjNR5mTrF+3UNmxXmZpVDWaYxgMxXAYKz+3X27o7p5wotRUk3hqzEswCjnKUm7Dh2l9XC9PrmaF1MvteUtVDZ7UAvUC6dOWS9QXUVN9rbIJbn6Z+0rVrl27jiP6GGw6WAzhfFmIMZJfQUjTW+M08OvuaTiJXdpZX7brYLB9pJOhArZMhHWXeA5w== 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL2Signature :: testName : 8_getL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL2Signature :: testName : 9_getL2Signature.json 
+2021-09-15 01:06:24 [main] INFO :: expectedL2Signature: TI04ZkbzUOD/3Qrnvgc12a4XB26JTFNsgvD5u5+OpIDX7MUayuZQfnw1BHZUAOwbzIzbwilCjJsUfcu9hVL8idFLaGjQni/ew6A7LmGe+yT6XzodEE4u0U2B2NO6cc9vEezPYbC56/ZrzWLX9JTtGsT4+8viJynm1LmOvsuuIh5Zs9YLw5lReb6lv7UyOfVqeyge8585yGtd9OqTsrHx2ITKp/cOyrGwMh7QMermlZG/aQzMAFdnWLfeji64fLpvaBcZJiu9aN0nErCCjp9XSG3tvACu9Njja++W2o8pDEONYasesFCTqu4pQAlpzJcxKE+/BfteVVd/3pg4ug0tgQ==
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.key 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : GET&https://test.example.com/api/v1/rest/level1/in-in/&auth_prefix_app_id=app-id-lpX54CVNltS0ye03v2mQc0b&auth_prefix_nonce=-4985265956715077053&auth_prefix_signature_method=HMACSHA256&auth_prefix_timestamp=1502159855341&auth_prefix_version=1.0&param1=def+123 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:256
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : TI04ZkbzUOD/3Qrnvgc12a4XB26JTFNsgvD5u5+OpIDX7MUayuZQfnw1BHZUAOwbzIzbwilCjJsUfcu9hVL8idFLaGjQni/ew6A7LmGe+yT6XzodEE4u0U2B2NO6cc9vEezPYbC56/ZrzWLX9JTtGsT4+8viJynm1LmOvsuuIh5Zs9YLw5lReb6lv7UyOfVqeyge8585yGtd9OqTsrHx2ITKp/cOyrGwMh7QMermlZG/aQzMAFdnWLfeji64fLpvaBcZJiu9aN0nErCCjp9XSG3tvACu9Njja++W2o8pDEONYasesFCTqu4pQAlpzJcxKE+/BfteVVd/3pg4ug0tgQ== 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL2Signature :: testName : 9_getL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL2Signature :: testName : 10_getL2Signature.json 
+2021-09-15 01:06:24 [main] INFO :: expectedL2Signature: Xrr6IGpnUZwtWQHd2LI+QlQJOpIPE8gAv7t3h1YvslJiA4DD/y1TpR5x5LCYk0ooDhq3Di48Nt8H+Sc/UT3QrKd6jpJrM2e9qK57+RX1ImT437fWz8GYCtdJhEiRjyemg5Eidv/vuLkMsICeNb61gScokgJ7wWdD+dyNlN3ThIdATcNfzrqz2+1b3c0qhovX1CoGlegPBez8vdqpyidqBVz5nPqKHmdnqS11xrxKPVTo6Kx4v/J3IMM7BZ7lRidpyMKYireO+O2+29UPbOAurismLGdtWd9UcA6Iz1Cf4ffPZxsMUY9Y0FubRPuw5RpusFPpI0q3iBu2U4QYc5pA3w==
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.key 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getRSASignature :: baseString : GET&https://test.example.com/api/v1/rest/level1/in-in/&ap=裕廊坊 心邻坊&auth_prefix_app_id=app-id-lpX54CVNltS0ye03v2mQc0b&auth_prefix_nonce=2851111144329605674&auth_prefix_signature_method=HMACSHA256&auth_prefix_timestamp=1502163903712&auth_prefix_version=1.0 
+2021-09-15 01:06:24 [main] DEBUG:: encryptedData length:256
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getRSASignature :: base64Token : Xrr6IGpnUZwtWQHd2LI+QlQJOpIPE8gAv7t3h1YvslJiA4DD/y1TpR5x5LCYk0ooDhq3Di48Nt8H+Sc/UT3QrKd6jpJrM2e9qK57+RX1ImT437fWz8GYCtdJhEiRjyemg5Eidv/vuLkMsICeNb61gScokgJ7wWdD+dyNlN3ThIdATcNfzrqz2+1b3c0qhovX1CoGlegPBez8vdqpyidqBVz5nPqKHmdnqS11xrxKPVTo6Kx4v/J3IMM7BZ7lRidpyMKYireO+O2+29UPbOAurismLGdtWd9UcA6Iz1Cf4ffPZxsMUY9Y0FubRPuw5RpusFPpI0q3iBu2U4QYc5pA3w== 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL2Signature :: testName : 10_getL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL2Signature :: testName : 14_getL2Signature.json 
+2021-09-15 01:06:24 [main] INFO :: expectedL2Signature: exception using cipher - please check password and data.
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.key 
+2021-09-15 01:06:24 [main] ERROR:: ErrorTest :: RuntimeTestCase :: getL2Signature :: testName : 14_getL2Signature.json 
+2021-09-15 01:06:24 [main] ERROR:: Error message: exception using cipher - please check password and data.
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL2Signature :: testName : 14_getL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL2Signature :: testName : 15_getL2Signature.json 
+2021-09-15 01:06:24 [main] INFO :: expectedL2Signature: src/main/resources/test-suites/cert/alpha/invalidFileName.pem (No such file or directory)
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/invalidFileName.pem 
+2021-09-15 01:06:24 [main] ERROR:: ErrorTest :: RuntimeTestCase :: getL2Signature :: testName : 15_getL2Signature.json 
+2021-09-15 01:06:24 [main] ERROR:: Error message: src/main/resources/test-suites/cert/alpha/invalidFileName.pem (No such file or directory)
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL2Signature :: testName : 15_getL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL2Signature :: testName : 16_getL2Signature.json 
+2021-09-15 01:06:24 [main] INFO :: expectedL2Signature: org.bouncycastle.cert.X509CertificateHolder cannot be cast to org.bouncycastle.openssl.PEMKeyPair
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.public.pem 
+2021-09-15 01:06:24 [main] ERROR:: ErrorTest :: RuntimeTestCase :: getL2Signature :: testName : 16_getL2Signature.json 
+2021-09-15 01:06:24 [main] ERROR:: Error message: org.bouncycastle.cert.X509CertificateHolder cannot be cast to org.bouncycastle.openssl.PEMKeyPair
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL2Signature :: testName : 16_getL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL1Signature :: testName : 1_getL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : message , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs= 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL1Signature :: testName : 1_getL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL1Signature :: testName : 2.1_getL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : null , secret: secret 
+2021-09-15 01:06:24 [main] ERROR:: Error :: getHMACSignature :: baseString must not be null or empty.
+2021-09-15 01:06:24 [main] ERROR:: ErrorTest :: RuntimeTestCase :: getL1Signature :: testName : 2.1_getL1Signature.json 
+2021-09-15 01:06:24 [main] ERROR:: Error message: baseString must not be null or empty.
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL1Signature :: testName : 2.1_getL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL1Signature :: testName : 2.2_getL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString :  , secret: secret 
+2021-09-15 01:06:24 [main] ERROR:: Error :: getHMACSignature :: baseString must not be null or empty.
+2021-09-15 01:06:24 [main] ERROR:: ErrorTest :: RuntimeTestCase :: getL1Signature :: testName : 2.2_getL1Signature.json 
+2021-09-15 01:06:24 [main] ERROR:: Error message: baseString must not be null or empty.
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL1Signature :: testName : 2.2_getL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL1Signature :: testName : 3.1_getL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : message , secret: null 
+2021-09-15 01:06:24 [main] ERROR:: Error :: getHMACSignature :: secret must not be null or empty.
+2021-09-15 01:06:24 [main] ERROR:: ErrorTest :: RuntimeTestCase :: getL1Signature :: testName : 3.1_getL1Signature.json 
+2021-09-15 01:06:24 [main] ERROR:: Error message: secret must not be null or empty.
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL1Signature :: testName : 3.1_getL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL1Signature :: testName : 3.2_getL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : message , secret:  
+2021-09-15 01:06:24 [main] ERROR:: Error :: getHMACSignature :: secret must not be null or empty.
+2021-09-15 01:06:24 [main] ERROR:: ErrorTest :: RuntimeTestCase :: getL1Signature :: testName : 3.2_getL1Signature.json 
+2021-09-15 01:06:24 [main] ERROR:: Error message: secret must not be null or empty.
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL1Signature :: testName : 3.2_getL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL1Signature :: testName : 4_getL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : Lorem ipsum dolor sit amet, vel nihil senserit ei. Ne quo erat feugait disputationi. , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : cL3lY5/rhmkxMw/dCHCa4b9Lpp/soPPACnIxtQwRQI8= 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL1Signature :: testName : 4_getL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL1Signature :: testName : 5_getL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : 道続万汁国圭絶題手事足物目族月会済。 , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : wOHv68zuoiIjfJHW0hZcOk4lORyiAL/IGK8WSkBUnuk= 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL1Signature :: testName : 5_getL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL1Signature :: testName : 6_getL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : 員ちぞど移点お告周ひょ球独狙チウソノ法保断フヒシハ東5広みぶめい質創ごぴ採8踊表述因仁らトつ。 , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : L0ft4O8R2hxpupJVkLbgQpW0+HRw3KDgNUNf9DAEY7Y= 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL1Signature :: testName : 6_getL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL1Signature :: testName : 7_getL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : 대통령은 즉시 이를 공포하여야 한다, 그 자율적 활동과 발전을 보장한다. , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : a6qt0t/nQ3GQFAEVTH+LMvEi0D41ZaKqC7LWJcVmHlE= 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL1Signature :: testName : 7_getL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL1Signature :: testName : 8_getL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : Λορεμ ιπσθμ δολορ σιτ αμετ, τατιον ινιμιcθσ τε ηασ, ιν εαμ μοδο ποσσιμ ινvιδθντ. , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : WUGjbeO8Jy8Rvs5tD2biLHPR0+qtAmXeZKqX6acYL/4= 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL1Signature :: testName : 8_getL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL1Signature :: testName : 9_getL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : GET&https://test.example.com/api/v1/rest/level1/in-in/&auth_prefix_app_id=app-id-lpX54CVNltS0ye03v2mQc0b&auth_prefix_nonce=-4985265956715077053&auth_prefix_signature_method=HMACSHA256&auth_prefix_timestamp=1502159855341&auth_prefix_version=1.0&param1=def+123 , secret: 5aes9wG4mQgWJBfKMuYLtrEtNslm1enWG2XpGaMk 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : 8NxfLG0pFWEq1gZEttCW4lgrb92MFaqQpeUPRDx4CAE= 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL1Signature :: testName : 9_getL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: getL1Signature :: testName : 10_getL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : GET&https://test.example.com/api/v1/rest/level1/in-in/&ap=裕廊坊 心邻坊&auth_prefix_app_id=app-id-lpX54CVNltS0ye03v2mQc0b&auth_prefix_nonce=2851111144329605674&auth_prefix_signature_method=HMACSHA256&auth_prefix_timestamp=1502163903712&auth_prefix_version=1.0 , secret: 5aes9wG4mQgWJBfKMuYLtrEtNslm1enWG2XpGaMk 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : 0fE74Vf/Q7nktxeezzrYcvOeq36Pd4CJ7Ez9I00cdJk= 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getL1Signature :: testName : 10_getL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: verifyL2Signature :: testName : 1_verifyL2Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPublicKeyFromX509Certificate :: publicCertificateFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.public.cer 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPublicKeyFromX509Certificate
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: verifyRSASignature :: baseString  : message , signature : BYTzB10qy1u0lNTi2CKpn5TfakyKcm4b7q9w3hMkhoupGLklB15N8mNCDxGQrnuPGc0CktLjBEk2+csJ0GLzo/J+p+FuluhMPXn2RvX6GWFhu5RY4d4VzLIy369FyWlu+a4OX5QKJCJ5Lr70TZ82GFW4nYCnqLQa1jLAqtzldLCHprN3Nd1gPP01a/E3N2I70l+q/M8mWdZlJoSI148waSPy+RHbSuRF+23BQ/jKCRrG63TAZAMzuT2prCEXuMFmWZBRPPYVJ1wQvdoot7M99n8o0/1oq5G/Q/pWNi7N6saz9FrF594j+qGi9Sj4PUjvg3FMf2mYj4e2UX0EqTqT9g== 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyRSASignature
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyRSASignature
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: verifyL2Signature :: testName : 1_verifyL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: verifyL2Signature :: testName : 2_verifyL2Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPublicKeyFromX509Certificate :: publicCertificateFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.public.pem 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPublicKeyFromX509Certificate
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: verifyRSASignature :: baseString  : message , signature : BYTzB10qy1u0lNTi2CKpn5TfakyKcm4b7q9w3hMkhoupGLklB15N8mNCDxGQrnuPGc0CktLjBEk2+csJ0GLzo/J+p+FuluhMPXn2RvX6GWFhu5RY4d4VzLIy369FyWlu+a4OX5QKJCJ5Lr70TZ82GFW4nYCnqLQa1jLAqtzldLCHprN3Nd1gPP01a/E3N2I70l+q/M8mWdZlJoSI148waSPy+RHbSuRF+23BQ/jKCRrG63TAZAMzuT2prCEXuMFmWZBRPPYVJ1wQvdoot7M99n8o0/1oq5G/Q/pWNi7N6saz9FrF594j+qGi9Sj4PUjvg3FMf2mYj4e2UX0EqTqT9g== 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyRSASignature
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyRSASignature
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: verifyL2Signature :: testName : 2_verifyL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: verifyL2Signature :: testName : 3_verifyL2Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPublicKeyPEM :: publicCertificateFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.public.key 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPublicKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: verifyRSASignature :: baseString  : message , signature : BYTzB10qy1u0lNTi2CKpn5TfakyKcm4b7q9w3hMkhoupGLklB15N8mNCDxGQrnuPGc0CktLjBEk2+csJ0GLzo/J+p+FuluhMPXn2RvX6GWFhu5RY4d4VzLIy369FyWlu+a4OX5QKJCJ5Lr70TZ82GFW4nYCnqLQa1jLAqtzldLCHprN3Nd1gPP01a/E3N2I70l+q/M8mWdZlJoSI148waSPy+RHbSuRF+23BQ/jKCRrG63TAZAMzuT2prCEXuMFmWZBRPPYVJ1wQvdoot7M99n8o0/1oq5G/Q/pWNi7N6saz9FrF594j+qGi9Sj4PUjvg3FMf2mYj4e2UX0EqTqT9g== 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyRSASignature
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyRSASignature
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: verifyL2Signature :: testName : 3_verifyL2Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: verifyL1Signature :: testName : 1_verifyL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: verifyHMACSignature :: signature : i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs= , baseString : message , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : message , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs= 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyHMACSignature :: boolean : true
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: verifyL1Signature :: testName : 1_verifyL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: verifyL1Signature :: testName : 2_verifyL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: verifyHMACSignature :: signature : i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs= , baseString : message , secret: secretX 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : message , secret: secretX 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : Z9TR1XT31ZYYUnmOz13qw346VqoWyOLL9TuI4S7vd+I= 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyHMACSignature :: boolean : false
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: verifyL1Signature :: testName : 2_verifyL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: verifyL1Signature :: testName : 3_verifyL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: verifyHMACSignature :: signature : i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs= , baseString : messageX , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : messageX , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : v9IN3IfXIuX/cwkgR6LZTjGJVa/g3YtWWiTRp7vIuuc= 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyHMACSignature :: boolean : false
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: verifyL1Signature :: testName : 3_verifyL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ==========> Start :: RuntimeTestCase :: verifyL1Signature :: testName : 4_verifyL1Signature.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: verifyHMACSignature :: signature : i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs=X , baseString : message , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getHMACSignature :: baseString : message , secret: secret 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getHMACSignature :: base64Token : i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs= 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: verifyHMACSignature :: boolean : false
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: verifyL1Signature :: testName : 4_verifyL1Signature.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 1_getSignatureBaseString.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex/1?param1=x&param2&param3=m , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067
+2021-09-15 01:06:24 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex/1?param1=x&param2&param3=m
+2021-09-15 01:06:24 [main] DEBUG:: siteUri.getScheme():: https
+2021-09-15 01:06:24 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1
+2021-09-15 01:06:24 [main] DEBUG:: queryString:: param1=x&param2&param3=m
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: param1=x
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: param2
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: param3=m
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3=m 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3=m 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3=m 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 1_getSignatureBaseString.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 2_getSignatureBaseString.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex/1?param1=x&param2=&param3=m , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067
+2021-09-15 01:06:24 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex/1?param1=x&param2=&param3=m
+2021-09-15 01:06:24 [main] DEBUG:: siteUri.getScheme():: https
+2021-09-15 01:06:24 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1
+2021-09-15 01:06:24 [main] DEBUG:: queryString:: param1=x&param2=&param3=m
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: param1=x
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: param2=
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: param3=m
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3=m 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3=m 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3=m 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 2_getSignatureBaseString.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 3_getSignatureBaseString.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067
+2021-09-15 01:06:24 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex
+2021-09-15 01:06:24 [main] DEBUG:: siteUri.getScheme():: https
+2021-09-15 01:06:24 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 3_getSignatureBaseString.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 4_getSignatureBaseString.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1x&param1=value1m , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067
+2021-09-15 01:06:24 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1x&param1=value1m
+2021-09-15 01:06:24 [main] DEBUG:: siteUri.getScheme():: https
+2021-09-15 01:06:24 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-09-15 01:06:24 [main] DEBUG:: queryString:: param1=value1x&param1=value1m
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: param1=value1x
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: param1=value1m
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1m&param1=value1x 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1m&param1=value1x 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1m&param1=value1x 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 4_getSignatureBaseString.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 5_getSignatureBaseString.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067
+2021-09-15 01:06:24 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex
+2021-09-15 01:06:24 [main] DEBUG:: siteUri.getScheme():: https
+2021-09-15 01:06:24 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1x=value1m&param1x=value1x&param2x=value2b 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1x=value1m&param1x=value1x&param2x=value2b 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1x=value1m&param1x=value1x&param2x=value2b 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 5_getSignatureBaseString.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 6_getSignatureBaseString.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067
+2021-09-15 01:06:24 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex
+2021-09-15 01:06:24 [main] DEBUG:: siteUri.getScheme():: https
+2021-09-15 01:06:24 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&jasonObject&param1a=899&param1c=value1cf&param1c=value1cz&param1h=false&param1o=true 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&jasonObject&param1a=899&param1c=value1cf&param1c=value1cz&param1h=false&param1o=true 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&jasonObject&param1a=899&param1c=value1cf&param1c=value1cz&param1h=false&param1o=true 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 6_getSignatureBaseString.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 7_getSignatureBaseString.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2 , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067
+2021-09-15 01:06:24 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2
+2021-09-15 01:06:24 [main] DEBUG:: siteUri.getScheme():: https
+2021-09-15 01:06:24 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-09-15 01:06:24 [main] DEBUG:: queryString:: param1=value1&param2=value2
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: param1=value1
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: param2=value2
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2&param2=value2b&value1=value1m&value1=value1x 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2&param2=value2b&value1=value1m&value1=value1x 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2&param2=value2b&value1=value1m&value1=value1x 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 7_getSignatureBaseString.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 8_getSignatureBaseString.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067
+2021-09-15 01:06:24 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex
+2021-09-15 01:06:24 [main] DEBUG:: siteUri.getScheme():: https
+2021-09-15 01:06:24 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&jasonObjectA&jasonObjectB&param1a=899&param1a=899&param1c=123&param1c=123&param1c=32.935643&param1c=32.99756543&param1c=true&param1c=true&param1c=value1cf&param1c=value1cf&param1c=value1cz&param1c=value1cz&param1h=false&param1h=false&param1o=true&param1o=true&zParam11=123.5474389&zParam12=123.573389 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&jasonObjectA&jasonObjectB&param1a=899&param1a=899&param1c=123&param1c=123&param1c=32.935643&param1c=32.99756543&param1c=true&param1c=true&param1c=value1cf&param1c=value1cf&param1c=value1cz&param1c=value1cz&param1h=false&param1h=false&param1o=true&param1o=true&zParam11=123.5474389&zParam12=123.573389 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&jasonObjectA&jasonObjectB&param1a=899&param1a=899&param1c=123&param1c=123&param1c=32.935643&param1c=32.99756543&param1c=true&param1c=true&param1c=value1cf&param1c=value1cf&param1c=value1cz&param1c=value1cz&param1h=false&param1h=false&param1o=true&param1o=true&zParam11=123.5474389&zParam12=123.573389 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 8_getSignatureBaseString.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 9_getSignatureBaseString.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2 , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067
+2021-09-15 01:06:24 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2
+2021-09-15 01:06:24 [main] DEBUG:: siteUri.getScheme():: https
+2021-09-15 01:06:24 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-09-15 01:06:24 [main] DEBUG:: queryString:: param1=value1&param2=value2
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: param1=value1
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: param2=value2
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1m&MessageBody=value1x&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1m&MessageBody=value1x&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1m&MessageBody=value1x&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 9_getSignatureBaseString.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 10_getSignatureBaseString.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067
+2021-09-15 01:06:24 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex
+2021-09-15 01:06:24 [main] DEBUG:: siteUri.getScheme():: https
+2021-09-15 01:06:24 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1h=😋,%&&param1h=😋,%& 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1h=😋,%&&param1h=😋,%& 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1h=😋,%&&param1h=😋,%& 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 10_getSignatureBaseString.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 11_getSignatureBaseString.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2 , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067
+2021-09-15 01:06:24 [main] DEBUG:: raw url:: https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2
+2021-09-15 01:06:24 [main] DEBUG:: siteUri.getScheme():: https
+2021-09-15 01:06:24 [main] DEBUG:: url:: https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex
+2021-09-15 01:06:24 [main] DEBUG:: queryString:: param1=value1&param2=value2
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: param1=value1
+2021-09-15 01:06:24 [main] DEBUG:: queryItem:: param2=value2
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1m&MessageBody=value1x&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1m&MessageBody=value1x&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-09-15 01:06:24 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1m&MessageBody=value1x&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-09-15 01:06:24 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 11_getSignatureBaseString.json<==================== 
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureToken :: testName : 1_getSignatureToken.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/ 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getSignatureToken :: realm : com.api.util.ApiSecurity.AuthParam@61386958 , authPrefix  : {} , appId : {} , urlPath : {} , httpMethod : {} , nonce : {} , timestamp : {} , secret : {} , password : {} , alias : {} , fileName : {}
+2021-09-15 01:06:24 [main] ERROR:: Error :: getToken :: 0
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureToken :: testName : 2_getSignatureToken.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.nopass.pem 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getSignatureToken :: realm : com.api.util.ApiSecurity.AuthParam@68c72235 , authPrefix  : {} , appId : {} , urlPath : {} , httpMethod : {} , nonce : {} , timestamp : {} , secret : {} , password : {} , alias : {} , fileName : {}
+2021-09-15 01:06:24 [main] ERROR:: Error :: getToken :: 0
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureToken :: testName : 3_getSignatureToken.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.nopass.pem 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getSignatureToken :: realm : com.api.util.ApiSecurity.AuthParam@59af0466 , authPrefix  : {} , appId : {} , urlPath : {} , httpMethod : {} , nonce : {} , timestamp : {} , secret : {} , password : {} , alias : {} , fileName : {}
+2021-09-15 01:06:24 [main] ERROR:: Error :: getToken :: 0
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureToken :: testName : 4_getSignatureToken.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.nopass.pem 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getSignatureToken :: realm : com.api.util.ApiSecurity.AuthParam@3d1cfad4 , authPrefix  : {} , appId : {} , urlPath : {} , httpMethod : {} , nonce : {} , timestamp : {} , secret : {} , password : {} , alias : {} , fileName : {}
+2021-09-15 01:06:24 [main] ERROR:: Error :: getToken :: 0
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureToken :: testName : 5_getSignatureToken.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.nopass.pem 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getSignatureToken :: realm : com.api.util.ApiSecurity.AuthParam@e7edb54 , authPrefix  : {} , appId : {} , urlPath : {} , httpMethod : {} , nonce : {} , timestamp : {} , secret : {} , password : {} , alias : {} , fileName : {}
+2021-09-15 01:06:24 [main] ERROR:: Error :: getToken :: 0
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureToken :: testName : 6_getSignatureToken.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.nopass.pem 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getSignatureToken :: realm : com.api.util.ApiSecurity.AuthParam@c333c60 , authPrefix  : {} , appId : {} , urlPath : {} , httpMethod : {} , nonce : {} , timestamp : {} , secret : {} , password : {} , alias : {} , fileName : {}
+2021-09-15 01:06:24 [main] ERROR:: Error :: getToken :: 0
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureToken :: testName : 7_getSignatureToken.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.nopass.pem 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getSignatureToken :: realm : com.api.util.ApiSecurity.AuthParam@5fd4f8f5 , authPrefix  : {} , appId : {} , urlPath : {} , httpMethod : {} , nonce : {} , timestamp : {} , secret : {} , password : {} , alias : {} , fileName : {}
+2021-09-15 01:06:24 [main] ERROR:: Error :: getToken :: 0
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureToken :: testName : 8_getSignatureToken.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.nopass.pem 
+2021-09-15 01:06:24 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getSignatureToken :: realm : com.api.util.ApiSecurity.AuthParam@2f8dad04 , authPrefix  : {} , appId : {} , urlPath : {} , httpMethod : {} , nonce : {} , timestamp : {} , secret : {} , password : {} , alias : {} , fileName : {}
+2021-09-15 01:06:24 [main] ERROR:: Error :: getToken :: 0
+2021-09-15 01:06:24 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureToken :: testName : 9_getSignatureToken.json 
+2021-09-15 01:06:24 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/cert/alpha/training.alpha.apex.lab.nopass.pem 
+2021-09-15 01:06:25 [main] DEBUG:: Exit :: getPrivateKeyPEM
+2021-09-15 01:06:25 [main] DEBUG:: Enter :: getSignatureToken :: realm : com.api.util.ApiSecurity.AuthParam@44821a96 , authPrefix  : {} , appId : {} , urlPath : {} , httpMethod : {} , nonce : {} , timestamp : {} , secret : {} , password : {} , alias : {} , fileName : {}
+2021-09-15 01:06:25 [main] ERROR:: Error :: getToken :: 0
+2021-09-15 01:06:25 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureToken :: testName : 10_getSignatureToken.json 
+2021-09-15 01:06:25 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/ 
+2021-09-15 01:06:25 [main] DEBUG:: Enter :: getSignatureToken :: realm : com.api.util.ApiSecurity.AuthParam@120f102b , authPrefix  : {} , appId : {} , urlPath : {} , httpMethod : {} , nonce : {} , timestamp : {} , secret : {} , password : {} , alias : {} , fileName : {}
+2021-09-15 01:06:25 [main] ERROR:: Error :: getToken :: null
+2021-09-15 01:06:25 [main] ERROR:: ErrorTest :: RuntimeTestCase :: getSignatureToken :: testName : 10_getSignatureToken.json 
+2021-09-15 01:06:25 [main] ERROR:: Error message: Error while getting Token
+2021-09-15 01:06:25 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureToken :: testName : 11_getSignatureToken.json 
+2021-09-15 01:06:25 [main] DEBUG:: Enter :: getPrivateKeyPEM :: privateKeyFileName : src/main/resources/test-suites/ 
+2021-09-15 01:06:25 [main] DEBUG:: Enter :: getSignatureToken :: realm : com.api.util.ApiSecurity.AuthParam@2accdbb5 , authPrefix  : {} , appId : {} , urlPath : {} , httpMethod : {} , nonce : {} , timestamp : {} , secret : {} , password : {} , alias : {} , fileName : {}
+2021-09-15 01:06:25 [main] ERROR:: Error :: getToken :: 0
+Tests run: 55, Failures: 1, Errors: 10, Skipped: 0, Time elapsed: 0.749 sec <<< FAILURE!
+tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)  Time elapsed: 0.023 sec  <<< ERROR!
+java.lang.NullPointerException
+	at com.api.util.testframework.RuntimeTestCase.getSignatureToken(RuntimeTestCase.java:215)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.api.util.testframework.JUnitFrameworkFactory.invokeExplosively(JUnitFrameworkFactory.java:28)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)  Time elapsed: 0.007 sec  <<< ERROR!
+java.lang.NullPointerException
+	at com.api.util.testframework.RuntimeTestCase.getSignatureToken(RuntimeTestCase.java:215)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.api.util.testframework.JUnitFrameworkFactory.invokeExplosively(JUnitFrameworkFactory.java:28)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)  Time elapsed: 0.007 sec  <<< ERROR!
+java.lang.NullPointerException
+	at com.api.util.testframework.RuntimeTestCase.getSignatureToken(RuntimeTestCase.java:215)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.api.util.testframework.JUnitFrameworkFactory.invokeExplosively(JUnitFrameworkFactory.java:28)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)  Time elapsed: 0.005 sec  <<< ERROR!
+java.lang.NullPointerException
+	at com.api.util.testframework.RuntimeTestCase.getSignatureToken(RuntimeTestCase.java:215)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.api.util.testframework.JUnitFrameworkFactory.invokeExplosively(JUnitFrameworkFactory.java:28)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)  Time elapsed: 0.005 sec  <<< ERROR!
+java.lang.NullPointerException
+	at com.api.util.testframework.RuntimeTestCase.getSignatureToken(RuntimeTestCase.java:215)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.api.util.testframework.JUnitFrameworkFactory.invokeExplosively(JUnitFrameworkFactory.java:28)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)  Time elapsed: 0.01 sec  <<< ERROR!
+java.lang.NullPointerException
+	at com.api.util.testframework.RuntimeTestCase.getSignatureToken(RuntimeTestCase.java:215)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.api.util.testframework.JUnitFrameworkFactory.invokeExplosively(JUnitFrameworkFactory.java:28)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)  Time elapsed: 0.012 sec  <<< ERROR!
+java.lang.NullPointerException
+	at com.api.util.testframework.RuntimeTestCase.getSignatureToken(RuntimeTestCase.java:215)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.api.util.testframework.JUnitFrameworkFactory.invokeExplosively(JUnitFrameworkFactory.java:28)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)  Time elapsed: 0.011 sec  <<< ERROR!
+java.lang.NullPointerException
+	at com.api.util.testframework.RuntimeTestCase.getSignatureToken(RuntimeTestCase.java:215)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.api.util.testframework.JUnitFrameworkFactory.invokeExplosively(JUnitFrameworkFactory.java:28)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)  Time elapsed: 0.009 sec  <<< ERROR!
+java.lang.NullPointerException
+	at com.api.util.testframework.RuntimeTestCase.getSignatureToken(RuntimeTestCase.java:215)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.api.util.testframework.JUnitFrameworkFactory.invokeExplosively(JUnitFrameworkFactory.java:28)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)  Time elapsed: 0.014 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[Invalid Authorization Prefix.]> but was:<[Error while getting Token]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at com.api.util.testframework.RuntimeTestCase.getSignatureToken(RuntimeTestCase.java:218)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.api.util.testframework.JUnitFrameworkFactory.invokeExplosively(JUnitFrameworkFactory.java:28)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)  Time elapsed: 0.006 sec  <<< ERROR!
+java.lang.NullPointerException
+	at com.api.util.testframework.RuntimeTestCase.getSignatureToken(RuntimeTestCase.java:215)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.api.util.testframework.JUnitFrameworkFactory.invokeExplosively(JUnitFrameworkFactory.java:28)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+
+Results :
+
+Failed tests:   tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest): expected:<[Invalid Authorization Prefix.]> but was:<[Error while getting Token]>
+
+Tests in error: 
+  Test_L2_Not_Supported_Cert_Test(com.api.util.ApiSecurity.AuthorizationTokenTest): Unexpected exception, expected<com.api.util.ApiSecurity.ApiUtilException> but was<org.junit.ComparisonFailure>
+  Test_L1_Basic_Test(com.api.util.ApiSecurity.AuthorizationTokenTest): Error while getting Token
+  Test_L2_Basic_Test(com.api.util.ApiSecurity.AuthorizationTokenTest): Error while getting Token
+  tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)
+  tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)
+  tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)
+  tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)
+  tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)
+  tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)
+  tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)
+  tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)
+  tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)
+  tests=RuntimeTestCase.getSignatureToken[com.api.util.testframework.RuntimeTestCase@8909f18](com.api.util.ApiSecurity.ApiSecurityTest)
+
+Tests run: 74, Failures: 1, Errors: 13, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 9.095 s
+[INFO] Finished at: 2021-09-15T01:06:25+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test) on project ApiSecurity: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
