@@ -16,8 +16,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import com.api.util.testframework.JUnitFactoryRunner;
 import com.api.util.testframework.JUnitTestFactory;
@@ -35,7 +35,7 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
 @RunWith(JUnitFactoryRunner.class)
 public class ApiSecurityTest {
 	
-	private static final Logger log = LoggerFactory.getLogger(ApiSecurityTest.class);
+	private static final Logger log = LogManager.getLogger(ApiSecurityTest.class);
 	
 	private static final String testDataPath = getLocalPath("src/main/resources/test-suites/testData/");
 	
