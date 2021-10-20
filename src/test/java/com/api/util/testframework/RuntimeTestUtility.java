@@ -11,6 +11,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
 import java.util.Map.Entry;
 import java.util.AbstractMap.SimpleEntry;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -65,6 +67,7 @@ public class RuntimeTestUtility {
 				MapValue=(String) String.valueOf((Boolean) Map.getValue());
 				apiList.add(Map.getKey(),MapValue);
 			}else if(Map.getValue() instanceof ArrayList){
+				System.out.println("in getApiList: " + Map.getValue().toString());
 				ArrayList<Entry<String,Object>> arrayList = new ArrayList<Entry<String,Object>>();
 				for(Object o : (ArrayList) Map.getValue()){
 					Entry<String,Object> entry = new SimpleEntry<String,Object>(Map.getKey(),o);
@@ -81,4 +84,58 @@ public class RuntimeTestUtility {
 		return apiList;
 		
 	}
+
+	public static ApiList getURLEncodedApiList(ArrayList<Entry<String,Object>> entryList,boolean newEntry){
+		//log.debug("getApiList(Is new Entry? )" + newEntry);
+		if(newEntry){
+			apiList = new ApiList();
+		}
+
+		try {
+		
+        
+			//log.debug("EntryList Size: " + entryList.size());
+			for( Entry<String, Object> Map : entryList){
+				String MapValue = "";       
+				String encodedKey = java.net.URLEncoder.encode(Map.getKey(), StandardCharsets.UTF_8.toString());
+				if(Map.getValue() instanceof String){
+					MapValue=(String) Map.getValue();
+					apiList.add(encodedKey,java.net.URLEncoder.encode(MapValue, StandardCharsets.UTF_8.toString()));
+				}else if(Map.getValue() instanceof Integer){
+					MapValue=(String) String.valueOf((Integer) Map.getValue());
+					apiList.add(encodedKey,MapValue);
+				}else if(Map.getValue() instanceof Double){
+					//log.debug("Instance of Integer");
+					MapValue=(String) Double.toString((Double) Map.getValue());
+					apiList.add(encodedKey,MapValue);
+				}else if(Map.getValue() instanceof Boolean){
+					MapValue=(String) String.valueOf((Boolean) Map.getValue());
+					apiList.add(encodedKey,MapValue);
+				}else if(Map.getValue() instanceof ArrayList){
+					ArrayList<Entry<String,Object>> arrayList = new ArrayList<Entry<String,Object>>();
+					for(Object o : (ArrayList) Map.getValue()){
+						if (o instanceof String) {
+							Entry<String,Object> entry = new SimpleEntry<String,Object>(encodedKey,java.net.URLEncoder.encode((String) o, StandardCharsets.UTF_8.toString()));
+							arrayList.add(entry);
+						} else {
+							Entry<String,Object> entry = new SimpleEntry<String,Object>(encodedKey,o);
+							arrayList.add(entry);
+						}
+						
+					}
+					getApiList(arrayList,false);
+				}
+				else{
+					MapValue="";
+					apiList.add(java.net.URLEncoder.encode(encodedKey, StandardCharsets.UTF_8.toString()),MapValue);
+					
+				}
+			} 
+		}catch (UnsupportedEncodingException uee) {
+				uee.printStackTrace();
+		}
+		return apiList;
+		
+	}
+
 }

@@ -1,0 +1,355 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.api.util:ApiSecurity >----------------------
+[INFO] Building ApiSecurity 1.3.4-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jsonschema2pojo-maven-plugin:0.5.1:generate (default) @ ApiSecurity ---
+Downloading from maven-central: http://repo1.maven.org/maven2/io/grpc/grpc-core/maven-metadata.xml
+Downloading from gradle-workaround: http://repo.spring.io/plugins-release/io/grpc/grpc-core/maven-metadata.xml
+[WARNING] Could not transfer metadata io.grpc:grpc-core/maven-metadata.xml from/to maven-central (http://repo1.maven.org/maven2): Failed to transfer file: http://repo1.maven.org/maven2/io/grpc/grpc-core/maven-metadata.xml. Return code is: 501 , ReasonPhrase:HTTPS Required.
+[WARNING] Could not transfer metadata io.grpc:grpc-core/maven-metadata.xml from/to gradle-workaround (http://repo.spring.io/plugins-release): Failed to transfer file: http://repo.spring.io/plugins-release/io/grpc/grpc-core/maven-metadata.xml. Return code is: 308 , ReasonPhrase:Permanent Redirect.
+Downloading from maven-central: http://repo1.maven.org/maven2/io/netty/netty-codec-http2/maven-metadata.xml
+Downloading from gradle-workaround: http://repo.spring.io/plugins-release/io/netty/netty-codec-http2/maven-metadata.xml
+[WARNING] Could not transfer metadata io.netty:netty-codec-http2/maven-metadata.xml from/to maven-central (http://repo1.maven.org/maven2): Failed to transfer file: http://repo1.maven.org/maven2/io/netty/netty-codec-http2/maven-metadata.xml. Return code is: 501 , ReasonPhrase:HTTPS Required.
+[WARNING] Could not transfer metadata io.netty:netty-codec-http2/maven-metadata.xml from/to gradle-workaround (http://repo.spring.io/plugins-release): Failed to transfer file: http://repo.spring.io/plugins-release/io/netty/netty-codec-http2/maven-metadata.xml. Return code is: 308 , ReasonPhrase:Permanent Redirect.
+[WARNING] Failure to transfer io.grpc:grpc-core/maven-metadata.xml from http://repo1.maven.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of maven-central has elapsed or updates are forced. Original error: Could not transfer metadata io.grpc:grpc-core/maven-metadata.xml from/to maven-central (http://repo1.maven.org/maven2): Failed to transfer file: http://repo1.maven.org/maven2/io/grpc/grpc-core/maven-metadata.xml. Return code is: 501 , ReasonPhrase:HTTPS Required.
+[WARNING] Failure to transfer io.grpc:grpc-core/maven-metadata.xml from http://repo.spring.io/plugins-release was cached in the local repository, resolution will not be reattempted until the update interval of gradle-workaround has elapsed or updates are forced. Original error: Could not transfer metadata io.grpc:grpc-core/maven-metadata.xml from/to gradle-workaround (http://repo.spring.io/plugins-release): Failed to transfer file: http://repo.spring.io/plugins-release/io/grpc/grpc-core/maven-metadata.xml. Return code is: 308 , ReasonPhrase:Permanent Redirect.
+[WARNING] Failure to transfer io.netty:netty-codec-http2/maven-metadata.xml from http://repo1.maven.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of maven-central has elapsed or updates are forced. Original error: Could not transfer metadata io.netty:netty-codec-http2/maven-metadata.xml from/to maven-central (http://repo1.maven.org/maven2): Failed to transfer file: http://repo1.maven.org/maven2/io/netty/netty-codec-http2/maven-metadata.xml. Return code is: 501 , ReasonPhrase:HTTPS Required.
+[WARNING] Failure to transfer io.netty:netty-codec-http2/maven-metadata.xml from http://repo.spring.io/plugins-release was cached in the local repository, resolution will not be reattempted until the update interval of gradle-workaround has elapsed or updates are forced. Original error: Could not transfer metadata io.netty:netty-codec-http2/maven-metadata.xml from/to gradle-workaround (http://repo.spring.io/plugins-release): Failed to transfer file: http://repo.spring.io/plugins-release/io/netty/netty-codec-http2/maven-metadata.xml. Return code is: 308 , ReasonPhrase:Permanent Redirect.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ ApiSecurity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 52 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ ApiSecurity ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 18 source files to /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security_bu/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ ApiSecurity ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security_bu/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ ApiSecurity ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 17 source files to /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security_bu/target/test-classes
+[INFO] /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security_bu/src/test/java/com/api/util/ApiSecurity/BaseStringTest.java: Some input files use or override a deprecated API.
+[INFO] /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security_bu/src/test/java/com/api/util/ApiSecurity/BaseStringTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ ApiSecurity ---
+[INFO] Surefire report directory: /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security_bu/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.api.util.ApiSecurity.ApiSecurityTest
+File: getSignatureBaseString.json
+2021-10-14 15:27:22 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 1_getSignatureBaseString.json 
+2021-10-14 15:27:24 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex/1?param1=x&param2&param3=m , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067 , version : 1.0
+2021-10-14 15:27:24 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex/1?param1=x&param2&param3=m
+2021-10-14 15:27:24 [main] DEBUG:: siteUri.getScheme():: https
+2021-10-14 15:27:24 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1
+2021-10-14 15:27:24 [main] DEBUG:: queryString:: param1=x&param2&param3=m
+2021-10-14 15:27:24 [main] DEBUG:: queryItem:: param1=x
+2021-10-14 15:27:24 [main] DEBUG:: queryItem:: param2
+2021-10-14 15:27:24 [main] DEBUG:: queryItem:: param3=m
+2021-10-14 15:27:25 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3=m 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3=m 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3=m 
+2021-10-14 15:27:25 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 1_getSignatureBaseString.json<==================== 
+2021-10-14 15:27:25 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 2_getSignatureBaseString.json 
+2021-10-14 15:27:25 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex/1?param1=x&param2=&param3=m , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067 , version : 1.0
+2021-10-14 15:27:25 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex/1?param1=x&param2=&param3=m
+2021-10-14 15:27:25 [main] DEBUG:: siteUri.getScheme():: https
+2021-10-14 15:27:25 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1
+2021-10-14 15:27:25 [main] DEBUG:: queryString:: param1=x&param2=&param3=m
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1=x
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param2=
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param3=m
+2021-10-14 15:27:25 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3=m 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3=m 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3=m 
+2021-10-14 15:27:25 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 2_getSignatureBaseString.json<==================== 
+2021-10-14 15:27:25 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 3_getSignatureBaseString.json 
+ ADDITIONALPROPERTIES :param1  entry Value :class java.lang.String
+ ADDITIONALPROPERTIES :param2  entry Value :class java.lang.String
+2021-10-14 15:27:25 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 4_getSignatureBaseString.json 
+2021-10-14 15:27:25 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1x&param1=value1m , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067 , version : 1.0
+2021-10-14 15:27:25 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1x&param1=value1m
+2021-10-14 15:27:25 [main] DEBUG:: siteUri.getScheme():: https
+2021-10-14 15:27:25 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-10-14 15:27:25 [main] DEBUG:: queryString:: param1=value1x&param1=value1m
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1=value1x
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1=value1m
+2021-10-14 15:27:25 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1m&param1=value1x 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1m&param1=value1x 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1m&param1=value1x 
+2021-10-14 15:27:25 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 4_getSignatureBaseString.json<==================== 
+2021-10-14 15:27:25 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 5_getSignatureBaseString.json 
+ ADDITIONALPROPERTIES :param1x  entry Value :class java.util.ArrayList
+ ADDITIONALPROPERTIES :param2x  entry Value :class java.lang.String
+2021-10-14 15:27:25 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1x=value1m&param1x=value1x&param2x=value2b , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067 , version : 1.0
+2021-10-14 15:27:25 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1x=value1m&param1x=value1x&param2x=value2b
+2021-10-14 15:27:25 [main] DEBUG:: siteUri.getScheme():: https
+2021-10-14 15:27:25 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-10-14 15:27:25 [main] DEBUG:: queryString:: param1x=value1m&param1x=value1x&param2x=value2b
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1x=value1m
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1x=value1x
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param2x=value2b
+2021-10-14 15:27:25 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1x=value1m&param1x=value1x&param2x=value2b 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1x=value1m&param1x=value1x&param2x=value2b 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1x=value1m&param1x=value1x&param2x=value2b 
+2021-10-14 15:27:25 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 5_getSignatureBaseString.json<==================== 
+2021-10-14 15:27:25 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 6_getSignatureBaseString.json 
+ ADDITIONALPROPERTIES :param1h  entry Value :class java.lang.Boolean
+ ADDITIONALPROPERTIES :param1o  entry Value :class java.lang.Boolean
+ ADDITIONALPROPERTIES :param1a  entry Value :class java.lang.Integer
+ ADDITIONALPROPERTIES :param1c  entry Value :class java.util.ArrayList
+ ADDITIONALPROPERTIES :jasonObject  entry Value :class java.util.LinkedHashMap
+2021-10-14 15:27:25 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?jasonObject&param1a=899&param1c=value1cf&param1c=value1cz&param1h=false&param1o=true , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067 , version : 1.0
+2021-10-14 15:27:25 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?jasonObject&param1a=899&param1c=value1cf&param1c=value1cz&param1h=false&param1o=true
+2021-10-14 15:27:25 [main] DEBUG:: siteUri.getScheme():: https
+2021-10-14 15:27:25 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-10-14 15:27:25 [main] DEBUG:: queryString:: jasonObject&param1a=899&param1c=value1cf&param1c=value1cz&param1h=false&param1o=true
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: jasonObject
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1a=899
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1c=value1cf
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1c=value1cz
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1h=false
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1o=true
+2021-10-14 15:27:25 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&jasonObject&param1a=899&param1c=value1cf&param1c=value1cz&param1h=false&param1o=true 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&jasonObject&param1a=899&param1c=value1cf&param1c=value1cz&param1h=false&param1o=true 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&jasonObject&param1a=899&param1c=value1cf&param1c=value1cz&param1h=false&param1o=true 
+2021-10-14 15:27:25 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 6_getSignatureBaseString.json<==================== 
+2021-10-14 15:27:25 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 7_getSignatureBaseString.json 
+ ADDITIONALPROPERTIES :value1  entry Value :class java.util.ArrayList
+ ADDITIONALPROPERTIES :param2  entry Value :class java.lang.String
+2021-10-14 15:27:25 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2&param2=value2b&value1=value1m&value1=value1x , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067 , version : 1.0
+2021-10-14 15:27:25 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2&param2=value2b&value1=value1m&value1=value1x
+2021-10-14 15:27:25 [main] DEBUG:: siteUri.getScheme():: https
+2021-10-14 15:27:25 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-10-14 15:27:25 [main] DEBUG:: queryString:: param1=value1&param2=value2&param2=value2b&value1=value1m&value1=value1x
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1=value1
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param2=value2
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param2=value2b
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: value1=value1m
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: value1=value1x
+2021-10-14 15:27:25 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2&param2=value2b&value1=value1m&value1=value1x 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2&param2=value2b&value1=value1m&value1=value1x 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2&param2=value2b&value1=value1m&value1=value1x 
+2021-10-14 15:27:25 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 7_getSignatureBaseString.json<==================== 
+2021-10-14 15:27:25 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 8_getSignatureBaseString.json 
+ ADDITIONALPROPERTIES :param1h  entry Value :class java.lang.Boolean
+ ADDITIONALPROPERTIES :param1o  entry Value :class java.lang.Boolean
+ ADDITIONALPROPERTIES :param1a  entry Value :class java.lang.Integer
+ ADDITIONALPROPERTIES :zParam12  entry Value :class java.lang.Double
+ ADDITIONALPROPERTIES :param1c  entry Value :class java.util.ArrayList
+ ADDITIONALPROPERTIES :jasonObjectA  entry Value :class java.util.LinkedHashMap
+FORMLIST ITEM false}  key:  {param1h
+FORMLIST ITEM true}  key:  {param1o
+FORMLIST ITEM 899}  key:  {param1a
+FORMLIST ITEM 123.5474389}  key:  {zParam11
+FORMLIST ITEM value1cz}  key:  {param1c
+FORMLIST ITEM value1cf}  key:  {param1c
+FORMLIST ITEM 123}  key:  {param1c
+FORMLIST ITEM true}  key:  {param1c
+FORMLIST ITEM 32.99756543}  key:  {param1c
+FORMLIST ITEM }  key:  {jasonObjectB
+FORMLIST
+FORMLIST [param1h=com.api.util.ApiSecurity.FormField@5b0abc94, param1o=com.api.util.ApiSecurity.FormField@75c072cb, param1a=com.api.util.ApiSecurity.FormField@1f1c7bf6, zParam11=com.api.util.ApiSecurity.FormField@25b485ba, param1c=com.api.util.ApiSecurity.FormField@2b546384, jasonObjectB=com.api.util.ApiSecurity.FormField@5d740a0f]
+2021-10-14 15:27:25 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?jasonObjectA&param1a=899&param1c=123&param1c=32.935643&param1c=true&param1c=value1cf&param1c=value1cz&param1h=false&param1o=true&zParam12=123.573389 , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067 , version : 1.0
+2021-10-14 15:27:25 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?jasonObjectA&param1a=899&param1c=123&param1c=32.935643&param1c=true&param1c=value1cf&param1c=value1cz&param1h=false&param1o=true&zParam12=123.573389
+2021-10-14 15:27:25 [main] DEBUG:: siteUri.getScheme():: https
+2021-10-14 15:27:25 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-10-14 15:27:25 [main] DEBUG:: queryString:: jasonObjectA&param1a=899&param1c=123&param1c=32.935643&param1c=true&param1c=value1cf&param1c=value1cz&param1h=false&param1o=true&zParam12=123.573389
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: jasonObjectA
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1a=899
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1c=123
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1c=32.935643
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1c=true
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1c=value1cf
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1c=value1cz
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1h=false
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1o=true
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: zParam12=123.573389
+2021-10-14 15:27:25 [main] DEBUG:: formData:: [param1h=com.api.util.ApiSecurity.FormField@5b0abc94, param1o=com.api.util.ApiSecurity.FormField@75c072cb, param1a=com.api.util.ApiSecurity.FormField@1f1c7bf6, zParam11=com.api.util.ApiSecurity.FormField@25b485ba, param1c=com.api.util.ApiSecurity.FormField@2b546384, jasonObjectB=com.api.util.ApiSecurity.FormField@5d740a0f]
+WHat is this{0}{1}={2} keyparam1c item: value1cf
+WHat is this{0}{1}={2} keyparam1c item: 123
+WHat is this{0}{1}={2} keyparam1c item: true
+WHat is this{0}{1}={2} keyparam1c item: 32.99756543
+formlist stuff
+formlist stuff [param1h=com.api.util.ApiSecurity.FormField@5b0abc94, param1o=com.api.util.ApiSecurity.FormField@75c072cb, param1a=com.api.util.ApiSecurity.FormField@1f1c7bf6, zParam11=com.api.util.ApiSecurity.FormField@25b485ba, param1c=com.api.util.ApiSecurity.FormField@2b546384, jasonObjectB=com.api.util.ApiSecurity.FormField@5d740a0f]
+2021-10-14 15:27:25 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&jasonObjectA&jasonObjectB&param1a=899&param1a=899&param1c=123&param1c=32.935643&param1c=true&param1c=value1cf&param1c=value1cz&param1c=value1cz&param1c=value1cf&param1c=123&param1c=true&param1c=32.99756543&param1h=false&param1h=false&param1o=true&param1o=true&zParam11=123.5474389&zParam12=123.573389 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&jasonObjectA&jasonObjectB&param1a=899&param1a=899&param1c=123&param1c=123&param1c=32.935643&param1c=32.99756543&param1c=true&param1c=true&param1c=value1cf&param1c=value1cf&param1c=value1cz&param1c=value1cz&param1h=false&param1h=false&param1o=true&param1o=true&zParam11=123.5474389&zParam12=123.573389 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&jasonObjectA&jasonObjectB&param1a=899&param1a=899&param1c=123&param1c=32.935643&param1c=true&param1c=value1cf&param1c=value1cz&param1c=value1cz&param1c=value1cf&param1c=123&param1c=true&param1c=32.99756543&param1h=false&param1h=false&param1o=true&param1o=true&zParam11=123.5474389&zParam12=123.573389 
+2021-10-14 15:27:25 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 9_getSignatureBaseString.json 
+ ADDITIONALPROPERTIES :MessageBody  entry Value :class java.util.ArrayList
+ ADDITIONALPROPERTIES :Action  entry Value :class java.lang.String
+2021-10-14 15:27:25 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2&Action=SendMessage&MessageBody=value1m&MessageBody=value1x , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067 , version : 1.0
+2021-10-14 15:27:25 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2&Action=SendMessage&MessageBody=value1m&MessageBody=value1x
+2021-10-14 15:27:25 [main] DEBUG:: siteUri.getScheme():: https
+2021-10-14 15:27:25 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-10-14 15:27:25 [main] DEBUG:: queryString:: param1=value1&param2=value2&Action=SendMessage&MessageBody=value1m&MessageBody=value1x
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1=value1
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param2=value2
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: Action=SendMessage
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: MessageBody=value1m
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: MessageBody=value1x
+2021-10-14 15:27:25 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1m&MessageBody=value1x&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1m&MessageBody=value1x&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1m&MessageBody=value1x&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-10-14 15:27:25 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 9_getSignatureBaseString.json<==================== 
+2021-10-14 15:27:25 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 10_getSignatureBaseString.json 
+ ADDITIONALPROPERTIES :param1h  entry Value :class java.lang.String
+FORMLIST ITEM 😋,%&}  key:  {param1h
+FORMLIST
+FORMLIST [param1h=com.api.util.ApiSecurity.FormField@25a65b77]
+2021-10-14 15:27:25 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1h=%F0%9F%98%8B%2C%25%26 , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067 , version : 1.0
+2021-10-14 15:27:25 [main] DEBUG:: raw url:: https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1h=%F0%9F%98%8B%2C%25%26
+2021-10-14 15:27:25 [main] DEBUG:: siteUri.getScheme():: https
+2021-10-14 15:27:25 [main] DEBUG:: url:: https://training.api.lab/ai/training/rest/v1/level2/ex-ex
+2021-10-14 15:27:25 [main] DEBUG:: queryString:: param1h=%F0%9F%98%8B%2C%25%26
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1h=%F0%9F%98%8B%2C%25%26
+2021-10-14 15:27:25 [main] DEBUG:: formData:: [param1h=com.api.util.ApiSecurity.FormField@25a65b77]
+formlist stuff
+formlist stuff [param1h=com.api.util.ApiSecurity.FormField@25a65b77]
+2021-10-14 15:27:25 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1h=😋,%&&param1h=😋,%& 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1h=😋,%&&param1h=😋,%& 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1h=😋,%&&param1h=😋,%& 
+2021-10-14 15:27:25 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 10_getSignatureBaseString.json<==================== 
+2021-10-14 15:27:25 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 11_getSignatureBaseString.json 
+ ADDITIONALPROPERTIES :MessageBody  entry Value :class java.util.ArrayList
+ ADDITIONALPROPERTIES :Action  entry Value :class java.lang.String
+2021-10-14 15:27:25 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2&Action=SendMessage&MessageBody=value1m&MessageBody=value1x , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067 , version : 1.0
+2021-10-14 15:27:25 [main] DEBUG:: raw url:: https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2&Action=SendMessage&MessageBody=value1m&MessageBody=value1x
+2021-10-14 15:27:25 [main] DEBUG:: siteUri.getScheme():: https
+2021-10-14 15:27:25 [main] DEBUG:: url:: https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex
+2021-10-14 15:27:25 [main] DEBUG:: queryString:: param1=value1&param2=value2&Action=SendMessage&MessageBody=value1m&MessageBody=value1x
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1=value1
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param2=value2
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: Action=SendMessage
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: MessageBody=value1m
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: MessageBody=value1x
+2021-10-14 15:27:25 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1m&MessageBody=value1x&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1m&MessageBody=value1x&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1m&MessageBody=value1x&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-10-14 15:27:25 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 11_getSignatureBaseString.json<==================== 
+2021-10-14 15:27:25 [main] INFO :: ====================> Start :: RuntimeTestCase :: getSignatureBaseString :: testName : 12_getSignatureBaseString.json 
+FORMLIST ITEM value1x}  key:  {MessageBody
+FORMLIST ITEM value1m}  key:  {MessageBody
+FORMLIST ITEM SendMessage}  key:  {Action
+FORMLIST
+FORMLIST [MessageBody=com.api.util.ApiSecurity.FormField@14a2f921, Action=com.api.util.ApiSecurity.FormField@3c87521]
+2021-10-14 15:27:25 [main] DEBUG:: Enter :: getBaseString :: authPrefix  : Apex_l2_eg , signatureMethod : SHA256withRSA , appId : training-3O9HWXNyVT0701KyJIZte787 , urlPath : https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2 , httpMethod : POST , nonce : ACn0OmdVmWpqo8N+eyA= , timestamp : 1536309473067 , version : 1.0
+2021-10-14 15:27:25 [main] DEBUG:: raw url:: https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2
+2021-10-14 15:27:25 [main] DEBUG:: siteUri.getScheme():: https
+2021-10-14 15:27:25 [main] DEBUG:: url:: https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex
+2021-10-14 15:27:25 [main] DEBUG:: queryString:: param1=value1&param2=value2
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param1=value1
+2021-10-14 15:27:25 [main] DEBUG:: queryItem:: param2=value2
+2021-10-14 15:27:25 [main] DEBUG:: formData:: [MessageBody=com.api.util.ApiSecurity.FormField@14a2f921, Action=com.api.util.ApiSecurity.FormField@3c87521]
+WHat is this{0}{1}={2} keyMessageBody item: value1m
+formlist stuff
+formlist stuff [MessageBody=com.api.util.ApiSecurity.FormField@14a2f921, Action=com.api.util.ApiSecurity.FormField@3c87521]
+2021-10-14 15:27:25 [main] DEBUG:: Exit :: getBaseString :: baseString : POST&https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1x&MessageBody=value1m&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: expectedBaseString : POST&https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1x&MessageBody=value1m&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-10-14 15:27:25 [main] INFO :: Run :: RuntimeTestCase :: getSignatureBaseString :: baseString : POST&https://training.api.lab:9991/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1x&MessageBody=value1m&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2 
+2021-10-14 15:27:25 [main] INFO :: End :: RuntimeTestCase :: getSignatureBaseString :: testName : 12_getSignatureBaseString.json<==================== 
+Tests run: 12, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 6.054 sec <<< FAILURE!
+tests=RuntimeTestCase.getSignatureBaseString[com.api.util.testframework.RuntimeTestCase@43d7741f](com.api.util.ApiSecurity.ApiSecurityTest)  Time elapsed: 0.018 sec  <<< ERROR!
+java.lang.NullPointerException
+	at com.api.util.testframework.RuntimeTestCase.getBaseString(RuntimeTestCase.java:247)
+	at com.api.util.testframework.RuntimeTestCase.getSignatureBaseString(RuntimeTestCase.java:77)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.api.util.testframework.JUnitFrameworkFactory.invokeExplosively(JUnitFrameworkFactory.java:28)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+tests=RuntimeTestCase.getSignatureBaseString[com.api.util.testframework.RuntimeTestCase@43d7741f](com.api.util.ApiSecurity.ApiSecurityTest)  Time elapsed: 0.091 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...param1c=123&param1c=[123&param1c=32.935643&param1c=32.99756543&param1c=true&param1c=true&param1c=value1cf&param1c=value1cf&param1c=value1cz&param1c=value1cz]&param1h=false&param...> but was:<...param1c=123&param1c=[32.935643&param1c=true&param1c=value1cf&param1c=value1cz&param1c=value1cz&param1c=value1cf&param1c=123&param1c=true&param1c=32.99756543]&param1h=false&param...>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at com.api.util.testframework.RuntimeTestCase.getSignatureBaseString(RuntimeTestCase.java:84)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at com.api.util.testframework.JUnitFrameworkFactory.invokeExplosively(JUnitFrameworkFactory.java:28)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+
+Results :
+
+Failed tests:   tests=RuntimeTestCase.getSignatureBaseString[com.api.util.testframework.RuntimeTestCase@43d7741f](com.api.util.ApiSecurity.ApiSecurityTest): expected:<...param1c=123&param1c=[123&param1c=32.935643&param1c=32.99756543&param1c=true&param1c=true&param1c=value1cf&param1c=value1cf&param1c=value1cz&param1c=value1cz]&param1h=false&param...> but was:<...param1c=123&param1c=[32.935643&param1c=true&param1c=value1cf&param1c=value1cz&param1c=value1cz&param1c=value1cf&param1c=123&param1c=true&param1c=32.99756543]&param1h=false&param...>
+
+Tests in error: 
+  tests=RuntimeTestCase.getSignatureBaseString[com.api.util.testframework.RuntimeTestCase@43d7741f](com.api.util.ApiSecurity.ApiSecurityTest)
+
+Tests run: 12, Failures: 1, Errors: 1, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 32.160 s
+[INFO] Finished at: 2021-10-14T15:27:25+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test) on project ApiSecurity: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /Users/nsearch-sohboonkeong/GovTech/workspace/java-apex-api-security_bu/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

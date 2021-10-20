@@ -25,15 +25,12 @@ import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.text.ParseException;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static org.junit.Assert.*;
 
-public class RuntimeTestCase{
+public class RuntimeTestCase1{
 	
 	private static final Logger log = LoggerFactory.getLogger(RuntimeTestCase.class);
 	
@@ -41,7 +38,7 @@ public class RuntimeTestCase{
 	private String testName;
 	private TestDatum testDatum;
 	
-	public RuntimeTestCase(String testName,TestDatum testDatum) {
+	public RuntimeTestCase1(String testName,TestDatum testDatum) {
 		this.testName = testName;
 		this.testDatum = testDatum;
 	}
@@ -124,11 +121,9 @@ public class RuntimeTestCase{
 		try {
 			assertEquals(Boolean.valueOf(expectedResultVerify), ApiSigning.verifyRSASignature(testDatum.getMessage(), testDatum.getApiParam().getSignature(), getPublicKeyLocal("src/main/resources/test-suites/" + testDatum.getPublicKeyFileName())));
 		} catch (Exception e) {
-			System.out.println("IN EXCEPTION " + testDatum.getErrorTest());
-			//no errorTest parameter was used, default errorTest is true. for verifyL2Signature use expectedResult false = errorTest
-			if(expectedResultVerify.equals("false")){
+			if(testDatum.getErrorTest()){
 				log.error("ErrorTest :: RuntimeTestCase :: verifyL2Signature :: testName : {} ", testName);
-//				assertEquals(expectedResultVerify, failTest);
+				assertEquals(expectedResultVerify, e.getMessage());
 			}else{
 				log.error("Exception :: RuntimeTestCase :: verifyL2Signature :: testName : {} ", testName, e);
 				fail("Not Expecting ApiUtilException error.");
@@ -237,33 +232,17 @@ public class RuntimeTestCase{
     protected String getBaseString(TestDatum testDatum) throws ApiUtilException{
     	QueryString queryString = testDatum.getApiParam().getQueryString();
 		ApiList apiList = null;
-		ApiList queryList = null;
-		String qString = "";
 		if(null!=queryString){
-			queryList = new ApiList();
-			queryList.addAll(RuntimeTestUtility.getURLEncodedApiList(queryString.getAdditionalProperties(),true));
+			apiList = new ApiList();
+			apiList.addAll(RuntimeTestUtility.getApiList(queryString.getAdditionalProperties(),true));
 		}
 	
-		if(!testDatum.getApiParam().getSignatureUrl().isEmpty() && null!=queryString) {
-			// query start with ?, replace ? with & when url already contain queryString
-            if (testDatum.getApiParam().getSignatureUrl().indexOf('?') > -1) {
-                qString = String.format("%s%s", "&", queryList.toString(true));
-            }
-           	else {
-           		qString = String.format("%s%s", "?", queryList.toString(true));
-           	}
-
-		}
-		
-		
 		FormData formData = testDatum.getApiParam().getFormData();
 		if(null!=formData){
 			if(null==apiList){
 				apiList = new ApiList();
 			}  				
 			apiList.addAll(RuntimeTestUtility.getApiList(formData.getAdditionalProperties(),true));
-			System.out.println("FORMDATA " + formData.toString());
-			System.out.println("FORMDATA from apiLIST: " + RuntimeTestUtility.getApiList(formData.getAdditionalProperties(),true).toString());
 		}
 		
 		
@@ -288,13 +267,14 @@ public class RuntimeTestCase{
 //			);
 			FormList formList = new FormList();
 			if (null!=apiList) {
+			//formList = FormList.convert(apiList);
 			formList = apiList.toFormList();
 			}
 			baseString = ApiSigning.getBaseString(
 			authPrefix,
 			SignatureMethod.valueOf(signatureMethod),
 			testDatum.getApiParam().getAppId(),
-			URI.create(String.format("%s%s",testDatum.getApiParam().getSignatureUrl(), qString)),
+			URI.create(testDatum.getApiParam().getSignatureUrl()),
 			testDatum.getApiParam().getHttpMethod(),
 			formList,
 		    testDatum.getApiParam().getNonce(),
@@ -329,7 +309,7 @@ public class RuntimeTestCase{
 		if(null!=formData){
 			if(null==formList){
 				formList = new ApiList();
-			}  		
+			}  				
 			formList.addAll(RuntimeTestUtility.getApiList(formData.getAdditionalProperties(),true));
 			System.out.println("FORMDATA ");
 			System.out.println("FORMDATA " + formData.toString());
@@ -385,8 +365,8 @@ public class RuntimeTestCase{
 			
 			FormList apiListformData = null;
 	    	if (formList !=null) {
-	    		apiListformData = formList.toFormList();
 	    		//apiListformData = FormList.convert(formList);
+	    		apiListformData = formList.toFormList();
 	    		System.out.println("APILISTFORMDATA ");
 			System.out.println("APILISTFORMDATA " + apiListformData.toString());
 	    	}
