@@ -1,7 +1,7 @@
 package com.api.util.testframework;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import com.api.util.ApiSecurity.ApiList;
 import com.api.util.ApiSecurity.ApiSigning;
@@ -32,7 +32,7 @@ import static org.junit.Assert.*;
 
 public class RuntimeTestCase1{
 	
-	private static final Logger log = LoggerFactory.getLogger(RuntimeTestCase.class);
+	private static final Logger log = LogManager.getLogger(RuntimeTestCase1.class);
 	
 	//private ApiList apiList;
 	private String testName;

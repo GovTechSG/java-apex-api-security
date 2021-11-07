@@ -1,5 +1,10 @@
 # Change Log
 
+### V2.0-SNAPSHOT
+
+- Library to use authParam
+- Usage for APEX 2
+
 ### V1.3.5-SNAPSHOT
 
 - Fixed vulnerability CVE-2020-25649, CVE-2020-15522, CVE-2020-9488 and CVE-2019-17571

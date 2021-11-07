@@ -161,7 +161,7 @@ public class AuthorizationTokenTest {
 //    , IOException, GeneralSecurityException
 	{
 		String fileName = getLocalPath("certificates/ssc.alpha.example.com.pem");
-    	String expectedMessage = "unable to read encrypted data: javax.crypto.BadPaddingException: pad block corrupted";
+    	String expectedMessage = "unable to read encrypted data: Error finalising cipher";
     	//String fileName = getLocalPath("certificates/team20.pem");
         //String expectedMessage = "org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo cannot be cast to org.bouncycastle.openssl.PEMKeyPair";
 				

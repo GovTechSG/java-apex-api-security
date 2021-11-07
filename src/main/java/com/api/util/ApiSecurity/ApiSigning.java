@@ -276,8 +276,8 @@ public class ApiSigning {
      		//For JKS file
      		privateKey = getPrivateKeyFromKeyStore(keystoreFileName, password, alias);
      	}
-    	
     	return privateKey;
+    	
     }
     
     public static PrivateKey getPrivateKey(String keystoreFileName, String password) throws ApiUtilException {
@@ -419,10 +419,11 @@ public class ApiSigning {
      * @return Public Key
      * @throws IOException
      * @throws GeneralSecurityException
+     * @throws ApiUtilException
      */
-    public static PublicKey getPublicKeyPEM(String publicCertificateFileName) throws IOException, GeneralSecurityException {
+    public static PublicKey getPublicKeyPEM(String publicCertificateFileName) throws IOException, GeneralSecurityException, ApiUtilException {
     	//log.debug("Enter :: getPublicKeyFromPubKey :: publicCertificateFileName : {} ", publicCertificateFileName);
-    	
+    	System.out.println("in publicKEYPEM  error " + publicCertificateFileName);
     	
     	log.debug("Enter :: getPublicKeyPEM :: publicCertificateFileName : {} ", publicCertificateFileName);
 		PublicKey key = null;
@@ -445,8 +446,9 @@ public class ApiSigning {
 			}
 			
 		}catch(Exception e){
+			System.out.println("in publicKEYPEM  error " + e.toString());
 			log.error(e.getMessage(),e);
-			throw e;
+			throw new ApiUtilException(e.getMessage(), e);
 		}finally{
 			if(null!=pemParser){
 				pemParser.close();
@@ -1143,9 +1145,12 @@ public class ApiSigning {
             	key = converter.getPrivateKey(privateKeyInfo);
             	System.out.println(" what is this KEY " + key.toString());
             	
+            }else {
+            	throw new ApiUtilException("Error while getting Private Key from PEM");
             }
 			
 		}catch(Exception e){
+			System.out.println("I am in error fpr getPrivateKeyPEM " + e.getMessage());
 //			throw e;
 			throw new ApiUtilException(e.getMessage(), e);
 		}finally{
@@ -1160,7 +1165,7 @@ public class ApiSigning {
 			}
 		}
 		log.debug("Exit :: getPrivateKeyPEM");
-		
+		System.out.println(" what is this KEYPEM " + key.toString());
         return key;
         
 	}

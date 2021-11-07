@@ -1,8 +1,6 @@
 package com.api.util.ApiSecurity;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
@@ -28,14 +26,7 @@ public class ApiList extends ArrayList<Entry<String,String>>{
 		Boolean quote = false;
 		return this.toString(delimiter, sort, quote, isBaseString);
 	}
-	
-//	public String toString(Boolean isBaseString, Boolean sort) {
-//		String delimiter = "&";
-//		Boolean quote = false;
-//		
-//		return this.toString(delimiter, sort, quote, isBaseString);
-//	}
-	
+		
 	public String toString(String delimiter, Boolean sort, Boolean quote, Boolean isBaseString)
 	{
 		List<String> list = new ArrayList<String>();
