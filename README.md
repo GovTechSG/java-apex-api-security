@@ -125,7 +125,7 @@ gradle test jacocoTestReport
 ```
 
 The compiled _jar_ file will be located in the **build/libs** folder
-+ java-apex-api-security-2.0-SNAPSHOT.jar
++ java-apex-api-security-2.0.0-SNAPSHOT.jar
 
 Import this jar into your java classpath to use the utility class
 
