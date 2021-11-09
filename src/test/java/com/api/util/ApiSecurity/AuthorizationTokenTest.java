@@ -117,7 +117,6 @@ public class AuthorizationTokenTest {
 
      	authParam.privateKey = ApiSigning.getPrivateKey(privateCertNameP12, passphrase, alias);
 		AuthToken authorizationToken = ApiSigning.getSignatureTokenV2(authParam);
-		// System.out.println("Expected Token Test_L2_Basic_Test:" + authorizationToken.getToken());
 		assertEquals(expectedToken, authorizationToken.getToken());
 	}
 	
@@ -186,27 +185,6 @@ public class AuthorizationTokenTest {
 			authParam.url = url;
 			authParam.httpMethod = httpMethod;
 			authParam.appName = appId;
-//	     	try {
-//				authParam.privateKey = ApiSigning.getPrivateKey(fileName, passphrase, alias);
-//			} catch (IOException e) {
-//				System.out.println("WHAT IS THE ERROR MESSAGE: IOIO ");
-//				System.out.println("WHAT IS THE ERROR MESSAGE: IOIO "+ e.getCause().getMessage());
-//				// TODO Auto-generated catch block
-//				throw new ApiUtilException(e.getCause().getMessage(),e);
-////				e.printStackTrace();
-//			} catch (GeneralSecurityException e) {
-//				System.out.println("WHAT IS THE ERROR MESSAGE: EEE ");
-//				System.out.println("WHAT IS THE ERROR MESSAGE: EEE "+ e.getCause().getMessage());
-//				// TODO Auto-generated catch block
-////				e.printStackTrace();
-//				throw new ApiUtilException(e.getCause().getMessage(),e);
-//			} catch (ClassCastException e) {
-//				System.out.println("WHAT IS THE ERROR MESSAGE: EEE ");
-//				System.out.println("WHAT IS THE ERROR MESSAGE: EEE "+ e.getMessage());
-//				// TODO Auto-generated catch block
-////				e.printStackTrace();
-//				throw new ApiUtilException(e.getMessage(),e);
-//			}
 			authParam.privateKey = ApiSigning.getPrivateKey(fileName, passphrase, alias);
 	     	ApiSigning.getSignatureTokenV2(authParam);
 	     	

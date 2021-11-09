@@ -46,7 +46,7 @@ public class FormField {
             }
             tempList.addAll(Arrays.asList(newValue));
 
-            // You can convert it back to an array if you would like to
+            // Can convert it back to an array if you would like to
             _arrayValue =  tempList.toArray(new String[0]);
             
          
@@ -61,15 +61,6 @@ public class FormField {
 	   	}else {
 	   		return _arrayValue;
 	   	}
-		
-//		String[] rawValue = (n) -> {
-//		   if (_value!=null) {
-//		   		rawValue = new String[]{_value};
-//		   	}else {
-//		   		rawValue = _arrayValue;
-//		   	}
-//	}
-//	
 		
 	}
        
@@ -108,8 +99,6 @@ public class FormField {
                         {
                             try {
 								value += String.format("%s%s=%s", delimiter, URLEncoder.encode(_key, StandardCharsets.UTF_8.toString()), URLEncoder.encode(item, StandardCharsets.UTF_8.toString()));
-                            	//value += String.format( delimiter, URLEncoder.encode(_key, StandardCharsets.UTF_8.toString()), URLEncoder.encode(item, StandardCharsets.UTF_8.toString()));
-    							
                             } catch (UnsupportedEncodingException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -145,8 +134,6 @@ public class FormField {
                         }
                         else
                         {
-                        	System.out.println("WHat is this{0}{1}={2} key" + _key + " item: " +item);
-                            //value += String.format("{0}{1}={2}", delimiter, _key, item);
                             value += String.format("%s%s=%s", delimiter, _key, item);
                         }
                         index++;

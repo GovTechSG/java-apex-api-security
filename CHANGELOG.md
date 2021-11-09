@@ -1,6 +1,6 @@
 # Change Log
 
-### V2.0-SNAPSHOT
+### V2.0.0-SNAPSHOT
 
 - Library to use authParam
 - Usage for APEX 2

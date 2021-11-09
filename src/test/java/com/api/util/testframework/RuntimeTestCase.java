@@ -7,7 +7,6 @@ import com.api.util.ApiSecurity.ApiList;
 import com.api.util.ApiSecurity.ApiSigning;
 import com.api.util.ApiSecurity.ApiUtilException;
 import com.api.util.ApiSecurity.AuthParam;
-import com.api.util.ApiSecurity.AuthToken;
 import com.api.util.ApiSecurity.FormList;
 import com.api.util.ApiSecurity.SignatureMethod;
 import com.api.util.testframework.dto.ExpectedResult;
@@ -17,17 +16,12 @@ import com.api.util.testframework.dto.TestDatum;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.security.GeneralSecurityException;
-import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.text.ParseException;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -235,7 +229,7 @@ public class RuntimeTestCase{
 		
     	log.info("End :: RuntimeTestCase :: getL2Signature :: testName : {} ", testName + "<====================");
     }
-    
+      
     @JUnitFactoryTest
     public void getSignatureToken() throws IOException, InterruptedException, ParseException {
     	log.info("====================> Start :: RuntimeTestCase :: getSignatureToken :: testName : {} ", testName);
@@ -271,6 +265,8 @@ public class RuntimeTestCase{
         log.info("End :: RuntimeTestCase :: getSignatureToken :: testName : {} ", testName + "<====================");
     	
     }
+    
+    
     
     protected String getBaseString(TestDatum testDatum) throws ApiUtilException{
     	QueryString queryString = testDatum.getApiParam().getQueryString();
@@ -347,6 +343,7 @@ public class RuntimeTestCase{
 		}
 		return baseString;
     }
+    
     
     protected String getSignatureToken(TestDatum testDatum) throws ApiUtilException{
     	QueryString queryString = testDatum.getApiParam().getQueryString();

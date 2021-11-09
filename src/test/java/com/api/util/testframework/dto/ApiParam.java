@@ -571,30 +571,6 @@ public class ApiParam {
         this.signature = signature;
     }
 
-    // /**
-    //  * The Passphrase Schema
-    //  * <p>
-    //  * 
-    //  * (Required)
-    //  * 
-    //  */
-    // @JsonProperty("passphrase")
-    // public String getPassphrase() {
-    //     return passphrase;
-    // }
-
-    // /**
-    //  * The Passphrase Schema
-    //  * <p>
-    //  * 
-    //  * (Required)
-    //  * 
-    //  */
-    // @JsonProperty("passphrase")
-    // public void setPassphrase(String passphrase) {
-    //     this.passphrase = passphrase;
-    // }
-
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;

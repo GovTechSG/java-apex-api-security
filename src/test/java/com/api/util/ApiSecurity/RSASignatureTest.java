@@ -54,7 +54,6 @@ public class RSASignatureTest {
         Path currentRelativePath = Paths.get("");
         String s = combine(currentRelativePath.toAbsolutePath().toString(), relativeFileName.replaceAll("/", File.separator));
 
-        //log.error("Current relative path is: " + s);
         return s;
     }
 

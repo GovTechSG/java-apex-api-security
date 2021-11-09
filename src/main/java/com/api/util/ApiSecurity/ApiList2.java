@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
  * @author GDS-PDD
  *
  */
-public class ApiList extends ArrayList<Entry<String,String>>{
+public class ApiList2 extends ArrayList<Entry<String,String>>{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -61,7 +61,10 @@ public class ApiList extends ArrayList<Entry<String,String>>{
         for (Entry<String,String> item : this)
         {
             formList.add(item.getKey(), item.getValue());
+            System.out.println("FORMLIST ITEM " + item.getValue() + "}  key:  {" +item.getKey() );
         }
+        System.out.println("FORMLIST");
+		System.out.println("FORMLIST " + formList);
         
         return formList;
     }
