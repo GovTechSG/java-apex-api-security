@@ -199,7 +199,7 @@ authentication with SHA256WITHRSA.
 
 #### formData
 Data which should be passed in the request (for `POST` requests
-usually). For `GET` requests, set this value to `null`.
+usually). For `GET` requests, this value is not necessary.
 
 #### password
 The password of the keystore. Not required for L1. 
@@ -346,7 +346,7 @@ try {
 	AuthParam authParam = new AuthParam();
 				
 	authParam.url = URI.create("https://<<URL>>/api/v1");
-	authParam.httpMethod = "GET";
+	authParam.httpMethod = "POST";
 	authParam.appName = "<<appId>>";
 	authParam.appSecret = "<<appSecret>>";
 	authParam.formData = formData;
@@ -385,7 +385,7 @@ try {
 	AuthParam authParam = new AuthParam();
 				
 	authParam.url = URI.create(baseUrl);
-	authParam.httpMethod = "GET";
+	authParam.httpMethod = "POST";
 	authParam.appName = "<<appId>>";
 	String certFileName = "certificates/ssc.alpha.example.com.p12";
 	String password = "<<passphrase>>";
@@ -428,7 +428,7 @@ try {
 	AuthParam authParam_WWW = new AuthParam();
 	String baseUrl_WWW = String.format("https://<<URL_WWW>>/api/v1?%s", queryString);
 	authParam_WWW.url = URI.create(baseUrl_WWW);
-	authParam_WWW.httpMethod = "GET";
+	authParam_WWW.httpMethod = "POST";
 	authParam_WWW.appName = "<<appId_WWW>>";
 	String certFileName = "certificates/ssc.alpha.example.com.p12";
 	String password = "<<passphrase>>";
@@ -437,7 +437,7 @@ try {
 	authParam_WWW.formData = formData;
 	
 	AuthParam authParam_WOG = new AuthParam();
-	authParam_WOG.httpMethod = "GET";
+	authParam_WOG.httpMethod = "POST";
 	authParam_WOG.appName = "<<appId_WOG>>";
 	authParam_WOG.appSecret = "<<appSecret_WOG>>";
 	String baseUrl_WOG = String.format("https://<<URL_WOG>>/api/v1?%s", queryString);
@@ -478,7 +478,7 @@ String queryString = queryData.toString(true);
 
 try {
 	AuthParam authParam_WOG = new AuthParam();
-	authParam_WOG.httpMethod = "GET";
+	authParam_WOG.httpMethod = "POST";
 	authParam_WOG.appName = "<<appId_WOG>>";
 	authParam_WOG.appSecret = "<<appSecret_WOG>>";
 	String baseUrl_WOG = String.format("https://<<URL_WOG>>/api/v1?%s", queryString);
@@ -487,7 +487,7 @@ try {
 	AuthParam authParam_WWW = new AuthParam();
 	String baseUrl_WWW = String.format("https://<<URL_WWW>>/api/v1?%s", queryString);
 	authParam_WWW.url = URI.create(baseUrl_WWW);
-	authParam_WWW.httpMethod = "GET";
+	authParam_WWW.httpMethod = "POST";
 	authParam_WWW.appName = "<<appId_WWW>>";
 	String certFileName = "certificates/ssc.alpha.example.com.p12";
 	String password = "<<passphrase>>";
