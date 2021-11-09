@@ -75,7 +75,7 @@ public class TestDatum {
      * 
      */
     @JsonProperty("apiParam")
-    private ApiParam apiParam;
+    private ApiParam apiParam = new ApiParam();
     /**
      * The Expectedresult Schema
      * <p>

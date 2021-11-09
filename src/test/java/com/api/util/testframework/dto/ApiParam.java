@@ -31,6 +31,8 @@ import org.apache.commons.lang.builder.ToStringBuilder;
     "queryString",
     "formData",
     "privateKeyFileName",
+    "alias",
+    "passphrase",
     "nonce",
     "timestamp",
     "secret",
@@ -111,7 +113,7 @@ public class ApiParam {
     @JsonProperty("formData")
     private FormData formData;
     /**
-     * The Privatecertfilename Schema
+     * The Privatekeyfilename Schema
      * <p>
      * 
      * (Required)
@@ -119,6 +121,24 @@ public class ApiParam {
      */
     @JsonProperty("privateKeyFileName")
     private String privateKeyFileName = "";
+    /**
+     * The Alias Schema
+     * <p>
+     * 
+     * (Required)
+     * 
+     */
+    @JsonProperty("alias")
+    private String alias = "";
+    /**
+     * The Passphrase Schema
+     * <p>
+     * 
+     * (Required)
+     * 
+     */
+    @JsonProperty("passphrase")
+    private String passPhrase = "";
     /**
      * The Nonce Schema
      * <p>
@@ -155,15 +175,6 @@ public class ApiParam {
      */
     @JsonProperty("signature")
     private String signature = "";
-    // /**
-    //  * The Passphrase Schema
-    //  * <p>
-    //  * 
-    //  * (Required)
-    //  * 
-    //  */
-    // @JsonProperty("passphrase")
-    // private String passphrase = "";
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -359,30 +370,6 @@ public class ApiParam {
         this.formData = formData;
     }
 
-    // /**
-    //  * The Privatecertfilename Schema
-    //  * <p>
-    //  * 
-    //  * (Required)
-    //  * 
-    //  */
-    // @JsonProperty("privateCertFileName")
-    // public String getPrivateCertFileName() {
-    //     return privateCertFileName;
-    // }
-
-    // /**
-    //  * The Privatecertfilename Schema
-    //  * <p>
-    //  * 
-    //  * (Required)
-    //  * 
-    //  */
-    // @JsonProperty("privateCertFileName")
-    // public void setPrivateCertFileName(String privateCertFileName) {
-    //     this.privateCertFileName = privateCertFileName;
-    // }
-
     /**
      * The Privatekeyfilename Schema
      * <p>
@@ -405,6 +392,54 @@ public class ApiParam {
     @JsonProperty("privateKeyFileName")
     public void setPrivateKeyFileName(String privateKeyFileName) {
         this.privateKeyFileName = privateKeyFileName;
+    }
+    
+    /**
+     * The Alias Schema
+     * <p>
+     * 
+     * (Required)
+     * 
+     */
+    @JsonProperty("alias")
+    public String getAlias() {
+        return alias;
+    }
+
+    /**
+     * The Alias Schema
+     * <p>
+     * 
+     * (Required)
+     * 
+     */
+    @JsonProperty("alias")
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+    
+    /**
+     * The Passphrase Schema
+     * <p>
+     * 
+     * (Required)
+     * 
+     */
+    @JsonProperty("passPhrase")
+    public String getPassPhrase() {
+        return passPhrase;
+    }
+
+    /**
+     * The Passphrase Schema
+     * <p>
+     * 
+     * (Required)
+     * 
+     */
+    @JsonProperty("passPhrase")
+    public void setPassPhrase(String passPhrase) {
+        this.passPhrase = passPhrase;
     }
 
     /**
@@ -502,30 +537,6 @@ public class ApiParam {
     public void setSignature(String signature) {
         this.signature = signature;
     }
-
-    // /**
-    //  * The Passphrase Schema
-    //  * <p>
-    //  * 
-    //  * (Required)
-    //  * 
-    //  */
-    // @JsonProperty("passphrase")
-    // public String getPassphrase() {
-    //     return passphrase;
-    // }
-
-    // /**
-    //  * The Passphrase Schema
-    //  * <p>
-    //  * 
-    //  * (Required)
-    //  * 
-    //  */
-    // @JsonProperty("passphrase")
-    // public void setPassphrase(String passphrase) {
-    //     this.passphrase = passphrase;
-    // }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {

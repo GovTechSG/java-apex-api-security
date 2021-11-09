@@ -55,8 +55,6 @@ public class ApiSigning {
      */
     public static String getHMACSignature(String baseString, String secret) throws ApiUtilException {
         log.debug("Enter :: getHMACSignature :: baseString : {} , secret: {} ", baseString, secret);
-        System.out.println("IN getHMAC ");
-        System.out.println("IN getHMAC with secret " + secret);
         //Initialization
         String base64Token = null;
         SecretKeySpec signingKey = null;
@@ -239,7 +237,6 @@ public class ApiSigning {
             try {
                 verified = publicSignature.verify(signatureBytes);
             } catch (SignatureException se) {
-            	System.out.println("in VerifyRSA excemption " + signatureBytes.length + " messsage " + se.getMessage());
                 throw se;
             }
         } catch (Exception e) {
@@ -261,29 +258,40 @@ public class ApiSigning {
      * @param alias            Keystore's alias
      * @return private key
      * @throws ApiUtilException
-     * @throws GeneralSecurityException 
-     * @throws IOException 
      */
     public static PrivateKey getPrivateKey(String keystoreFileName, String password, String alias) throws ApiUtilException
-//    , IOException, GeneralSecurityException 
     {
     	PrivateKey privateKey = null;
      	if(null!=keystoreFileName && (keystoreFileName.contains(".key")||keystoreFileName.contains(".pem"))){
-            System.out.println("in PEMget PRIVATE KEY " + password);
      		privateKey = getPrivateKeyPEM(keystoreFileName, password);
 
      	}else{
      		//For JKS file
      		privateKey = getPrivateKeyFromKeyStore(keystoreFileName, password, alias);
      	}
-    	
     	return privateKey;
+    	
     }
     
+    /**
+     * Get Private key
+     *
+     * @param keystoreFileName Keystore file Path
+     * @param passphrase         Keystore passsword
+     * @return private key
+     * @throws ApiUtilException
+     */
     public static PrivateKey getPrivateKey(String keystoreFileName, String password) throws ApiUtilException {
     	return getPrivateKey(keystoreFileName, password, "");
     }
 
+    /**
+     * Get Private key
+     *
+     * @param keystoreFileName Keystore file Path
+     * @return private key
+     * @throws ApiUtilException
+     */
     public static PrivateKey getPrivateKey(String keystoreFileName) throws ApiUtilException {
         return getPrivateKey(keystoreFileName, "");
     }
@@ -419,11 +427,9 @@ public class ApiSigning {
      * @return Public Key
      * @throws IOException
      * @throws GeneralSecurityException
+     * @throws ApiUtilException
      */
-    public static PublicKey getPublicKeyPEM(String publicCertificateFileName) throws IOException, GeneralSecurityException {
-    	//log.debug("Enter :: getPublicKeyFromPubKey :: publicCertificateFileName : {} ", publicCertificateFileName);
-    	
-    	
+    public static PublicKey getPublicKeyPEM(String publicCertificateFileName) throws IOException, GeneralSecurityException, ApiUtilException {	
     	log.debug("Enter :: getPublicKeyPEM :: publicCertificateFileName : {} ", publicCertificateFileName);
 		PublicKey key = null;
 		PEMParser pemParser = null;
@@ -446,7 +452,7 @@ public class ApiSigning {
 			
 		}catch(Exception e){
 			log.error(e.getMessage(),e);
-			throw e;
+			throw new ApiUtilException(e.getMessage(), e);
 		}finally{
 			if(null!=pemParser){
 				pemParser.close();
@@ -482,50 +488,7 @@ public class ApiSigning {
      * @return Base String for signing
      * @throws ApiUtilException
      */
-   @Deprecated
-//    public static String getBaseString(String authPrefix
-//          , String signatureMethod
-//          , String appId
-//          , String urlPath
-//          , String httpMethod
-//          , ApiList formList
-//          , String nonce
-//          , String timestamp) throws ApiUtilException {
-//    	FormList formData = null;
-//    	if (formList !=null) {
-//    		formData = FormList.convert(formList);
-//    	}
-//    	SignatureMethod signEnum = SignatureMethod.valueOf(signatureMethod);
-//    	
-//
-//		URI url = null;
-//		try {
-//			url = new URI(urlPath);
-//		} catch (URISyntaxException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	
-//		log.debug("authPrefix");
-//		log.debug(authPrefix);
-//		log.debug("signEnum");
-//		log.debug(signEnum.toString());
-//		log.debug("appId");
-//		log.debug(appId);
-//		log.debug("url");
-//		log.debug(url.getPath());
-//		log.debug("httpMethod");
-//		log.debug(httpMethod);
-//		log.debug("formData");
-//		log.debug(formList.toString());
-//		log.debug("nonce");
-//		log.debug(nonce);
-//		log.debug("timestamp");
-//		log.debug(timestamp);
-//		return getBaseString(authPrefix, signEnum, appId, url,httpMethod, formData, nonce, timestamp, "1.0");
-//    	
-//    }
-    
+   @Deprecated 
     public static String getBaseString(String authPrefix
             , String signatureMethod
             , String appId
@@ -585,7 +548,6 @@ public class ApiSigning {
                     	}else {
                     		paramList.add(itemArr[0], java.net.URLDecoder.decode(itemArr[1], StandardCharsets.UTF_8.toString()));
                     	}
-                        //paramList.add(itemArr[0], java.net.URLDecoder.decode(itemArr[1], StandardCharsets.UTF_8.toString()));
                     } catch (UnsupportedEncodingException e) {
                         throw e;
                     }
@@ -595,18 +557,8 @@ public class ApiSigning {
 
             // add the form fields to paramList
             if (formList != null && formList.size() > 0) {
-//            	log.debug("formList:: {}", formList.toString());
-//            	log.debug("formListFF:: {}", formList.toString(false,false));
-//            	log.debug("formListFT:: {}", formList.toString(false,true));
-//            	log.debug("formListTF:: {}", formList.toString(true,false));
-//            	log.debug("formListTT:: {}", formList.toString(true,true));
                 paramList.addAll(formList);
             }
-//            log.debug("paramList:: {}", paramList.toString());
-//            log.debug("paramListff:: {}", paramList.toString(false,false));
-//            log.debug("paramListft:: {}", paramList.toString(false,true));
-//            log.debug("paramList:: {}", paramList.toString(true,false));
-//            log.debug("paramList2baseString:: {}", paramList.toString(true,true));
             paramList.add(authPrefix + "_timestamp", timestamp);
             paramList.add(authPrefix + "_nonce", nonce);
             paramList.add(authPrefix + "_app_id", appId);
@@ -663,13 +615,6 @@ public class ApiSigning {
         try {
             authPrefix = authPrefix.toLowerCase();
 
-            // make sure that the url are valid
-//            URI siteUri = null;
-//            try {
-//                siteUri = new URI(urlPath);
-//            } catch (URISyntaxException e1) {
-//                throw e1;
-//            }
             log.debug("raw url:: {}", urlPath.toString());
             log.debug("siteUri.getScheme():: {}", urlPath.getScheme());
 
@@ -707,7 +652,6 @@ public class ApiSigning {
                     log.debug("queryItem:: {}", item);
                     
                     String[] itemArr = item.split("=");
-                    System.out.println("what is queryitem to String: " + Arrays.toString(itemArr));
                     String key = itemArr[0];
                     
                    
@@ -716,15 +660,8 @@ public class ApiSigning {
                     try {
                     	
                     	if(itemArr.length > 1) {
-                		val = itemArr[1];
-                		
-                		
-                		System.out.println("what is itemArr >1: " + val);
-                    	} else if (itemArr.length ==1) {
-                    	//	System.out.println("what is itemArr ==1: " + itemArr[1]);
-                    	}  	else {
-                    		System.out.println("what is itemArr others: " + itemArr[1]);
-                    	}
+                    		val = itemArr[1];
+                    	} 
                     	
                     	if(itemArr.length == 1) {
                     		paramList.add(java.net.URLDecoder.decode(key, StandardCharsets.UTF_8.toString()), null);
@@ -732,7 +669,6 @@ public class ApiSigning {
                     	}else {
                     		paramList.add(java.net.URLDecoder.decode(key, StandardCharsets.UTF_8.toString()), java.net.URLDecoder.decode(val, StandardCharsets.UTF_8.toString()));
                     	}
-                        //paramList.add(itemArr[0], java.net.URLDecoder.decode(itemArr[1], StandardCharsets.UTF_8.toString()));
                     } catch (UnsupportedEncodingException e) {
                         throw e;
                     }
@@ -750,9 +686,6 @@ public class ApiSigning {
             if (formList != null && formList.size() > 0) {
             	log.debug("formData:: {}", formList.toString());
                 paramList.addAll(formList.getFormList(sortFormData));
-                
-                System.out.println("formlist stuff");
-                System.out.println("formlist stuff " + paramList.toString(true));
             }
 
             paramList.add(authPrefix + "_timestamp", timestamp);
@@ -909,13 +842,12 @@ public class ApiSigning {
     			authParam.url.toString(), authParam.httpMethod, authParam.appName);
     	
     	 String authorizationToken = null;
-    	 // SignatureMethod signatureMethod = null;
     	 String base64Token = "";
     	 List<String> baseStringList = new LinkedList<String>();
     	
     	 try {
     		 
-    		 if (authParam.url == null) {
+    		 if (authParam.url == null || authParam.url.getHost().split("\\.")[0] == null) {
     			 
     			 throw new ApiUtilException("URL does not exist");
     		 }
@@ -961,7 +893,6 @@ public class ApiSigning {
   	            
   	            
   	          // Generate the nonce value
-  	          //SignatureMethod signatureMethod = null;
   	            try {
   	 	                authParam.nonce = (authParam.nonce != null && !authParam.nonce.isEmpty())  ? authParam.nonce : getNewNonce();
   	                } catch (NoSuchAlgorithmException nsae) {
@@ -999,23 +930,10 @@ public class ApiSigning {
     		            		 authParam.version
     		            		 );
     		             
-    		             baseStringList.add(baseString);
-//    		             //get privatekey should be handled out of tokenv2
-//    		 
+    		             baseStringList.add(baseString);   		 
     		             if (authLevel == "l1") {
-    		            	 System.out.println("IN HMCA");
-    		            	 System.out.println("IN HMCA show secret "+ authParam.appSecret);
     		                 base64Token = getHMACSignature(baseString, authParam.appSecret);
     		             } else if(authLevel == "l2"){
-    		       //      	PrivateKey privateKey = null;
-//    		             	if(null!=fileName && (fileName.contains(".key")||fileName.contains(".pem"))){
-//    		             		privateKey = ApiSigning.getPrivateKeyPEM(fileName, password);
-//    		             	}else{
-//    		             		//For JKS file
-//    		             		privateKey = ApiSigning.getPrivateKeyFromKeyStore(fileName, password, alias);
-//    		             	}
-    		             			
-    		                 //PrivateKey privateKey = getPrivateKeyFromKeyStore(fileName, password, alias);
     		                 base64Token = getRSASignature(baseString, authParam.privateKey);
     		 
     		             }
@@ -1119,7 +1037,6 @@ public class ApiSigning {
 			File privateKeyFile = new File(privateKeyFileName); // private key file in PEM format
 			pemParser = new PEMParser(new FileReader(privateKeyFile));
 			Object object = pemParser.readObject();
-            System.out.println("what is OBJECT OBJECT " + object.toString() + "...  instanceof: "+ object.getClass().getName());
 
 			PEMDecryptorProvider decProv = new    JcePEMDecryptorProviderBuilder().build(password.toCharArray());
 			InputDecryptorProvider pkcs8Prov = new JceOpenSSLPKCS8DecryptorProviderBuilder().build(password.toCharArray());
@@ -1132,7 +1049,6 @@ public class ApiSigning {
 				kp = converter.getKeyPair(((PEMKeyPair) object));
                 key = kp.getPrivate();
 			}else if(object instanceof KeyPair) {
-                System.out.println(" what is this OBJECT " + object.toString());
                 kp = (KeyPair) object;
                 key = kp.getPrivate();
             }else if(object instanceof PrivateKeyInfo) {
@@ -1140,13 +1056,12 @@ public class ApiSigning {
                 key = (PrivateKey) converter.getPrivateKey(privateKeyInfo);
             }else if(object instanceof PKCS8EncryptedPrivateKeyInfo) {
             	PrivateKeyInfo privateKeyInfo = ((PKCS8EncryptedPrivateKeyInfo) object).decryptPrivateKeyInfo(pkcs8Prov);
-            	key = converter.getPrivateKey(privateKeyInfo);
-            	System.out.println(" what is this KEY " + key.toString());
-            	
+            	key = converter.getPrivateKey(privateKeyInfo);            	
+            }else {
+            	throw new ApiUtilException("Error while getting Private Key from PEM");
             }
 			
 		}catch(Exception e){
-//			throw e;
 			throw new ApiUtilException(e.getMessage(), e);
 		}finally{
 			if(null!=pemParser){
@@ -1160,7 +1075,6 @@ public class ApiSigning {
 			}
 		}
 		log.debug("Exit :: getPrivateKeyPEM");
-		
         return key;
         
 	}

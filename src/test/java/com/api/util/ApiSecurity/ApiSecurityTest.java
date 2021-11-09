@@ -85,7 +85,6 @@ public class ApiSecurityTest {
     			log.debug("Skip test: " + testName);
     			continue;
     		}
-    		//log.debug("Adding test: " + testName);
     		tests.add(new RuntimeTestCase(testName, testDatum));		
     	}
     	return tests;

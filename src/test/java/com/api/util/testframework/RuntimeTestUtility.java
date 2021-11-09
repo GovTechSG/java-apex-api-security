@@ -67,7 +67,6 @@ public class RuntimeTestUtility {
 				MapValue=(String) String.valueOf((Boolean) Map.getValue());
 				apiList.add(Map.getKey(),MapValue);
 			}else if(Map.getValue() instanceof ArrayList){
-				System.out.println("in getApiList: " + Map.getValue().toString());
 				ArrayList<Entry<String,Object>> arrayList = new ArrayList<Entry<String,Object>>();
 				for(Object o : (ArrayList) Map.getValue()){
 					Entry<String,Object> entry = new SimpleEntry<String,Object>(Map.getKey(),o);
