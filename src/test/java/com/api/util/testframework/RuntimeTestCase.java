@@ -6,6 +6,9 @@ import org.apache.logging.log4j.LogManager;
 import com.api.util.ApiSecurity.ApiList;
 import com.api.util.ApiSecurity.ApiSigning;
 import com.api.util.ApiSecurity.ApiUtilException;
+import com.api.util.ApiSecurity.AuthParam;
+import com.api.util.ApiSecurity.FormList;
+import com.api.util.ApiSecurity.SignatureMethod;
 import com.api.util.testframework.dto.ExpectedResult;
 import com.api.util.testframework.dto.FormData;
 import com.api.util.testframework.dto.QueryString;
@@ -13,10 +16,13 @@ import com.api.util.testframework.dto.TestDatum;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.security.GeneralSecurityException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.text.ParseException;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -112,11 +118,12 @@ public class RuntimeTestCase{
 		}
 		
 		try {
-			assertEquals(Boolean.valueOf(expectedResultVerify), ApiSigning.verifyRSASignature(testDatum.getMessage(), testDatum.getApiParam().getSignature(), getPublicKeyLocal("src/main/resources/test-suites/" + testDatum.getPublicCertFileName())));
+			assertEquals(Boolean.valueOf(expectedResultVerify), ApiSigning.verifyRSASignature(testDatum.getMessage(), testDatum.getApiParam().getSignature(), getPublicKeyLocal("src/main/resources/test-suites/" + testDatum.getPublicKeyFileName())));
 		} catch (Exception e) {
-			if(testDatum.getErrorTest()){
+			//no errorTest parameter was used, default errorTest is true. for verifyL2Signature use expectedResult false = errorTest
+			if(expectedResultVerify.equals("false")){
 				log.error("ErrorTest :: RuntimeTestCase :: verifyL2Signature :: testName : {} ", testName);
-				assertEquals(expectedResultVerify, e.getMessage());
+//				assertEquals(expectedResultVerify, failTest);
 			}else{
 				log.error("Exception :: RuntimeTestCase :: verifyL2Signature :: testName : {} ", testName, e);
 				fail("Not Expecting ApiUtilException error.");
@@ -170,7 +177,7 @@ public class RuntimeTestCase{
 		}
 		
 		try {
-			assertEquals(expectedL2Signature, ApiSigning.getRSASignature(testDatum.getMessage(), getPrivateKeyLocal("src/main/resources/test-suites/" + testDatum.getApiParam().getPrivateCertFileName(),testDatum.getApiParam().getPassphrase(),null)));
+			assertEquals(expectedL2Signature, ApiSigning.getRSASignature(testDatum.getMessage(), ApiSigning.getPrivateKey("src/main/resources/test-suites/" + testDatum.getApiParam().getPrivateKeyFileName())));
 		} catch (Exception e) {
 			if(testDatum.getErrorTest()){
 				log.error("ErrorTest :: RuntimeTestCase :: getL2Signature :: testName : {} ", testName);
@@ -186,6 +193,43 @@ public class RuntimeTestCase{
     	log.info("End :: RuntimeTestCase :: getL2Signature :: testName : {} ", testName + "<====================");
     }
     
+    @JUnitFactoryTest
+    public void verifySupportedKeyFileType() throws IOException, InterruptedException, ParseException {
+    	log.info("==========> Start :: RuntimeTestCase :: verifySupportedKeyFileType :: testName : {} ", testName);
+    	ExpectedResult expectedResult = testDatum.getExpectedResult();
+		String expectedResultVerify = null;
+		try {
+			expectedResultVerify = RuntimeTestUtility.getExpectedResultMap(expectedResult);
+			log.info("expectedL2Signature: " + expectedResultVerify);
+		} catch (ApiUtilException e) {
+			fail("Not Expecting ApiUtilException error.");
+			log.error("Exception :: RuntimeTestCase :: verifySupportedKeyFileType :: testName : {} ", testName);
+		}
+		
+		try {
+			if (testDatum.getApiParam().getPrivateKeyFileName() != "") {
+				PrivateKey pk = ApiSigning.getPrivateKey("src/main/resources/test-suites/" + testDatum.getApiParam().getPrivateKeyFileName(), testDatum.getApiParam().getPassPhrase(), testDatum.getApiParam().getAlias());
+				assertEquals(Boolean.valueOf(expectedResultVerify), Objects.equals(ApiSigning.getRSASignature(testDatum.getMessage(), pk), testDatum.getApiParam().getSignature()) );	
+			}else {
+				PublicKey pubk = getPublicKeyLocal("src/main/resources/test-suites/" + testDatum.getPublicKeyFileName());
+				assertEquals(Boolean.valueOf(expectedResultVerify), ApiSigning.verifyRSASignature(testDatum.getMessage(), testDatum.getApiParam().getSignature(), pubk));
+			}
+					
+		} catch (Exception e) {
+			if(testDatum.getErrorTest()){
+				log.error("ErrorTest :: RuntimeTestCase :: verifySupportedKeyFileType :: testName : {} ", testName);
+				log.error("Error message: " + e.getMessage());
+				assertEquals(expectedResultVerify, e.getMessage());
+			}else{
+				log.error("Exception :: RuntimeTestCase :: verifySupportedKeyFileType :: testName : {} ", testName, e);
+				fail("Not Expecting ApiUtilException error.");
+			}
+			
+		} 
+		
+    	log.info("End :: RuntimeTestCase :: getL2Signature :: testName : {} ", testName + "<====================");
+    }
+      
     @JUnitFactoryTest
     public void getSignatureToken() throws IOException, InterruptedException, ParseException {
     	log.info("====================> Start :: RuntimeTestCase :: getSignatureToken :: testName : {} ", testName);
@@ -222,13 +266,29 @@ public class RuntimeTestCase{
     	
     }
     
+    
+    
     protected String getBaseString(TestDatum testDatum) throws ApiUtilException{
     	QueryString queryString = testDatum.getApiParam().getQueryString();
 		ApiList apiList = null;
+		ApiList queryList = null;
+		String qString = "";
 		if(null!=queryString){
-			apiList = new ApiList();
-			apiList.addAll(RuntimeTestUtility.getApiList(queryString.getAdditionalProperties(),true));
+			queryList = new ApiList();
+			queryList.addAll(RuntimeTestUtility.getURLEncodedApiList(queryString.getAdditionalProperties(),true));
 		}
+	
+		if(!testDatum.getApiParam().getSignatureUrl().isEmpty() && null!=queryString) {
+			// query start with ?, replace ? with & when url already contain queryString
+            if (testDatum.getApiParam().getSignatureUrl().indexOf('?') > -1) {
+                qString = String.format("%s%s", "&", queryList.toString(true));
+            }
+           	else {
+           		qString = String.format("%s%s", "?", queryList.toString(true));
+           	}
+
+		}
+		
 		
 		FormData formData = testDatum.getApiParam().getFormData();
 		if(null!=formData){
@@ -237,6 +297,7 @@ public class RuntimeTestCase{
 			}  				
 			apiList.addAll(RuntimeTestUtility.getApiList(formData.getAdditionalProperties(),true));
 		}
+		
 		
 		String authPrefix = testDatum.getApiParam().getAuthPrefix();
 		String signatureMethod = null;
@@ -247,16 +308,35 @@ public class RuntimeTestCase{
 		}
         String baseString = null;
 		try {
+//			baseString = ApiSigning.getBaseString(
+//				authPrefix,
+//				signatureMethod,
+//				testDatum.getApiParam().getAppId(),
+//				testDatum.getApiParam().getSignatureUrl(),
+//				testDatum.getApiParam().getHttpMethod(),
+//				apiList,
+//			    testDatum.getApiParam().getNonce(),
+//			    testDatum.getApiParam().getTimestamp()
+//			);
+			FormList formList = new FormList();
+			if (null!=apiList) {
+			formList = apiList.toFormList();
+			}
 			baseString = ApiSigning.getBaseString(
-				authPrefix,
-				signatureMethod,
-				testDatum.getApiParam().getAppId(),
-				testDatum.getApiParam().getSignatureUrl(),
-				testDatum.getApiParam().getHttpMethod(),
-				apiList,
-			    testDatum.getApiParam().getNonce(),
-			    testDatum.getApiParam().getTimestamp()
-			);
+			authPrefix,
+			SignatureMethod.valueOf(signatureMethod),
+			testDatum.getApiParam().getAppId(),
+			URI.create(String.format("%s%s",testDatum.getApiParam().getSignatureUrl(), qString)),
+			testDatum.getApiParam().getHttpMethod(),
+			formList,
+		    testDatum.getApiParam().getNonce(),
+		    testDatum.getApiParam().getTimestamp(),
+		    "1.0"
+		);
+			
+//			baseString = ApiSigning.getBaseString(
+//					
+//			);
 		} catch (ApiUtilException e) {
 			e.printStackTrace();
 			throw e;
@@ -264,20 +344,24 @@ public class RuntimeTestCase{
 		return baseString;
     }
     
+    
     protected String getSignatureToken(TestDatum testDatum) throws ApiUtilException{
     	QueryString queryString = testDatum.getApiParam().getQueryString();
-    	ApiList apiList = null;
+    	ApiList formList = null;
+		ApiList queryList = null;
+		String qString = "";
 		if(null!=queryString){
-			apiList = new ApiList();
-			apiList.addAll(RuntimeTestUtility.getApiList(queryString.getAdditionalProperties(),true));
+			queryList = new ApiList();
+			
+			queryList.addAll(RuntimeTestUtility.getURLEncodedApiList(queryString.getAdditionalProperties(),true));
 		}
 		
 		FormData formData = testDatum.getApiParam().getFormData();
 		if(null!=formData){
-			if(null==apiList){
-				apiList = new ApiList();
-			}  				
-			apiList.addAll(RuntimeTestUtility.getApiList(formData.getAdditionalProperties(),true));
+			if(null==formList){
+				formList = new ApiList();
+			}  		
+			formList.addAll(RuntimeTestUtility.getApiList(formData.getAdditionalProperties(),true));
 		}
 		
 		String authPrefix = testDatum.getApiParam().getAuthPrefix();
@@ -292,20 +376,71 @@ public class RuntimeTestCase{
 				testDatum.getApiParam().setTimestamp("%s");
 			}
 			
-			signatureToken = ApiSigning.getSignatureToken(
-				testDatum.getApiParam().getRealm(),
-				authPrefix,
-				testDatum.getApiParam().getHttpMethod(),
-				testDatum.getApiParam().getSignatureUrl(),
-				testDatum.getApiParam().getAppId(),
-				testDatum.getApiParam().getSecret(),
-				apiList,
-				testDatum.getApiParam().getPassphrase(),
-				null,
-				"src/main/resources/test-suites/" + testDatum.getApiParam().getPrivateCertFileName(),
-			    testDatum.getApiParam().getNonce(),
-			    testDatum.getApiParam().getTimestamp()
-			);
+			if(!testDatum.getApiParam().getSignatureUrl().isEmpty() && null!=queryString) {
+				// query start with ?, replace ? with & when url already contain queryString
+                if (testDatum.getApiParam().getSignatureUrl().indexOf('?') > -1) {
+                    qString = String.format("%s%s", "&", queryList.toString(true));
+                }
+               	else {
+               		qString = String.format("%s%s", "?", queryList.toString(true));
+               	}
+
+			}
+
+
+//			signatureToken = ApiSigning.getSignatureToken(
+//				testDatum.getApiParam().getRealm(),
+//				authPrefix,
+//				testDatum.getApiParam().getHttpMethod(),
+//				testDatum.getApiParam().getSignatureUrl(),
+//				testDatum.getApiParam().getAppId(),
+//				testDatum.getApiParam().getSecret(),
+//				apiList,
+//				testDatum.getApiParam().getPassphrase(),
+//				null,
+//				"src/main/resources/test-suites/" + testDatum.getApiParam().getPrivateCertFileName(),
+//			    testDatum.getApiParam().getNonce(),
+//			    testDatum.getApiParam().getTimestamp()
+//			);
+			AuthParam authParam = new AuthParam();
+			
+			try {
+				authParam.url = new URI(String.format("%s%s", testDatum.getApiParam().getSignatureUrl(), qString));
+			}  catch (URISyntaxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			FormList apiListformData = null;
+	    	if (formList !=null) {
+	    		apiListformData = formList.toFormList();
+	    	}
+	    	
+	    	
+	    	
+			authParam.httpMethod = testDatum.getApiParam().getHttpMethod();
+			authParam.appName = testDatum.getApiParam().getAppId();
+			authParam.appSecret = testDatum.getApiParam().getSecret();
+			authParam.nonce = testDatum.getApiParam().getNonce();
+			authParam.timestamp = testDatum.getApiParam().getTimestamp();
+			authParam.formData = apiListformData;
+			String filePathString = "src/main/resources/test-suites/" + testDatum.getApiParam().getPrivateKeyFileName();
+			File f = new File(filePathString);
+			if(f.exists() && !f.isDirectory()) { 
+			    // do something
+				authParam.privateKey = ApiSigning.getPrivateKey(filePathString);
+			}
+//			try {
+			
+				
+//			} catch (IOException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			} catch (GeneralSecurityException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
+			signatureToken = ApiSigning.getSignatureTokenV2(authParam).getToken();
 			
 			if(testDatum.getApiParam().getNonce().equals("%s") || testDatum.getApiParam().getTimestamp().equals("%s")){
 				
@@ -331,13 +466,13 @@ public class RuntimeTestCase{
     
     private static PublicKey getPublicKeyLocal(String publicCertificateFileName) throws ApiUtilException, IOException, GeneralSecurityException {
         try {
-        	if(null!=publicCertificateFileName && (publicCertificateFileName.contains(".key"))){
+        	if(null!=publicCertificateFileName && (publicCertificateFileName.contains(".key")||publicCertificateFileName.endsWith(".pem"))){
         		return ApiSigning.getPublicKeyPEM(publicCertificateFileName);
         	}else{
         		return ApiSigning.getPublicKeyFromX509Certificate(publicCertificateFileName);
         	}    		
             
-        } catch (ApiUtilException e) {
+        } catch (Exception e) {
             throw e;
         }
     }
@@ -354,6 +489,11 @@ public class RuntimeTestCase{
         } catch (ApiUtilException e) {
             throw e;
         }
+    }
+    
+
+    private static PrivateKey getPrivateKeyLocal(String privateKeyFileName) throws IOException, GeneralSecurityException, ApiUtilException {
+        return ApiSigning.getPrivateKeyPEM(privateKeyFileName,"");
     }
     
     public static String combine(String... paths) {

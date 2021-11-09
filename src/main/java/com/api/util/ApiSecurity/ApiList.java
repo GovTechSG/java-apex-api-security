@@ -24,14 +24,12 @@ public class ApiList extends ArrayList<Entry<String,String>>{
 		String delimiter = "&";
 		Boolean sort = true;
 		Boolean quote = false;
-		
 		return this.toString(delimiter, sort, quote, isBaseString);
 	}
-	
+		
 	public String toString(String delimiter, Boolean sort, Boolean quote, Boolean isBaseString)
 	{
 		List<String> list = new ArrayList<String>();
-		
 		final String format = (quote ? "%s=\"%s\"" : "%s=%s");
 		
 		/* Sort key first then value*/
@@ -51,4 +49,19 @@ public class ApiList extends ArrayList<Entry<String,String>>{
 		
 		return String.join(delimiter, list);
 	}
+	
+	
+    public FormList toFormList()
+    {
+        FormList formList = new FormList();
+
+        for (Entry<String,String> item : this)
+        {
+            formList.add(item.getKey(), item.getValue());
+        }
+        
+        return formList;
+    }
+	
+	
 }

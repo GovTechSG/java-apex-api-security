@@ -54,7 +54,6 @@ public class RSASignatureTest {
         Path currentRelativePath = Paths.get("");
         String s = combine(currentRelativePath.toAbsolutePath().toString(), relativeFileName.replaceAll("/", File.separator));
 
-        //log.error("Current relative path is: " + s);
         return s;
     }
 
@@ -171,7 +170,6 @@ public class RSASignatureTest {
                 });
 
         for (String[] item : dataList) {
-            System.out.println("Test Type:" + item[2]);
             L2Test(item[0], item[1], item[2]);
         }
 
@@ -185,8 +183,6 @@ public class RSASignatureTest {
         } catch (ApiUtilException e) {
             fail("Should not throw any exception during test execution");
         }
-
-        System.out.println("Expected Signature :" + signature);
 
         assertEquals(message, expectedSignature, signature);
     }

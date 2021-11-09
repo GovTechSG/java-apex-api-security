@@ -15,10 +15,11 @@ A java helper utilities that form HTTP security header for authentication and ve
         + [Gradle Build Option](#gradle-build-option)
         + [Gradle Test](#gradle-test)
     * [Development](#development)
-        + [Constructing Signature BaseString](#constructing-signature-basestring)
-        + [Constructing HMAC256 L1 Header](#constructing-hmac256-l1-header)
-        + [Constructing RSA256 L2 Header](#constructing-rsa256-l2-header)
-        + [Preparing HTTP Signature Token](#preparing-http-signature-token)
+        + [How to create QueryData and FormData](#how-to-create-querydata-and-formdata)
+        + [Generate L1 Authorization Header](#generate-l1-authorization-header)
+        + [Generate L2 Authorization Header](#generate-l2-authorization-header)
+        + [Generate L21 Authorization Header](#generate-l21-authorization-header)
+        + [Generate L12 Authorization Header](#generate-l12-authorization-header)
 - [Release](#release)
 - [Contributing](#contributing)
 - [License](#license)
@@ -63,7 +64,7 @@ mvn install
 <dependency>
     <groupId>com.api.util</groupId>
     <artifactId>ApiSecurity</artifactId>
-    <version>1.3.5-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
 </dependency>
 ```
  
@@ -124,7 +125,7 @@ gradle test jacocoTestReport
 ```
 
 The compiled _jar_ file will be located in the **build/libs** folder
-+ java-apex-api-security-1.0-SNAPSHOT.jar
++ java-apex-api-security-2.0-SNAPSHOT.jar
 
 Import this jar into your java classpath to use the utility class
 
@@ -139,7 +140,7 @@ repositories {
     mavenLocal()
 }
 dependencies {
-    compile group: 'com.api.util', name: 'ApiSecurity', version: '1.3.5-SNAPSHOT'
+    compile group: 'com.api.util', name: 'ApiSecurity', version: '2.0.0-SNAPSHOT'
 }
 	
 ```
@@ -168,6 +169,8 @@ Authorization: Apex_l1_eg realm="https://XYZ.api.gov.sg/abc/def", apex_l1_eg_app
 #### realm
 This is an identifier for the caller. Any value can be used here.
 
+**Note:** This is currently handled by the library
+
 #### authPrefix
 
 Authorization Header scheme prefix. There are 4 possible values for this
@@ -178,23 +181,20 @@ depending on the zone and the authentication method.
 3. Apex_l2_ig
 4. Apex_l2_eg
 
+**Note:** This is currently handled by the library
+
 #### httpMethod
 
 The HTTP method, i.e. `GET`, `POST`, etc.
 
-#### signingUrl
-The full API endpoint (with query parameters if any). This will be in
-the form of `https://<<tenant>>.e.api.gov.sg/xxx/yyy` or
-`https://<<tenant>>-pvt.i.api.gov.sg/xxx/yyy`.
-
-**Note:** Please note that you **must** have `.e` or `.i` in the URL.
-Otherwise you can encounter authorization failures.
+#### url
+The full API endpoint (with query parameters if any).
 
 #### appId
 The APEX App ID.
 
 #### secret
-The APEX App secret. Set to value to `null` if you want to use L2
+The APEX App secret. Not required if you want to use L2
 authentication with SHA256WITHRSA.
 
 #### formData
@@ -202,20 +202,20 @@ Data which should be passed in the request (for `POST` requests
 usually). For `GET` requests, set this value to `null`.
 
 #### password
-The password of the keystore. Set `null` for L1. 
+The password of the keystore. Not required for L1. 
 
 #### alias
-The alias of the keystore. Set `null` for L1.
+The alias of the keystore. Not required for L1.
 
 #### fileName
-The p12 file path. Set `null` for L1.
+The p12 file path. Not required for L1.
 
 #### nonce
 The random generated string which to be used to generate the token. If
-you set this to `null`, a new random string will be generated.
+not set, a new random string will be generated.
 
 #### timestamp
-Timestamp which should be used to generate the token. Set to `null` if
+Timestamp which should be used to generate the token. Not required if
 you want to use the current timestamp.
 
 
@@ -223,26 +223,25 @@ you want to use the current timestamp.
 ### Example GET Request
 
 ```java
-String realm = "<<your_client_host_url>>";
-String authPrefix = "<<authPrefix>>";
-String httpMethod = "GET";
-//Append the query param in the url or else add as ApiList 
-String signingUrl = "https://<<URL>>/api/v1/?param1=first&param2=123";
-String certFileName = "certificates/ssc.alpha.example.com.p12";
-String password = "<<passphrase>>";
-String alias = "alpha";
-String appId = "<<appId>>";
-String secret = null;
-//only needed for Content-Type: application/x-www-form-urlencoded, else null
-ApiList formData = null;
-String nonce = null;
-String timestamp = null;
-
 try {
-    String signature = ApiSigning.getSignatureToken(authPrefix, authPrefix, httpMethod, signingUrl, appId, secret, formData, password, alias, certFileName, nonce, timestamp);
-    // Add this signature value to the authorization header when sending the request.
-} catch (ApiUtilException e) {
-    e.printStackTrace();
+	AuthParam authParam = new AuthParam();
+				
+	authParam.url = URI.create("https://<<URL>>/api/v1");
+	authParam.httpMethod = "GET";
+	authParam.appName = "<<appId>>";
+	String certFileName = "certificates/ssc.alpha.example.com.p12";
+	String password = "<<passphrase>>";
+	String alias = "alpha";
+	authParam.privateKey = ApiSigning.getPrivateKey(certFileName, password, alias);
+
+	AuthToken authorizationToken = ApiSigning.getSignatureTokenV2(authParam);
+	// Add this signature value to the authorization header when sending the request.
+	// authorizationToken.getToken();
+	
+}
+catch (ApiUtilException e)
+{
+	e.printStackTrace();
 }
 ```
 
@@ -250,314 +249,269 @@ try {
 ### Example POST Request
 
 ```java
-String realm = "<<your_client_host_url>>";
-String authPrefix = "<<authPrefix>>";
-String httpMethod = "POST";
-//Append the query param in the url or else add as ApiList 
-String signingUrl = "https://<<URL>>/api/v1";
-String certFileName = "certificates/ssc.alpha.example.com.p12";
-String password = "<<passphrase>>";
-String alias = "alpha";
-String appId = "<<appId>>";
-String secret = null;
-//only needed for Content-Type: application/x-www-form-urlencoded, else null
-ApiList formData = null;
-String nonce = null;
-String timestamp = null;
-
-
-//optional for QueryParam - in-case not append the query parameters in the signingUrl
-//Sring signingUrl = "https://<<tenant>>-pvt.i.api.gov.sg/api/v1"
-ApiList queryParam = new ApiList();
-queryParam.add("query1","value1");
-
-//optional for formData
-formData = new ApiList();
-formData.add("param1", "data1");
-
-//If queryParam and formData are both available, combine the list before submitting
-formData.addAll(queryParam);
-
 try {
-    String signature = ApiSigning.getSignatureToken(authPrefix, authPrefix, httpMethod, signingUrl, appId, secret, formData, password, alias, certFileName, nonce, timestamp);
-    // Add this signature value to the authorization header when sending the request.
-} catch (ApiUtilException e) {
-    e.printStackTrace();
+	AuthParam authParam = new AuthParam();
+				
+	authParam.url = URI.create("https://<<URL>>/api/v1");
+	authParam.httpMethod = "POST";
+	authParam.appName = "<<appId>>";
+	String certFileName = "certificates/ssc.alpha.example.com.p12";
+	String password = "<<passphrase>>";
+	String alias = "alpha";
+	authParam.privateKey = ApiSigning.getPrivateKey(certFileName, password, alias);
+
+	AuthToken authorizationToken = ApiSigning.getSignatureTokenV2(authParam);
+	// Add this signature value to the authorization header when sending the request.
+	// authorizationToken.getToken();
+	
+}
+catch (ApiUtilException e)
+{
+	e.printStackTrace();
 }
 ```
+
+### How to create QueryData and FormData
+
+The ApiSecurity Library provide the utility class ApiList and FormList to construct request Query String and Form Data.
+
+
+
+**Generate QueryString**
+
+```java
+ApiList  queryData = new ApiList();
+queryData.add("clientId", "1256-1231-4598");
+queryData.add("accountStatus", "active");
+queryData.add("txnDate", "2017-09-29");
+
+String queryString = queryData.toString(true);
+String baseUrl = String.format("https://example.com/resource?%s", queryString);
+// https://example.com/resource?accountStatus=active&clientId=1256-1231-4598&txnDate=2017-09-29                              
+```
+
+
+**Generate FormData**
+
+```java
+FormList formData = new FormList();
+formData.add("phoneNo", "+1 1234 4567 890");
+formData.add("street", "Hellowood Street");
+formData.add("state", "AP");
+
+String formDataString = formData.toFormData();
+// phoneNo=%2B1+1234+4567+890&street=Hellowood+Street&state=AP
+```
+```java
+String signingUrl = "https://<<URL>>/api/v1/?param1=first&param2=123";
+
+try {
+	FormList formData = new FormList();
+	formData.add("param1", "data1");
+	
+	AuthParam authParam = new AuthParam();
+	
+	authParam.url = URI.create(https://<<URL>>/api/v1");
+	authParam.httpMethod = "POST";
+	authParam.appName = "<<appId>>";
+	authParam.nonce = "<<nonce>>";
+	authParam.timestamp = "<<timestamp>>";
+	authParam.formData = formData;
+	
+	AuthToken authorizationToken = ApiSigning.getSignatureTokenV2(authParam);
+	assertEquals(expectedBaseString, authorizationToken.getBaseString());
+}
+catch (ApiUtilException e)
+{
+	e.printStackTrace();
+}                                   
+```
+
 **NOTE** 
 
 For **formData** parameter used for Signature generation, the key value parameters **do not** need to be URL encoded, 
 When your client program is making the actual HTTP POST call, the key value parameters **has** to be URL encoded (refer to **formPostData**)
 
 
-#### Constructing Signature BaseString (for reference only)
-
-**Please note that this section is for reference only. The actual token
-generation is done using the `ApiSigning.getSignatureToken()` method.**
-
-Method: 
-* getBaseString
-
-Params:
-* authPrefix - Authorization Header scheme prefix , i.e 'Apex_l2_eg'
-* signatureMethod
-* appId - App ID created in Gateway
-* urlPath
-* httpMethod
-* formData - only needed for Content-Type: application/x-www-form-urlencoded
-* nonce - set to null for random generated number
-* timestamp - set to null for current timestamp
+### Generate L1 Authorization Header
 
 ```java
-String signingUrl = "https://<<URL>>/api/v1/?param1=first&param2=123";
 
-ApiList formData = new ApiList();
-formData.add("param1", "data1");
-
-String baseString;
+FormList formData = new FormList();
+formData.add("phoneNo", "+1 1234 4567 890");
+formData.add("street", "Hellowood Street");
+formData.add("state", "AP");
 
 try {
-baseString = ApiSigning.getBaseString(
-    "<<authPrefix>>",
-    "HMACSHA256",
-    "<<appId>>",
-    signingUrl,
-    "post",
-    formData,
-    "6584351262900708156",
-    "1502184161702"
-);
+	AuthParam authParam = new AuthParam();
+				
+	authParam.url = URI.create("https://<<URL>>/api/v1");
+	authParam.httpMethod = "GET";
+	authParam.appName = "<<appId>>";
+	authParam.appSecret = "<<appSecret>>";
+	authParam.formData = formData;
 
-System.out.println(baseString);
+	// get the authorization token for L1
+	AuthToken authorizationToken = ApiSigning.getSignatureTokenV2(authParam);
+	
+	System.out.println("BaseString :: " + authorizationToken.getBaseString());
+	System.out.println("Authorization Token  :: " + authorizationToken.getToken());
 
-} catch (ApiUtilException e) {
-    e.printStackTrace();
+	// make api call with authorizationToken.getToken()
+	
 }
-                                      
-```
-
-#### Constructing HMAC256 L1 Header (for reference only)
-
-Method:
-* getHMACSignature
-
-Params:
-* baseString
-* secret
-
-```java
-String baseString = "GET&https://<<URL>>/api/v1/&ap=裕廊坊 心邻坊&<<authPrefix>>_app_id=<<appID>&<<authPrefix>>_nonce=2851111144329605674&<<authPrefix>>_signature_method=HMACSHA256&<<authPrefix>>_timestamp=1502163903712&<<authPrefix>>_version=1.0";
-String secret = "<<appSecret>>";
-String L1Sig;
-		
-try {
-    L1Sig = ApiSigning.getHMACSignature(baseString, secret);
-    System.out.println(L1Sig);
-
-} catch (ApiUtilException e) {
-    e.printStackTrace();
-}
-
-```
-
-#### Constructing RSA256 L2 Header (for reference only)
-
-Method:
-* getRSASignature
-
-Params:
-* baseString
-* privateKey
-
-```java
-String baseString = "GET&https://<<URL>/api/v1/&ap=裕廊坊 心邻坊&<<authPrefix>>_app_id=<<appId>>&<<authPrefix>>_nonce=7231415196459608363&<<authPrefix>>_signature_method=SHA256withRSA&<<authPrefix>>_timestamp=1502164219425&<<authPrefix>>_version=1.0&oq=123&q=abc";
-String alias = "alpha";
-String password = "<<passphrase>>";
-String keyStoreFileName = "certificates/ssc.alpha.example.com.p12";
-String publicCertFileName = "certificates/ssc.alpha.example.com.cer";
-
-try {
-    
-    PrivateKey privateKey = ApiSigning.getPrivateKeyFromKeyStore(keyStoreFileName, password, alias);
-    
-    String signature = ApiSigning.getRSASignature(baseString, privateKey);
-
-    System.out.println(expectedSignature);
-    System.out.println(signature);
-    
-    PublicKey publicKey = ApiSigning.getPublicKeyFromX509Certificate(publicCertFileName);
-    
-} catch (ApexUtilLibException e) {
-    e.printStackTrace();
-}
-
-```
-
-#### Sample HTTP GET Call with APEX L1 Security (for reference only)
-
-**Please note that this is for reference only. The actual implementation
-might be different than this.**
-
-```java
-
-@Test
-public void Http_GET_Test() throws ApiUtilException, IOException
+catch (ApiUtilException e)
 {
-	
-	String httpMethod = "GET";
-	//URL for actual HTTP API call
-	String url = "https://tenant.api.gov.sg:443/api14021live/resource";
-	//URL for passing as parameter for APEX Signature Token generation
-	String signUrl = "https://tenant.e.api.gov.sg:443/api14021live/resource";
-	String appId = "tenant-1X2w7NQPzjO2azDu904XI5AE";
-	String secret = "s0m3s3cr3t";
-	
-	String authorizationToken = ApiSigning.getSignatureToken(
-        realm
-		, authPrefixL1
-		, httpMethod
-		, signUrl
-		, appId
-		, secret
-		, null;
-		, null
-		, null
-		, null
-		, null
-		, null
-	);
-	System.out.println("authorizationToken : "+authorizationToken);
-	
-	try {
-		//ignore SSL
-		SSLContext sslContext = SSLContext.getInstance("SSL");
-		sslContext.init(null, getTrustManager(), new java.security.SecureRandom());
-		HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
-		
-		HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
-		con.setDoOutput(false);
-		con.setDoInput(true);
-		con.setRequestMethod(httpMethod);
-		con.setRequestProperty("charset", "utf-8");
-		con.setRequestProperty("Authorization", authorizationToken);
-		con.setUseCaches(false);
-		con.setConnectTimeout(5000);
-		con.setReadTimeout(5000);
-
-		System.out.println("Start http call ...");
-		int status = -1;
-		status = con.getResponseCode();
-		System.out.println("HTTP Status:" + status);
-		
-		System.out.println("End http call ...");
-		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-		String inputLine;
-		StringBuffer content = new StringBuffer();
-		while ((inputLine = in.readLine()) != null) {
-			content.append(inputLine);
-		}
-		
-		System.out.println("Content:" + content);
-		in.close();
-		con.disconnect();
-	}catch(Exception e){
-		System.out.println("Error executing Http_Call_Test() : " + e);
-	}
-	//force to true to pass the test case
-	assertTrue(true);
+	e.printStackTrace();
 }
-
 ```
 
-
-#### Sample HTTP POST Call for x-www-form-urlencoded with APEX L1 Security (for reference only)
-
-**Please note that this is for reference only. The actual implementation
-might be different than this.**
+### Generate L2 Authorization Header
 
 ```java
+FormList formData = new FormList();
+formData.add("phoneNo", "+1 1234 4567 890");
+formData.add("street", "Hellowood Street");
+formData.add("state", "AP");
 
-@Test
-public void Http_POST_Test() throws ApiUtilException, IOException
-{
+ApiList  queryData = new ApiList();
+queryData.add("clientId", "1256-1231-4598");
+queryData.add("accountStatus", "active");
+queryData.add("txnDate", "2017-09-29");
+String queryString = queryData.toString(true);
+String baseUrl = String.format("https://<<URL>>/api/v1?%s", queryString);
+
+try {
+	AuthParam authParam = new AuthParam();
+				
+	authParam.url = URI.create(baseUrl);
+	authParam.httpMethod = "GET";
+	authParam.appName = "<<appId>>";
+	String certFileName = "certificates/ssc.alpha.example.com.p12";
+	String password = "<<passphrase>>";
+	String alias = "alpha";
+	authParam.privateKey = ApiSigning.getPrivateKey(certFileName, password, alias);
+	authParam.formData = formData;
+
+	// get the authorization token for L2
+	AuthToken authorizationToken = ApiSigning.getSignatureTokenV2(authParam);
 	
-	String httpMethod = "POST";
-	//URL for actual HTTP API call
-	String url = "https://tenant.api.gov.sg:443/api14021live/resource";
-	//URL for passing as parameter for APEX Signature Token generation
-	String signUrl = "https://tenant.e.api.gov.sg:443/api14021live/resource";
-	String appId = "tenant-1X2w7NQPzjO2azDu904XI5AE";
-	String secret = "s0m3s3cr3t";
-	ApiList formData = new ApiList();
-	formData.add("key1", "value1");
-	formData.add("key2","value2");
+	System.out.println("BaseString :: " + authorizationToken.getBaseString());
+	System.out.println("Authorization Token  :: " + authorizationToken.getToken());
+
+	// make api call with authorizationToken.getToken()
 	
-	String authorizationToken = ApiSigning.getSignatureToken(
-        realm
-		, authPrefixL1
-		, httpMethod
-		, signUrl
-		, appId
-		, secret
-		, formData
-		, null
-		, null
-		, null
-		, null
-		, null
-	);
-	System.out.println("authorizationToken : "+authorizationToken);
-	
-	try {
-		//ignore SSL
-		SSLContext sslContext = SSLContext.getInstance("SSL");
-		sslContext.init(null, getTrustManager(), new java.security.SecureRandom());
-		HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
-		
-		HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
-		con.setDoOutput(true);
-		con.setDoInput(true);
-		con.setRequestMethod(httpMethod);
-		con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");			
-		con.setRequestProperty("charset", "utf-8");
-		con.setRequestProperty("Authorization", authorizationToken);
-		con.setUseCaches(false);
-		con.setConnectTimeout(5000);
-		con.setReadTimeout(5000);
-		
-		DataOutputStream out = new DataOutputStream(con.getOutputStream());
-		ApiList formPostData = new ApiList();
-		formPostData.add("key1",URLEncoder.encode("value1", "UTF-8"));
-		formPostData.add("key2",URLEncoder.encode("value2", "UTF-8"));
-		out.writeBytes(formPostData.toString(false));
-		out.flush();
-		out.close();
-		System.out.println("Start http call ...");
-		int status = -1;
-		status = con.getResponseCode();
-		System.out.println("HTTP Status:" + status);
-		
-		System.out.println("End http call ...");
-		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-		String inputLine;
-		StringBuffer content = new StringBuffer();
-		while ((inputLine = in.readLine()) != null) {
-			content.append(inputLine);
-		}
-		
-		System.out.println("Content:" + content);
-		in.close();
-		con.disconnect();
-	}catch(Exception e){
-		System.out.println("Error executing Http_Call_Test() : " + e);
-	}
-	//force to true to pass the test case
-	assertTrue(true);
 }
-
+catch (ApiUtilException e)
+{
+	e.printStackTrace();
+}
 ```
 
+### Generate L21 Authorization Header
+(for cross zone api from internet to intranet)
+
+```java
+FormList formData = new FormList();
+formData.add("phoneNo", "+1 1234 4567 890");
+formData.add("street", "Hellowood Street");
+formData.add("state", "AP");
+
+ApiList  queryData = new ApiList();
+queryData.add("clientId", "1256-1231-4598");
+queryData.add("accountStatus", "active");
+queryData.add("txnDate", "2017-09-29");
+String queryString = queryData.toString(true);
+
+
+try {
+	AuthParam authParam_WWW = new AuthParam();
+	String baseUrl_WWW = String.format("https://<<URL_WWW>>/api/v1?%s", queryString);
+	authParam_WWW.url = URI.create(baseUrl_WWW);
+	authParam_WWW.httpMethod = "GET";
+	authParam_WWW.appName = "<<appId_WWW>>";
+	String certFileName = "certificates/ssc.alpha.example.com.p12";
+	String password = "<<passphrase>>";
+	String alias = "alpha";
+	authParam_WWW.privateKey = ApiSigning.getPrivateKey(certFileName, password, alias);
+	authParam_WWW.formData = formData;
+	
+	AuthParam authParam_WOG = new AuthParam();
+	authParam_WOG.httpMethod = "GET";
+	authParam_WOG.appName = "<<appId_WOG>>";
+	authParam_WOG.appSecret = "<<appSecret_WOG>>";
+	String baseUrl_WOG = String.format("https://<<URL_WOG>>/api/v1?%s", queryString);
+	authParam_WOG.url = URI.create(baseUrl1);
+	authParam_WWW.nextHop = authParam_WOG;
+	
+
+	// get the authorization token for L21
+	AuthToken authorizationToken = ApiSigning.getSignatureTokenV2(authParam_WWW);
+	
+	System.out.println("BaseString :: " + authorizationToken.getBaseString());
+	System.out.println("Authorization Token  :: " + authorizationToken.getToken());
+
+	// make api call with authorizationToken.getToken()
+	
+}
+catch (ApiUtilException e)
+{
+	e.printStackTrace();
+}
+```
+
+### Generate L12 Authorization Header
+(for cross zone api from intranet to internet)
+
+```java
+FormList formData = new FormList();
+formData.add("phoneNo", "+1 1234 4567 890");
+formData.add("street", "Hellowood Street");
+formData.add("state", "AP");
+
+ApiList  queryData = new ApiList();
+queryData.add("clientId", "1256-1231-4598");
+queryData.add("accountStatus", "active");
+queryData.add("txnDate", "2017-09-29");
+String queryString = queryData.toString(true);
+
+
+try {
+	AuthParam authParam_WOG = new AuthParam();
+	authParam_WOG.httpMethod = "GET";
+	authParam_WOG.appName = "<<appId_WOG>>";
+	authParam_WOG.appSecret = "<<appSecret_WOG>>";
+	String baseUrl_WOG = String.format("https://<<URL_WOG>>/api/v1?%s", queryString);
+	authParam_WOG.url = URI.create(baseUrl1);
+	
+	AuthParam authParam_WWW = new AuthParam();
+	String baseUrl_WWW = String.format("https://<<URL_WWW>>/api/v1?%s", queryString);
+	authParam_WWW.url = URI.create(baseUrl_WWW);
+	authParam_WWW.httpMethod = "GET";
+	authParam_WWW.appName = "<<appId_WWW>>";
+	String certFileName = "certificates/ssc.alpha.example.com.p12";
+	String password = "<<passphrase>>";
+	String alias = "alpha";
+	authParam_WWW.privateKey = ApiSigning.getPrivateKey(certFileName, password, alias);
+	authParam_WWW.formData = formData;
+	authParam_WOG.nextHop = authParam_WWW;
+	
+
+	// get the authorization token for L12
+	AuthToken authorizationToken = ApiSigning.getSignatureTokenV2(authParam_WOG);
+	
+	System.out.println("BaseString :: " + authorizationToken.getBaseString());
+	System.out.println("Authorization Token  :: " + authorizationToken.getToken());
+
+	// make api call with authorizationToken.getToken()
+	
+}
+catch (ApiUtilException e)
+{
+	e.printStackTrace();
+}
+```
+	
 ## Contributing
 For more information about contributing PRs and issues, see [CONTRIBUTING.md](.github/CONTRIBUTING.md).
 
