@@ -30,9 +30,6 @@ public class ApiList extends ArrayList<Entry<String,String>>{
 	public String toString(String delimiter, Boolean sort, Boolean quote, Boolean isBaseString)
 	{
 		List<String> list = new ArrayList<String>();
-		for (Entry<String,String> ent : this) {
-			System.out.println("ToSTRING entry key:" + ent.getKey() + " val: " + ent.getValue());
-		}
 		final String format = (quote ? "%s=\"%s\"" : "%s=%s");
 		
 		/* Sort key first then value*/

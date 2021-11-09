@@ -15,10 +15,11 @@ A java helper utilities that form HTTP security header for authentication and ve
         + [Gradle Build Option](#gradle-build-option)
         + [Gradle Test](#gradle-test)
     * [Development](#development)
-        + [Constructing Signature BaseString](#constructing-signature-basestring)
-        + [Constructing HMAC256 L1 Header](#constructing-hmac256-l1-header)
-        + [Constructing RSA256 L2 Header](#constructing-rsa256-l2-header)
-        + [Preparing HTTP Signature Token](#preparing-http-signature-token)
+        + [How to create QueryData and FormData](#how-to-create-querydata-and-formdata)
+        + [Generate L1 Authorization Header](#generate-l1-authorization-header)
+        + [Generate L2 Authorization Header](#generate-l2-authorization-header)
+        + [Generate L21 Authorization Header](#generate-l21-authorization-header)
+        + [Generate L12 Authorization Header](#generate-l12-authorization-header)
 - [Release](#release)
 - [Contributing](#contributing)
 - [License](#license)
@@ -270,9 +271,9 @@ catch (ApiUtilException e)
 }
 ```
 
-### Using the QueryData and FormData Class
+### How to create QueryData and FormData
 
-The ApiSecurity Library provide the utility class QueryData to construct request Query String and Form Data.
+The ApiSecurity Library provide the utility class ApiList and FormList to construct request Query String and Form Data.
 
 
 

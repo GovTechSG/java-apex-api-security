@@ -175,15 +175,6 @@ public class ApiParam {
      */
     @JsonProperty("signature")
     private String signature = "";
-    // /**
-    //  * The Passphrase Schema
-    //  * <p>
-    //  * 
-    //  * (Required)
-    //  * 
-    //  */
-    // @JsonProperty("passphrase")
-    // private String passphrase = "";
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -378,30 +369,6 @@ public class ApiParam {
     public void setFormData(FormData formData) {
         this.formData = formData;
     }
-
-    // /**
-    //  * The Privatecertfilename Schema
-    //  * <p>
-    //  * 
-    //  * (Required)
-    //  * 
-    //  */
-    // @JsonProperty("privateCertFileName")
-    // public String getPrivateCertFileName() {
-    //     return privateCertFileName;
-    // }
-
-    // /**
-    //  * The Privatecertfilename Schema
-    //  * <p>
-    //  * 
-    //  * (Required)
-    //  * 
-    //  */
-    // @JsonProperty("privateCertFileName")
-    // public void setPrivateCertFileName(String privateCertFileName) {
-    //     this.privateCertFileName = privateCertFileName;
-    // }
 
     /**
      * The Privatekeyfilename Schema
