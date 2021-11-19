@@ -1,12 +1,11 @@
 package com.api.util.ApiSecurity;
-import com.api.util.ApiSecurity.ApiSigning;
-import com.api.util.ApiSecurity.ApiUtilException;
 import org.junit.Test;
-
+import java.net.URI;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
+import java.security.GeneralSecurityException;
 import static org.junit.Assert.*;
 
 /**
@@ -20,17 +19,20 @@ public class AuthorizationTokenTest {
     private final static String alias = "alpha";
 
     private final static boolean liveTest = false;
-
-	private final static String realm = "http://example.api.test/token";
-	private final static String authPrefixL1 = "Apex_l1_ig";
-	private final static String authPrefixL2 = "Apex_l2_ig";
+	
+//	private final static String realm = "http://example.api.test/token";
+//	private final static String authPrefixL1 = "Apex_l1_ig";
+//	private final static String authPrefixL2 = "Apex_l2_ig";
 	private final static String httpMethod = "get";
-	private final static String url = "https://example.lab:443/api/v1/rest/level1/in-in/?ap=裕廊坊%20心邻坊";
+	private final static String urlString = "https://example.lab:443/api/v1/rest/level1/in-in/?ap=裕廊坊%20心邻坊";
+	private final static URI url = URI.create(urlString);
     private final static String appId = "example-4Swyn7qwKeO32EXdH1dKTeIQ";
 	private final static String secret = "ffef0c5087f8dc24a3f122e1e2040cdeb5f72c73";
 	private final static String nonce = "-5816789581922453013";
 	private final static String timestamp = "1502199514462";
 	private final static String passphrase = "passwordp12";
+	
+	
 
     private static String getLocalPath(String relativeFileName)
 	{
@@ -54,48 +56,68 @@ public class AuthorizationTokenTest {
     @Test
 	public void Test_L1_Basic_Test() throws ApiUtilException
 	{
-		String expectedToken = "Apex_l1_ig realm=\"http://example.api.test/token\", apex_l1_ig_app_id=\"example-4Swyn7qwKeO32EXdH1dKTeIQ\", apex_l1_ig_nonce=\"-5816789581922453013\", apex_l1_ig_signature_method=\"HMACSHA256\", apex_l1_ig_timestamp=\"1502199514462\", apex_l1_ig_version=\"1.0\", apex_l1_ig_signature=\"DoARux+dvq/A2ioQfRybInAQ4Lt4DTAI6DrDJRx7zcs=\"";
+		String expectedToken = "Apex_l1_eg realm=\"https://example.lab\", apex_l1_eg_app_id=\"example-4Swyn7qwKeO32EXdH1dKTeIQ\", apex_l1_eg_nonce=\"-5816789581922453013\", apex_l1_eg_signature_method=\"HMACSHA256\", apex_l1_eg_timestamp=\"1502199514462\", apex_l1_eg_version=\"1.0\", apex_l1_eg_signature=\"Ili+E6mPb96dkzZM7yJaKPiGA6JjbR/B25oVmkp/Rxs=\"";
 
-		String authorizationToken = ApiSigning.getSignatureToken(
-            realm
-			, authPrefixL1
-			, httpMethod
-			, url
-			, appId
-			, secret
-			, null
-			, null
-			, null
-			, null
-			, nonce
-			, timestamp
-		);
-		System.out.println("expectedToken:"+expectedToken);
-		System.out.println("authorizationToken:"+authorizationToken);
-		assertEquals(expectedToken, authorizationToken);
+		AuthParam authParam = new AuthParam();
+
+		authParam.url = url;
+		authParam.httpMethod = httpMethod;
+		authParam.appName = appId;
+		authParam.appSecret = secret;
+		authParam.nonce = nonce;
+		authParam.timestamp = timestamp;
+		
+//		String authorizationToken = ApiSigning.getSignatureToken(
+//            realm
+//			, authPrefixL1
+//			, httpMethod
+//			, url
+//			, appId
+//			, secret
+//			, null
+//			, null
+//			, null
+//			, null
+//			, nonce
+//			, timestamp
+//		);
+		AuthToken authorizationToken = ApiSigning.getSignatureTokenV2(authParam);
+//		System.out.println("expectedToken:"+expectedToken);
+//		System.out.println("authorizationToken:"+authorizationToken);
+		assertEquals(expectedToken, authorizationToken.getToken());
 	}
 
 	@Test
-	public void Test_L2_Basic_Test() throws ApiUtilException
+	public void Test_L2_Basic_Test() throws ApiUtilException, IOException, GeneralSecurityException
 	{
-		String expectedToken = "Apex_l2_ig realm=\"http://example.api.test/token\", apex_l2_ig_app_id=\"example-4Swyn7qwKeO32EXdH1dKTeIQ\", apex_l2_ig_nonce=\"-5816789581922453013\", apex_l2_ig_signature_method=\"SHA256withRSA\", apex_l2_ig_timestamp=\"1502199514462\", apex_l2_ig_version=\"1.0\", apex_l2_ig_signature=\"Za7B8MaOlGZjc8DTEh9HwhcL+5DiiuTMy+s0bQ8/lajy1Ug64gPCyNEbcYkD/XBEHFyg6vlY9/J85Y+Ui6DeYbXmUFnQjDWdOKf13xJvpsnAQgOqWi+LSc0+gy3pvsQ50nyES3E04vb3RvGwd7UC6SyBhmQ5P8Mz0UUgWBX6L6N3n+xergTg3DKWEPyQih+dqN3DkOmNE8fstAp+HOqiVq2OBxNeg9x5Kp0tq2vka7cC86zdYSNhsQR+D7hC+S1NPninWvdxUF1EwrPrEZYSYXka0Md1XFVjaL6b0htcFo6LxwJ8X6wsOqS4g4qmrAadwm7fITZLxcI0Zdaz7dRw9UFUsGWEVPG8MQztVXleimDxYvorLKTD5bhWGHe+XNwyL+IdR7ErooOHP9pTslJ7yBEmsePTRIAL//h0AEXaBN4pCmBPJnVtYtUWdQsUq/iv/4FLtWvOK77EReAtq3uqndJfGInXUMESqS4PzGDajTZj+oDP7xektLh7umELQBnSKNuv3BR9H63sf+Z9mZQ1531LYEmQWR8p3LCP8E0DcROo0OP1gcE76N9Z1HKLtJjLYDRyQRUQMM2FlJRkb3sy2g60yNThkPprzohBvHowCRFs02tlkyBbOuKC2cV9hwSz8eMqhUTzNn/WMi2Dr2V7iTJtyJHT9kdebVY2Cvnlt5I=\"";
-		String authorizationToken = ApiSigning.getSignatureToken(
-			realm
-			, authPrefixL2
-			, httpMethod
-			, url
-			, appId
-            , null
-            , null
-            , passphrase
-            , alias
-            , privateCertNameP12
-			, nonce
-			, timestamp
-		);
+		String expectedToken = "Apex_l2_eg realm=\"https://example.lab\", apex_l2_eg_app_id=\"example-4Swyn7qwKeO32EXdH1dKTeIQ\", apex_l2_eg_nonce=\"-5816789581922453013\", apex_l2_eg_signature_method=\"SHA256withRSA\", apex_l2_eg_timestamp=\"1502199514462\", apex_l2_eg_version=\"1.0\", apex_l2_eg_signature=\"aFbjNdDoSRPNcy6amYoS+gThv8q+rJhbxBWs7oyU+BN7bhkn1C+BSfQUUGb+oh1R+gKfoBwpdNptSvkCBpopzAmCRc6m79Haki4CFeWIDvqlyzbIp1MQBj36giOOxBrfijEtL5LdXG+lOb5D+WVJaOx6xstnumy1HsMdjG0mp0qbTzG2wTKNPN09/UG3wyChg7eGMtrif93gIXA7gIZmXNrm38qXJsz5A99b/PoROMS1koxK3YFkVSJ7o8cC/XDu1FJWS2Fz/U4rBQPjz1GrzUr1G0xrfeKiUX/UREVkoEvb9403LZjUP/t1uDCdFWA1ugspnHMVyePCierRtdEZ29dEBAB9jUGNJjp03xwyfG/ZLph3kknuLlLjMQoqG6RZ4USVQgIb1kENLnNxlWcR7NdMM9ebqiTNrpWCTxiSvkILN1ybX6DLvPHxXJdPP5cFHgwW4WsZV2HHzrrGLLXzis/marwsC/90cemCMO5vic71RPlqmv/xD2gMZvJ0sEjRDQ4HiCNp9CWhSy4tdu7EpZ7qeh4ecu2o1DUQdauLNFQwNUgh3K2uByOZ8TPCGjRnSqYply98BUIxHECviI77YK8Tr45GsalT+8Q5e2HMWJV/mcNHbSlz1WxT+hhc8DdBKqf23TUOgi2N/EuzU5X0DffUHAJBx9MHSpI4pMGW+TQ=\"";
+//		String authorizationToken = ApiSigning.getSignatureToken(
+//			realm
+//			, authPrefixL2
+//			, httpMethod
+//			, url
+//			, appId
+//            , null
+//            , null
+//            , passphrase
+//            , alias
+//            , privateCertNameP12
+//			, nonce
+//			, timestamp
+//		);
 
-		System.out.println("Expected Token:" + authorizationToken);
-		assertEquals(expectedToken, authorizationToken);
+		AuthParam authParam = new AuthParam();
+
+		authParam.url = url;
+		authParam.httpMethod = httpMethod;
+		authParam.appName = appId;
+		// authParam.privateKey;
+		authParam.nonce = nonce;
+		authParam.timestamp = timestamp;
+
+     	authParam.privateKey = ApiSigning.getPrivateKey(privateCertNameP12, passphrase, alias);
+		AuthToken authorizationToken = ApiSigning.getSignatureTokenV2(authParam);
+		assertEquals(expectedToken, authorizationToken.getToken());
 	}
 	
 	@Test
@@ -104,20 +126,28 @@ public class AuthorizationTokenTest {
 		String expectedMessage = "keystore password was incorrect";
 		
 		try {
-			ApiSigning.getSignatureToken(
-				realm
-				, authPrefixL2
-				, httpMethod
-				, url
-				, appId
-				, null
-				, null
-				, passphrase + "x"
-				, alias
-				, privateCertNameP12
-				, null
-				, null
-	            );
+//			ApiSigning.getSignatureToken(
+//				realm
+//				, authPrefixL2
+//				, httpMethod
+//				, url
+//				, appId
+//				, null
+//				, null
+//				, passphrase + "x"
+//				, alias
+//				, privateCertNameP12
+//				, null
+//				, null
+//	            );
+			AuthParam authParam = new AuthParam();
+			
+			authParam.url = url;
+			authParam.httpMethod = httpMethod;
+			authParam.appName = appId;
+			String wrongPassphrase = passphrase + "x";
+	     	authParam.privateKey = ApiSigning.getPrivateKey(privateCertNameP12, wrongPassphrase, alias);
+			ApiSigning.getSignatureTokenV2(authParam);
 		}
 		catch (ApiUtilException expected)
 		{
@@ -127,36 +157,47 @@ public class AuthorizationTokenTest {
 
     @Test
     public void Test_L2_Not_Supported_Cert_Test() throws ApiUtilException
+//    , IOException, GeneralSecurityException
 	{
 		String fileName = getLocalPath("certificates/ssc.alpha.example.com.pem");
-
-        String expectedMessage = "org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo cannot be cast to org.bouncycastle.openssl.PEMKeyPair";
-		
+    	String expectedMessage = "unable to read encrypted data: Error finalising cipher";
+    	//String fileName = getLocalPath("certificates/team20.pem");
+        //String expectedMessage = "org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo cannot be cast to org.bouncycastle.openssl.PEMKeyPair";
+				
 		try {
 
-	        ApiSigning.getSignatureToken(
-				realm
-				, authPrefixL2
-				, httpMethod
-				, url
-				, appId
-				, null
-				, null
-				, passphrase
-				, alias
-				, fileName
-				, null
-				, null
-				);		
-	        }
-		catch (ApiUtilException expected)
-		{
-			assertEquals(expectedMessage, expected.getCause().getMessage());			
-		}
+//	        ApiSigning.getSignatureToken(
+//				realm
+//				, authPrefixL2
+//				, httpMethod
+//				, url
+//				, appId
+//				, null
+//				, null
+//				, passphrase
+//				, alias
+//				, fileName
+//				, null
+//				, null
+//				);		
+			AuthParam authParam = new AuthParam();
+			
+			authParam.url = url;
+			authParam.httpMethod = httpMethod;
+			authParam.appName = appId;
+			authParam.privateKey = ApiSigning.getPrivateKey(fileName, passphrase, alias);
+	     	ApiSigning.getSignatureTokenV2(authParam);
+	     	
+	         }
+		 catch (ApiUtilException expected)
+		 {
+		 	assertEquals(expectedMessage, expected.getCause().getMessage());
+			
+		 }
 	}
 
     @Test
-    public void Test_L2_Invalid_FileName_Test() throws ApiUtilException
+    public void Test_L2_Invalid_FileName_Test() throws ApiUtilException, IOException, GeneralSecurityException
 	{
         String fileName = getLocalPath("Xalpha.test.p12");
 
@@ -164,20 +205,27 @@ public class AuthorizationTokenTest {
 		
 		try {
 
-	        ApiSigning.getSignatureToken(
-				realm
-				, authPrefixL2
-				, httpMethod
-				, url
-				, appId
-				, null
-				, null
-				, passphrase
-				, alias
-				, fileName
-				, null
-				, null
-				);		
+//	        ApiSigning.getSignatureToken(
+//				realm
+//				, authPrefixL2
+//				, httpMethod
+//				, url
+//				, appId
+//				, null
+//				, null
+//				, passphrase
+//				, alias
+//				, fileName
+//				, null
+//				, null
+//				);		
+			AuthParam authParam = new AuthParam();
+			
+			authParam.url = url;
+			authParam.httpMethod = httpMethod;
+			authParam.appName = appId;
+	     	authParam.privateKey = ApiSigning.getPrivateKey(fileName, passphrase, alias);
+	     	ApiSigning.getSignatureTokenV2(authParam);
 	        }
 		catch (ApiUtilException expected)
 		{
