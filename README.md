@@ -166,23 +166,6 @@ Authorization: Apex_l1_eg realm="https://XYZ.api.gov.sg/abc/def", apex_l1_eg_app
 
 ### Parameters
 
-#### realm
-This is an identifier for the caller. Any value can be used here.
-
-**Note:** This is currently handled by the library
-
-#### authPrefix
-
-Authorization Header scheme prefix. There are 4 possible values for this
-depending on the zone and the authentication method.
-
-1. Apex_l1_ig
-2. Apex_l1_eg
-3. Apex_l2_ig
-4. Apex_l2_eg
-
-**Note:** This is currently handled by the library
-
 #### httpMethod
 
 The HTTP method, i.e. `GET`, `POST`, etc.
