@@ -16,6 +16,10 @@ import org.bouncycastle.operator.InputDecryptorProvider;
 import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
 
 
+import org.bouncycastle.operator.InputDecryptorProvider;
+import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
+
+
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -611,6 +615,7 @@ public class ApiSigning {
                 authPrefix, signatureMethod, appId, urlPath, httpMethod, nonce, timestamp, version);
 
         String baseString = null;
+
 
         try {
             authPrefix = authPrefix.toLowerCase();
