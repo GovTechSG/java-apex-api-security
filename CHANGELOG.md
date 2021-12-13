@@ -1,5 +1,14 @@
 # Change Log
 
+### V2.1.1
+
+- Fixed vulnerability CVE-2021-44228
+- Update to log4j version 2.15.0
+
+### V2.1
+
+- Release for APEX 2
+
 ### V2.0.0-SNAPSHOT
 
 - Library to use authParam
