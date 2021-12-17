@@ -5,7 +5,7 @@ plugins {
 }
 
 
-version '2.1.1'
+version '2.1.2'
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
@@ -20,8 +20,8 @@ dependencies {
     
     //gradle 4.0
     compile group: 'commons-lang', name: 'commons-lang', version: '2.4'
-    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.15.0'
-    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.15.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.16.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.16.0'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.5.1'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
     compile group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.69'
