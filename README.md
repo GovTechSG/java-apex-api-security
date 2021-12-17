@@ -64,7 +64,7 @@ mvn install
 <dependency>
     <groupId>com.api.util</groupId>
     <artifactId>ApiSecurity</artifactId>
-    <version>2.1.1</version>
+    <version>2.1.2</version>
 </dependency>
 ```
  
@@ -76,12 +76,12 @@ mvn install
 <dependency>
 	<groupId>org.apache.logging.log4j</groupId>
 	<artifactId>log4j-api</artifactId>
-	<version>2.15.0</version>
+	<version>2.16.0</version>
 </dependency>
 <dependency>
 	<groupId>org.apache.logging.log4j</groupId>
 	<artifactId>log4j-core</artifactId>
-	<version>2.15.0</version>
+	<version>2.16.0</version>
 </dependency>
 ```
 
