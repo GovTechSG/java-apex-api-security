@@ -1,8 +1,14 @@
 # Change Log
 
+### V2.1.3
+
+- Fixed vulnerability CVE-2021-45105
+- Update to log4j version 2.17.0
+
+
 ### V2.1.2
 
-- Fixed vulnerability CVE-2021-44228
+- Fixed vulnerability CVE-2021-45046
 - Update to log4j version 2.16.0
 
 ### V2.1.1
