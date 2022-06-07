@@ -20,9 +20,9 @@ dependencies {
     
     //gradle 4.0
     compile group: 'commons-lang', name: 'commons-lang', version: '2.4'
-    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.0'
-    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.0'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.5.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.1'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.6.1'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
     compile group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.69'
     
@@ -30,7 +30,7 @@ dependencies {
 
     //gradle 6.9
     //implementation group: 'commons-lang', name: 'commons-lang', version: '2.4'
-    //implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.5.1'
+    //implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.6.1'
     //implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
     //implementation group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.69'
     //testImplementation group: 'junit', name: 'junit', version: '4.13.1'
