@@ -1,6 +1,6 @@
 # APEX API Java Security Utility
 [![Build Status](https://travis-ci.org/GovTechSG/java-apex-api-security.svg?branch=master)](https://travis-ci.org/GovTechSG/java-apex-api-security)
-[![Coverage Status](https://coveralls.io/repos/github/GovTechSG/java-apex-api-security/badge.svg?branch=master)](https://coveralls.io/github/GovTechSG/java-apex-api-security?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/blasttoys/java-apex-api-security/badge.svg?branch=master)](https://coveralls.io/github/blasttoys/java-apex-api-security?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/govtechsg/java-apex-api-security/badge.svg)](https://snyk.io/test/github/govtechsg/java-apex-api-security)
 
 A java helper utilities that form HTTP security header for authentication and verification
@@ -64,7 +64,7 @@ mvn install
 <dependency>
     <groupId>com.api.util</groupId>
     <artifactId>ApiSecurity</artifactId>
-    <version>2.1.3</version>
+    <version>2.1.4</version>
 </dependency>
 ```
  
@@ -76,12 +76,12 @@ mvn install
 <dependency>
 	<groupId>org.apache.logging.log4j</groupId>
 	<artifactId>log4j-api</artifactId>
-	<version>2.17.0</version>
+	<version>2.17.1</version>
 </dependency>
 <dependency>
 	<groupId>org.apache.logging.log4j</groupId>
 	<artifactId>log4j-core</artifactId>
-	<version>2.17.0</version>
+	<version>2.17.1</version>
 </dependency>
 ```
 
@@ -100,7 +100,7 @@ mvn test
 
 ### Gradle Guide
 
-+ Download and Install Gradle (4.0 or above)
++ Download and Install Gradle (6.9 or above)
 + Java (1.8)
 
 #### Preparation
