@@ -125,7 +125,7 @@ gradle test jacocoTestReport
 ```
 
 The compiled _jar_ file will be located in the **build/libs** folder
-+ java-apex-api-security-2.1.3.jar
++ java-apex-api-security-2.1.4.jar
 
 Import this jar into your java classpath to use the utility class
 
@@ -140,7 +140,7 @@ repositories {
     mavenLocal()
 }
 dependencies {
-    compile group: 'com.api.util', name: 'ApiSecurity', version: '2.1.3'
+    compile group: 'com.api.util', name: 'ApiSecurity', version: '2.1.4'
 }
 	
 ```
