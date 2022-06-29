@@ -140,7 +140,7 @@ repositories {
     mavenLocal()
 }
 dependencies {
-    compile group: 'com.api.util', name: 'ApiSecurity', version: '2.1.3'
+    compile group: 'com.api.util', name: 'ApiSecurity', version: '2.1.4'
 }
 	
 ```
