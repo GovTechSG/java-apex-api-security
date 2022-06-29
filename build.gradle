@@ -42,10 +42,11 @@ dependencies {
 
 jar {
     //Evaluate at execution time where all the configurations and dependencies are resolved
-    from {
-        configurations.compileClasspath.collect {
-            it.isDirectory() ? it : zipTree(it)
-        }
+	from sourceSets.main.output
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    dependsOn configurations.runtimeClasspath
+    from (configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }) {
+      exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
     }
     manifest {
         attributes 'Main-Class': 'ApiSigning'

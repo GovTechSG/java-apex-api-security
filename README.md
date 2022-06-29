@@ -45,8 +45,8 @@ mvn package
 ```
 
 The compiled _jar_ file will be located in the **target** folder
-+ java-apex-api-security-<version>.jar
-+ java-apex-api-security-<version>-jar-with-dependencies.jar (this includes log4j libraries)
++ ApiSecurity-2.1.4.jar
++ ApiSecurity-2.1.4-jar-with-dependencies.jar (this includes log4j libraries)
 
 Import this jar file into your java classpath to use the utility class
 
