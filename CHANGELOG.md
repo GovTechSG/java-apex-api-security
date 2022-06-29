@@ -1,5 +1,11 @@
 # Change Log
 
+### V2.1.4
+
+- Fixed vulnerability CVE-2021-44832, CWE-400
+- Update to log4j version 2.17.1
+- Update to jackson-databind version 2.12.6.1
+
 ### V2.1.3
 
 - Fixed vulnerability CVE-2021-45105

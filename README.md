@@ -45,8 +45,8 @@ mvn package
 ```
 
 The compiled _jar_ file will be located in the **target** folder
-+ java-apex-api-security-<version>.jar
-+ java-apex-api-security-<version>-jar-with-dependencies.jar (this includes log4j libraries)
++ ApiSecurity-2.1.4.jar
++ ApiSecurity-2.1.4-jar-with-dependencies.jar (this includes log4j libraries)
 
 Import this jar file into your java classpath to use the utility class
 
@@ -64,7 +64,7 @@ mvn install
 <dependency>
     <groupId>com.api.util</groupId>
     <artifactId>ApiSecurity</artifactId>
-    <version>2.1.3</version>
+    <version>2.1.4</version>
 </dependency>
 ```
  
@@ -76,12 +76,12 @@ mvn install
 <dependency>
 	<groupId>org.apache.logging.log4j</groupId>
 	<artifactId>log4j-api</artifactId>
-	<version>2.17.0</version>
+	<version>2.17.1</version>
 </dependency>
 <dependency>
 	<groupId>org.apache.logging.log4j</groupId>
 	<artifactId>log4j-core</artifactId>
-	<version>2.17.0</version>
+	<version>2.17.1</version>
 </dependency>
 ```
 
@@ -100,7 +100,7 @@ mvn test
 
 ### Gradle Guide
 
-+ Download and Install Gradle (4.0 or above)
++ Download and Install Gradle (6.9 or above)
 + Java (1.8)
 
 #### Preparation
@@ -125,7 +125,7 @@ gradle test jacocoTestReport
 ```
 
 The compiled _jar_ file will be located in the **build/libs** folder
-+ java-apex-api-security-2.1.3.jar
++ java-apex-api-security-2.1.4.jar
 
 Import this jar into your java classpath to use the utility class
 
@@ -140,7 +140,7 @@ repositories {
     mavenLocal()
 }
 dependencies {
-    compile group: 'com.api.util', name: 'ApiSecurity', version: '2.1.3'
+    implementation group: 'com.api.util', name: 'ApiSecurity', version: '2.1.4'
 }
 	
 ```
