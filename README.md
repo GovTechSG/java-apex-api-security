@@ -1,6 +1,6 @@
 # APEX API Java Security Utility
 [![Build Status](https://travis-ci.org/GovTechSG/java-apex-api-security.svg?branch=master)](https://travis-ci.org/GovTechSG/java-apex-api-security)
-[![Coverage Status](https://coveralls.io/repos/github/blasttoys/java-apex-api-security/badge.svg?branch=master)](https://coveralls.io/github/blasttoys/java-apex-api-security?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/GovTechSG/java-apex-api-security/badge.svg?branch=master)](https://coveralls.io/github/GovTechSG/java-apex-api-security?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/govtechsg/java-apex-api-security/badge.svg)](https://snyk.io/test/github/govtechsg/java-apex-api-security)
 
 A java helper utilities that form HTTP security header for authentication and verification
@@ -45,8 +45,8 @@ mvn package
 ```
 
 The compiled _jar_ file will be located in the **target** folder
-+ java-apex-api-security-<version>.jar
-+ java-apex-api-security-<version>-jar-with-dependencies.jar (this includes log4j libraries)
++ ApiSecurity-2.1.4.jar
++ ApiSecurity-2.1.4-jar-with-dependencies.jar (this includes log4j libraries)
 
 Import this jar file into your java classpath to use the utility class
 
@@ -125,7 +125,7 @@ gradle test jacocoTestReport
 ```
 
 The compiled _jar_ file will be located in the **build/libs** folder
-+ java-apex-api-security-2.1.3.jar
++ java-apex-api-security-2.1.4.jar
 
 Import this jar into your java classpath to use the utility class
 
